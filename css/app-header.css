@@ -6,13 +6,31 @@
     /* margin-bottom: 20px; */
     min-height: 10vh;
     /* border: 1px solid gray; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
 
-    
 }
 
 .app-header a {
     text-decoration: none;
-    color: rgb(43, 43, 43);
+    color: rgb(69, 68, 68);
     margin: 10px;
+    font-size: 1.5rem;
+}
+
+.app-header input{
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    /* color: white; */
+    background-color: #f1f3f4;
+    border: none;
+    transition: ease-in-out .3s;
+    outline: none;
+}
+
+.app-header input:hover{
+    -webkit-box-shadow: 10px 9px 17px -10px rgba(0,0,0,0.78); 
+box-shadow: 10px 9px 17px -10px rgba(0,0,0,0.78);
 }
