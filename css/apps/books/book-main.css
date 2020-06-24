@@ -2,9 +2,7 @@
 
 /* CMPS */
 
-@import './cmps/home-page.css';
-@import './cmps/app-header.css';
-@import './cmps/about.css';
+
 @import './cmps/book-details.css';
 @import './cmps/review-add.css';
 @import './cmps/review.css';
