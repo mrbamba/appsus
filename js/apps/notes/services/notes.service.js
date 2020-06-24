@@ -10,14 +10,22 @@ function getNotes() {
     return notes;
 }
 
-function addNote(type, txt) {
+function addNote(type, txtOrUrl, title) {
     var newNote = {
         id: utilService.makeId(),
         type: type,
-        info: {}
+        info: {
+            txt: '',
+            url: '',
+            title: ''
+        }
     }
-    if (type === 'noteText') newNote.info[txt] = txt;
-    // if (type === 'noteImg') newNote.info[url] = 
+    if (type === 'noteText') newNote.info.txt = txtOrUrl;
+    else if (type === 'noteImg') {
+        newNote.info.url = txtOrUrl;
+        newNote.info.title = title;
+    }
+    console.log(newNote);
     notes.push(newNote);
 }
 

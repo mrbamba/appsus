@@ -22,8 +22,7 @@
 
 
 /* NOTES CMPS */
-@import './apps/notes/cmps/note-img.cmp.css';
-@import './apps/notes/cmps/note.cmp.css';
+@import './apps/notes/notes-main.css';
 
 * {
     box-sizing: border-box;
