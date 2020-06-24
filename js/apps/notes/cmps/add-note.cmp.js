@@ -5,7 +5,8 @@ export default {
         <div class="add-note">
 
             <input v-if="type !== noteText" type="text" v-model="title" placeholder="Title" />
-            <input type="text" v-model="input"  />
+            <input type="text" v-model="input" placeholder="Enter text or url"/>
+            <input type="file"/>
             <button @click="type = noteText" >Text</button>
             <button @click="type = noteImg" >Image</button>
             <button @click="type = noteTodos">ToDo</button>
