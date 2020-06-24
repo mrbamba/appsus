@@ -5,11 +5,11 @@ export default {
 
             <nav>
 
-                <router-link to="/">Home</router-link>|
-                <router-link to="/email">Email</router-link>|
-                <router-link to="/notes">Notes</router-link>|
-                <router-link to="/books">Books</router-link>|
-                <router-link to="/about">About</router-link>
+                <router-link to="/"><i class="fa fa-home"></i></router-link>|
+                <router-link to="/email"><i class="fa fa-envelope"></i></router-link>|
+                <router-link to="/notes"><i class="fa fa-sticky-note"></i></i></router-link>|
+                <router-link to="/books"><i class="fa fa-book"></i></router-link>|
+                <router-link to="/about"><i class="fa fa-address-card"></i></router-link>
 
             </nav>
         </header>
