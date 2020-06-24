@@ -1,0 +1,12 @@
+.compose-button{
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+
+}
+.compose-button .fa{
+    font-size: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+
+}

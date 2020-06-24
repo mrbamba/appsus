@@ -16,6 +16,11 @@
 @import './apps/books/cmps/review-add.css';
 @import './apps/books/cmps/review.css';
 @import './apps/books/book-main.css';
+
+/* EMAIL IMPORT */
+@import './apps/mail/mail-main.css';
+
+
 * {
     box-sizing: border-box;
 }
