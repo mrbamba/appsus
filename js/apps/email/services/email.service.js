@@ -1,4 +1,4 @@
-import {utilService} from '..../services/util.service.js';
+import {utilService} from '../../../services/util.service.js';
 
 export const emailService={
     getEmails,
@@ -13,7 +13,9 @@ var gEmails=[
         to:'haskiseo@gmail.com',
         subject:'Testing the new email app',
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
-        timestamp=Date.now(),
+        timestamp:Date.now(),
+        deleted:false, 
+        spam:false,
     },
     {
         id:utilService.getRandomId(),
@@ -21,14 +23,21 @@ var gEmails=[
         to:'haskiseo@gmail.com',
         subject:'Test 2',
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
-        timestamp=Date.now(),
+        timestamp:Date.now(),
+        deleted:false, 
+        spam:false,
+
+
     },    {
         id:utilService.getRandomId(),
         from:'dhaski@gmail.com',
         to:'haskiseo@gmail.com',
         subject:'Testing the new email app third time',
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
-        timestamp=Date.now(),
+        timestamp:Date.now(),
+        deleted:false, 
+        spam:false,
+
     },
 ]
 
