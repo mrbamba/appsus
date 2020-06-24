@@ -1,13 +1,14 @@
 import { noteService } from '../services/notes.service.js';
 
 import notesList from '../cmps/notes-list.cmp.js';
-
+import addNote from '../cmps/add-note.cmp.js';
 
 export default {
     template: `
 
     <main>
     <h1>Notes</h1>
+            <add-note></add-note>
             <notes-list :notes="notes"></notes-list>
         </main>
     `,
@@ -21,6 +22,7 @@ export default {
     },
     components: {
         noteService,
-        notesList
+        notesList,
+        addNote
     }
 }

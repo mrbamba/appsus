@@ -21,6 +21,10 @@
 @import './apps/mail/mail-main.css';
 
 
+/* NOTES CMPS */
+@import './apps/notes/cmps/note-img.cmp.css';
+@import './apps/notes/cmps/note.cmp.css';
+
 * {
     box-sizing: border-box;
 }
