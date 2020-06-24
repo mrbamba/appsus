@@ -1,10 +1,12 @@
-import bookApp from '../books/js/pages/book-app.cmp.js';
-import bookDetails from '../books/js/pages/book-details.cmp.js';
-import homePage from '../books/js/pages/home-page.cmp.js';
-import bookAdd from '../books/js/pages/book-add.cmp.js';
-import aboutCmp from '../books/js/pages/about.cmp.js';
-import aboutTeam from '../books/js/cmps/about-team.cmp.js';
-import aboutService from '../books/js/cmps/about-service.cmp.js';
+import bookApp from './apps/books/pages/book-app.cmp.js';
+import bookDetails from './apps/books/pages/book-details.cmp.js';
+import homePage from './apps/books/pages/home-page.cmp.js';
+import bookAdd from './apps/books/pages/book-add.cmp.js';
+import aboutCmp from './apps/books/pages/about.cmp.js';
+import aboutTeam from './apps/books/cmps/about-team.cmp.js';
+import aboutService from './apps/books/cmps/about-service.cmp.js';
+import emailApp from './apps/email/pages/email-app.cmp.js';
+import notesApp from './apps/notes/pages/notes-app.cmp.js';
 
 
 const myRoutes = [
@@ -13,16 +15,26 @@ const myRoutes = [
         component: homePage
     },
     {
-        path: '/book',
-        component: bookApp
+        path: '/books',
+        component: bookApp,
+        children: [
+            {
+                path: ':bookId?',
+                component: bookDetails
+            },
+            {
+                path: 'add',
+                component: bookAdd
+            },
+        ]
     },
     {
-        path: '/book/:bookId',
-        component: bookDetails
+        path: '/email',
+        component: emailApp,
     },
     {
-        path: '/add',
-        component: bookAdd
+        path: '/notes',
+        component: notesApp
     },
     {
         path: '/about/:who?',
