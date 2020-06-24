@@ -1,0 +1,15 @@
+.review {
+    background-color: rgba(218, 198, 162, 0.589);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.review-title {
+    font-weight: bold;
+}
+
+.delete-review {
+    float: right;
+    cursor: pointer;
+}

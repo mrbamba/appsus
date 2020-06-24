@@ -1,0 +1,30 @@
+.review-add form >* {
+    display: block;
+    margin: 10px auto;
+}
+
+.review-add {
+    background-color: rgba(255, 166, 0, 0.589);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.review-textarea {
+    width: 400px;
+    height: 200px;
+}
+
+.review-add label {
+    font-weight: bold;
+}
+
+.submit-btn {
+    padding: 5px;
+    border-style: none;
+    transition: .5s;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+}
