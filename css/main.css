@@ -17,6 +17,9 @@
 @import './apps/books/cmps/review.css';
 @import './apps/books/book-main.css';
 
+/* EMAIL IMPORT */
+@import './apps/mail/mail-main.css';
+
 
 /* NOTES CMPS */
 @import './apps/notes/cmps/note-img.cmp.css';

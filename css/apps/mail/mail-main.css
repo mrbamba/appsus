@@ -1,0 +1,6 @@
+@import './cmps/email-nav-bar.cmp.css';
+
+.mail-main{
+    display: flex;
+    flex-direction: column;
+}
