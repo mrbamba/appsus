@@ -1,0 +1,43 @@
+/* HEADER */
+
+.app-header{
+    height: 10vh;
+    background-color: deepskyblue;
+    padding: 25px
+}
+
+.app-header h1{
+    color: rgb(29, 34, 40);
+    
+}
+
+/* NAV */
+.nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+    padding: 10px;
+    transition: ease-in-out .3s;
+}
+.nav a:hover{
+    color: rgb(0, 0, 0);
+}
+
+/* MAIN */
+
+.app-main{
+    min-height: 80vh;
+    background-color: lightblue;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align: center;
+    background-color: cornflowerblue;
+    color: white;
+    min-height: 10vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
