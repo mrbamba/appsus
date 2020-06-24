@@ -16,6 +16,12 @@
 @import './apps/books/cmps/review-add.css';
 @import './apps/books/cmps/review.css';
 @import './apps/books/book-main.css';
+
+
+/* NOTES CMPS */
+@import './apps/notes/cmps/note-img.cmp.css';
+@import './apps/notes/cmps/note.cmp.css';
+
 * {
     box-sizing: border-box;
 }
