@@ -1,3 +1,16 @@
+
+/* GENERAL LAYOUT IMPORTS */
+@import 'pages/home-page.css';
+@import 'app-header.css';
+@import 'pages/about.css';
+
+/* BOOKS CMPS */
+
+@import './apps/books/cmps/book-details.css';
+@import './apps/books/cmps/review-add.css';
+@import './apps/books/cmps/review.css';
+
+
 *{
     box-sizing: border-box;
 }
@@ -17,4 +30,78 @@ button{
     border-radius: 5px;
     margin: 10px;
     padding: 5px 10px;
+}
+
+
+
+/* COPIED FROM BOOKS CSS */
+
+
+.router-link-exact-active {color: rgb(240, 188, 47);}
+
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+ul {
+    list-style: none;
+}
+
+input {
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
+.filter-section {
+    margin: 20px;
+}
+
+.book-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 10px;
+}
+
+.book-preview {
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: lightyellow;
+}
+
+.book-preview:hover {
+    background-color: rgb(247, 223, 115);
+}
+
+.book-title {
+    text-transform: capitalize;
+    font-weight: bold;
+    padding: 20px;
+}
+
+
+.cheap {
+    color: green;
+}
+
+.expensive {
+    color: darkred;
+}
+
+.user-msg {
+    height: 60px;
+    width: 150px;
+    background-color: indianred;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
+.add-book {
+    color: white;
 }
