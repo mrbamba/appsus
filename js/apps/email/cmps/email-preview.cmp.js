@@ -1,8 +1,8 @@
 export default{
-    prop:['email'],
+    props:['email'],
     template:
         `
-        <tr>
+        <tr class="email-table-row">
             <td>
                 <input type="checkbox" >
             </td>

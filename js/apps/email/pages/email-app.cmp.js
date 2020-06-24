@@ -5,8 +5,7 @@ import { emailService } from '../services/email.service.js';
 
 export default {
     template: `
-        <div class="mail-main">
-        <h1>Email</h1>
+        <div class="mail-main ">
         <email-nav-bar></email-nav-bar>
         <email-list v-if="emails" :emails="emailsToShow"></email-list>
 
@@ -15,7 +14,7 @@ export default {
     `,
     data(){
         return{
-            emails:[],
+            emails:null,
             filterBy:{
                 searchStr:'',
             }
@@ -32,6 +31,8 @@ export default {
                 email.from.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
                 email.to.toLowerCase().includes(filterBy.searchStr.toLowerCase())
             });
+            console.log(filteredEmails)
+            return filteredEmails;
         }
     },
     created(){
