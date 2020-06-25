@@ -8,7 +8,8 @@ export const noteService = {
     deleteNote,
     getPinnedNotes,
     getUnpinnedNotes,
-    pinNote
+    pinNote,
+    changeColor
 }
 
 var notes = [
@@ -16,6 +17,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteText',
         isPinned: true,
+        color: 'lightyellow',
         info: {
             txt: 'Gotta call mom'
         }
@@ -24,6 +26,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
+        color: 'lightblue',
         info: {
             url: 'https://c.stocksy.com/a/f9S500/z9/1299871.jpg',
             title: "Beautiful"
@@ -36,6 +39,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteTodos',
         isPinned: false,
+        color: 'lightcoral',
         info: {
             label: 'To do:',
             todos: [
@@ -46,8 +50,26 @@ var notes = [
     },
     {
         id: utilService.makeId(),
+        type: 'noteTodos',
+        isPinned: false,
+        color: 'lightpink',
+        info: {
+            label: 'Shopping List:',
+            todos: [
+                { txt: 'Milk', doneAt: null },
+                { txt: 'Fruits', doneAt: null },
+                { txt: 'Chocolate', doneAt: null },
+                { txt: 'More chocolate', doneAt: null },
+                { txt: 'Pasta', doneAt: null },
+
+            ]
+        }
+    },
+    {
+        id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
+        color: 'white',
         info: {
             url: 'https://i.pinimg.com/originals/9d/d8/02/9dd802ea7726b25cbbf99ce3b853ccfe.jpg',
             title: 'Our dog'
@@ -57,6 +79,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteVideo',
         isPinned: false,
+        color: 'lightgreen',
         info: {
             url: 'https://steamcdn-a.akamaihd.net/steam/apps/256781910/movie480_vp9.webm?t=1587056339',
             title: 'Play games...'
@@ -79,6 +102,7 @@ function addNote(type, txtOrUrl, title) {
         id: utilService.makeId(),
         type: type,
         isPinned: false,
+        color: 'white',
         info: {
             txt: '',
             url: '',
@@ -115,6 +139,11 @@ function pinNote(id) {
         notes.push(note);
     }
     
+}
+
+function changeColor(color, id) {
+    const note = getNoteById(id);
+    note.color = color;
 }
 
 function getPinnedNotes() {
