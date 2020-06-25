@@ -2,6 +2,7 @@
 @import './cmps/email-preview.cmp.css';
 @import './cmps/email-details.cmp.css';
 @import './cmps/email-list.cmp.css';
+@import './cmps/email-compose.cmp.css';
 
 .mail-main{
     display: flex;

@@ -1,9 +1,14 @@
 import {utilService} from '../../../services/util.service.js';
 
 export const emailService={
-    getEmails,
+    getAllEmails,
     getById,
     setAsRead,
+    getStarredEmails,
+    getSentEmails,
+    getSpamEmails,
+    getTrashEmails,
+    getCleanEmails
 
 }
 
@@ -21,6 +26,7 @@ var gEmails=[
         isStarred:false,
         deleted:false, 
         spam:false,
+        direction:'outbound'
     },
     {
         id:utilService.getRandomId(),
@@ -35,7 +41,7 @@ var gEmails=[
         isStarred:true,
         deleted:false, 
         spam:false,
-
+        direction:'inbound'
 
     },    {
         id:utilService.getRandomId(),
@@ -48,8 +54,9 @@ var gEmails=[
         timestamp:new Date('2020-03-21'),
         isRead:false,
         isStarred:true,
-        deleted:false, 
-        spam:false,
+        deleted:true, 
+        spam:true,
+        direction:'outbound'
 
     },
 ]
@@ -59,13 +66,48 @@ function getById(emailId){
     return Promise.resolve(email)
 }
 
-function getEmails(){
-    return Promise.resolve(gEmails);
-}
 
 function setAsRead(emailId){
     getById(emailId)
-        .then ((email)=>{
-            email.isRead=true;
-        })
+    .then ((email)=>{
+        email.isRead=true;
+    })
+}
+
+function getCleanEmails(){
+    let emailsToReturn=gEmails.filter(email=>{
+        return email.spam===false && email.deleted===false;
+    })
+    return Promise.resolve(emailsToReturn);
+}
+
+function getAllEmails(){
+    return Promise.resolve(gEmails);
+}
+function getStarredEmails(){
+    
+    let emailsToReturn=gEmails.filter(email=>{
+        return email.isStarred;
+    })
+    return Promise.resolve(emailsToReturn)
+}
+function getSentEmails(){
+    let emailsToReturn=gEmails.filter(email=>{
+        return email.direction==='outbound'
+    })
+    return Promise.resolve(emailsToReturn)
+}
+
+function getSpamEmails(){
+    let emailsToReturn=gEmails.filter(email=>{
+        return email.spam;
+    })
+    return Promise.resolve(emailsToReturn)
+}
+
+function getTrashEmails(){
+    let emailsToReturn=gEmails.filter(email=>{
+        return email.deleted;
+    })
+    return Promise.resolve(emailsToReturn)
 }
