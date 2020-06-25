@@ -14,7 +14,7 @@ export default {
         <email-list v-if="!selectedEmail && emails" :emails="emailsToShow" v-on:emailSelected="emailSelected($event)"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
-        <email-compose v-if="composing"/>
+        <email-compose v-if="composing" :closeCompose="closeCompose"/>
 
         </div>
 
@@ -78,6 +78,9 @@ export default {
     },
     compose(){
         this.composing=true;
+    },
+    closeCompose(){
+        this.composing=false;
     }
   },
   components: {
@@ -91,7 +94,8 @@ export default {
       this.selectedEmail = null;
 
       const emailId = this.$route.params.emailId;
-      const params = this.$route.params;
+    //   const params = this.$route.params;
+    //   console.log('params',params)
 
       if (emailId) {
         if (emailId === "inbox") {

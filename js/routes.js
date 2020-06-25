@@ -41,7 +41,7 @@ const myRoutes = [
             },
             {
                 path:'inbox',
-                component:emailList,
+                component:emailApp,
             },
             {
                 path:'starred',

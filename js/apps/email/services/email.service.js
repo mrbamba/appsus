@@ -10,6 +10,7 @@ export const emailService={
     getTrashEmails,
     getCleanEmails,
     getEmptyEmail,
+    sendEmail,
 
 }
 
@@ -122,12 +123,17 @@ function getEmptyEmail(){
         toName:'',
         subject:'',
         body:'',
-        timestamp:new Date('2020-03-21'),
+        timestamp:new Date(),
         isRead:false,
         isStarred:false,
         deleted:false, 
         spam:false,
-        direction:''
+        direction:'outbound',
 
     })
+}
+
+
+function sendEmail(email){
+    gEmails.push(email)
 }
