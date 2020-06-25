@@ -17,24 +17,13 @@ export default {
     data() {
         return {
             notes: [],
-            // 
-            // pinnedNotes: [],
-            // unpinnedNotes: []
         }
     },
-    methods: {
-        // selectNote(note) {
-        //     this.selectedNote = note;
-        //     console.log(note)
-        // },
-    },
+
     created() {
         this.notes = noteService.getNotes()
-        // this.pinnedNotes = noteService.getPinnedNotes();
-        // this.unpinnedNotes = noteService.getUnpinnedNotes();
     },
     components: {
-        noteService,
         notesList,
         addNote,
         noteEdit

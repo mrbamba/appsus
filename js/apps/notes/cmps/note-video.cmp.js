@@ -5,12 +5,9 @@ export default {
     props: ['info', 'id', 'note'],
     template: `
         <div class="note-img-container note" :style="{backgroundColor: note.color}">
-        
         <video width="320" height="240" controls class="note-video">
         <source :src="info.url" type="video/mp4">
-        </video>
-       
-       
+        </video>       
         <p>{{info.title}}</p>
         <div class="icons">
         <i class="fas fa-palette icon-color"></i>
@@ -40,29 +37,3 @@ export default {
         }
     }
 }
-
-/* <video width="320" height="240" controls class="note-video">
-<source :src="info.url" type="video/mp4">
-</video> */
-
-// <iframe width="420" height="315"
-//         :src="{{info.url}}">
-//         </iframe>
-
-{/* <video width="320" height="240" controls class="note-video">
-<source :src="info.url" type="video/mp4"/>
-</video> */}
-
-{/* <video width="450" controls :src="info.url"></video> */}
-
-
-// <video
-// :key="info.url"
-// width="350"
-// controls autoplay
-// >
-// <source
-//   :src="info.url"
-//   type="video/mp4"
-// >
-// </video>
