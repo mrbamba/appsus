@@ -5,16 +5,8 @@ export default {
     props: ['info', 'id', 'note'],
     template: `
         <div class="note-img-container note" :style="{backgroundColor: bgc}">
-        <video
-        :key="info.url"
-        width="350"
-        controls autoplay
-      >
-        <source
-          :src="info.url"
-          type="video/mp4"
-        >
-      </video>
+        <video ref="videoRef" :src="info.url" width="100%" controls></video>
+      
        
        
         <p>{{info.title}}</p>
@@ -31,6 +23,10 @@ export default {
             bgc: ''
         }
     },
+    mounted() {
+            this.$refs.videoRef.play();
+          }
+    ,
     methods: {
         changeBgc(ev) {
             const color = ev.target.value;
@@ -60,3 +56,15 @@ export default {
 </video> */}
 
 {/* <video width="450" controls :src="info.url"></video> */}
+
+
+// <video
+// :key="info.url"
+// width="350"
+// controls autoplay
+// >
+// <source
+//   :src="info.url"
+//   type="video/mp4"
+// >
+// </video>
