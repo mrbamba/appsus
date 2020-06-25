@@ -17,6 +17,7 @@ var gEmails=[
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
         timestamp:new Date(),
         isRead:false,
+        isStarred:false,
         deleted:false, 
         spam:false,
     },
@@ -30,6 +31,7 @@ var gEmails=[
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
         timestamp:new Date(),
         isRead:false,
+        isStarred:true,
         deleted:false, 
         spam:false,
 
@@ -44,6 +46,7 @@ var gEmails=[
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
         timestamp:new Date('2020-03-21'),
         isRead:false,
+        isStarred:true,
         deleted:false, 
         spam:false,
 

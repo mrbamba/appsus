@@ -13,7 +13,7 @@ export default {
         <email-nav-bar></email-nav-bar>
         <email-list v-if="!selectedEmail && emails" :emails="emailsToShow" v-on:emailSelected="emailSelected($event)"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
-        <router-view :email="selectedEmail" v-if="selectedEmail"/>
+        <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
 
 
         </div>

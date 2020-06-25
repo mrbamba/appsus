@@ -1,5 +1,13 @@
 .email-table-row{
-    border-top: 1px solid gray;
-    padding: 5px;
+    border-top: 1px solid #eef0f2;
+    padding: 10px;
     cursor: pointer;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.email-table-row td{
+    text-align: left;
+    padding: 10px;
+
 }
