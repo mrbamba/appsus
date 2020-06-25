@@ -16,7 +16,7 @@ export default{
     `,
     data() {
         return {
-            outboundEmail:null,
+            outboundEmail:{},
         } 
     },
     created(){
@@ -24,13 +24,17 @@ export default{
             emailService.getEmptyEmail()
                 .then((email)=>{
                     this.outboundEmail=email
+                    console.log(this.outboundEmail)
                 })
     },
     methods:{
+        closeComposer(){
+            this.$emit('closeCompose');
+        },
         sendEmail(){
-            console.log(this.outboundEmail)
-            emailService.sendEmail(this.outboundEmail)
-            this.$emit('closeCompose')
-        }
+            console.log(this.outboundEmail);
+            emailService.sendEmail(this.outboundEmail);
+            this.$emit('closeCompose');
+                }
     },
 }
