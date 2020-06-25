@@ -93,7 +93,6 @@ export default {
       const emailId = this.$route.params.emailId;
       const params = this.$route.params;
 
-      console.log("params:", params);
       if (emailId) {
         if (emailId === "inbox") {
           emailService.getCleanEmails().then((emails) => {

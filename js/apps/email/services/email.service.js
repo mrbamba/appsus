@@ -8,7 +8,8 @@ export const emailService={
     getSentEmails,
     getSpamEmails,
     getTrashEmails,
-    getCleanEmails
+    getCleanEmails,
+    getEmptyEmail,
 
 }
 
@@ -110,4 +111,23 @@ function getTrashEmails(){
         return email.deleted;
     })
     return Promise.resolve(emailsToReturn)
+}
+
+function getEmptyEmail(){
+    return Promise.resolve({
+        id:utilService.getRandomId(),
+        fromAddress:'dhaski@gmail.com',
+        fromName:'Dan Haski',
+        toAddress:'',
+        toName:'',
+        subject:'',
+        body:'',
+        timestamp:new Date('2020-03-21'),
+        isRead:false,
+        isStarred:false,
+        deleted:false, 
+        spam:false,
+        direction:''
+
+    })
 }
