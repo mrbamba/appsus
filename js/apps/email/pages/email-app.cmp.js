@@ -47,21 +47,21 @@ export default {
         console.log('created',Date.now)
         this.selectedEmail=null
 
-        // const emailId = this.$route.params.emailID;
-        // console.log(emailId)
-        // if(emailId){
+        const emailId = this.$route.params.emailID;
+        console.log(emailId)
+        if(emailId){
 
-        //     emailService.getById(emailID)
-        //         .then((email)=>{
-        //             this.selectedEmail=email
-        //         })
-        // }else{
+            emailService.getById(emailID)
+                .then((email)=>{
+                    this.selectedEmail=email
+                })
+        }else{
 
-        // }
-        emailService.getEmails()
-            .then(emails=>{
-                this.emails=emails;
-            })
+            emailService.getEmails()
+                .then(emails=>{
+                    this.emails=emails;
+                })
+        }
 
     },
     methods:{
@@ -83,5 +83,25 @@ export default {
         emailNavBar,
         emailList,
         emailDetalis
+    },watch:{
+        $route (to, from){
+            this.selectedEmail=null;
+
+            const emailId = this.$route.params.emailId;
+            console.log(emailId)
+            if(emailId){
+    
+                emailService.getById(emailId)
+                    .then((email)=>{
+                        this.selectedEmail=email
+                    })
+            }else{
+    
+                emailService.getEmails()
+                    .then(emails=>{
+                        this.emails=emails;
+                    })
+            }
+        }
     }
 }
