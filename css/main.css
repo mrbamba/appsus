@@ -8,8 +8,10 @@
 /* GENERAL LAYOUT IMPORTS */
 
 @import 'pages/home-page.css';
-@import 'app-header.css';
+@import './app-header.css';
 @import 'pages/about.css';
+@import './layout.css';
+@import './helpers.css';
 /* BOOKS CMPS */
 
 @import './apps/books/cmps/book-details.css';
@@ -31,6 +33,7 @@
 body {
     margin: 0 auto;
     font-family: roboto;
+    max-width: 1290px;
 }
 
 h1, h2, h3, h4, h5, h6 {
