@@ -58,8 +58,8 @@ var notes = [
         type: 'noteVideo',
         isPinned: false,
         info: {
-            url: 'https://www.youtube.com/watch?v=BBEaVSDRrm8',
-            title: 'Nietzsche'
+            url: 'https://steamcdn-a.akamaihd.net/steam/apps/256781910/movie480_vp9.webm?t=1587056339',
+            title: 'Play games...'
         }
     }
 ];

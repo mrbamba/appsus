@@ -5,14 +5,16 @@ export default {
     props: ['info', 'id', 'note'],
     template: `
         <div class="note-img-container note" :style="{backgroundColor: bgc}">
-        <video ref="videoRef" :src="info.url" width="100%" controls></video>
-      
+        
+        <video width="320" height="240" controls class="note-video">
+        <source :src="info.url" type="video/mp4">
+        </video>
        
        
         <p>{{info.title}}</p>
         <div class="icons">
         <i class="fas fa-palette icon-color"></i>
-        <input type="color" class="color" @blur="changeBgc($event)">
+        <input type="color" class="color" @blur.stop="changeBgc($event)">
         <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
         <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
         </div>
@@ -23,10 +25,10 @@ export default {
             bgc: ''
         }
     },
-    mounted() {
-            this.$refs.videoRef.play();
-          }
-    ,
+    // mounted() {
+    //         this.$refs.videoRef.play();
+    //       }
+    // ,
     methods: {
         changeBgc(ev) {
             const color = ev.target.value;

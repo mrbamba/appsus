@@ -9,8 +9,9 @@
 .todo-list {
     list-style: circle;
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .note ul {
-    padding-left: 10px;
+    padding-left: 20px;
 }

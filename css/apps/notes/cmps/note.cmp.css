@@ -1,12 +1,11 @@
 .note {
     padding: 10px;
-    /* background-color: rgb(241, 241, 156); */
-    max-width: 320px;
     margin: 10px;
     display: inline-block;
     border: 1px solid gray;
     color: black;
     border-radius: 10px;
+    width: 30vw;
 }
 
 .note:hover {
