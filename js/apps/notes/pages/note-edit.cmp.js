@@ -17,6 +17,7 @@ export default {
     created() {
         const noteId = this.$route.params.noteId;
         this.note = noteService.getNoteById(noteId);
+        this.isEditing = true;
 
     },
     methods: {
