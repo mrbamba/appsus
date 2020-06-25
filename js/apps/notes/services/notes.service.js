@@ -3,11 +3,16 @@ import {utilService} from '../../../services/util.service.js';
 
 export const noteService = {
    getNotes,
-   addNote
+   addNote,
+   getNoteById
 }
 
 function getNotes() {
     return notes;
+}
+
+function getNoteById(id) {
+    return notes.find(note => note.id === id)    
 }
 
 function addNote(type, txtOrUrl, title) {
@@ -17,7 +22,9 @@ function addNote(type, txtOrUrl, title) {
         info: {
             txt: '',
             url: '',
-            title: ''
+            title: '',
+            label: '',
+            todos: null
         }
     }
     if (type === 'noteText') newNote.info.txt = txtOrUrl;
@@ -25,8 +32,15 @@ function addNote(type, txtOrUrl, title) {
         newNote.info.url = txtOrUrl;
         newNote.info.title = title;
     }
-    console.log(newNote);
-    notes.push(newNote);
+    else if (type === 'noteTodos') {
+        newNote.info.label = title;
+        var todosTxt = txtOrUrl.split(',');
+        var todos = todosTxt.map(todo => {
+            return {txt: todo, doneAt: null};
+        })
+        newNote.info.todos = todos;
+    }
+    notes.unshift(newNote);
 }
 
 var notes = [
@@ -59,5 +73,13 @@ var notes = [
                 { txt: 'Do this', doneAt: 187111111 }
             ]
         }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'noteImg',
+        info: {
+            url: 'https://i.pinimg.com/originals/9d/d8/02/9dd802ea7726b25cbbf99ce3b853ccfe.jpg',
+            title: ''
+        },
     }
 ];

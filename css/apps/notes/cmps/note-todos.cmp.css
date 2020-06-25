@@ -1,0 +1,11 @@
+.done {
+    text-decoration: line-through;
+}
+
+.todo:hover {
+    cursor: pointer;
+}
+
+.todo-list {
+    list-style: circle;
+}

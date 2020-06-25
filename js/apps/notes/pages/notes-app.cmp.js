@@ -14,8 +14,15 @@ export default {
     `,
     data() {
         return {
-            notes: []
+            notes: [],
+            selectedNote: null
         }
+    },
+    methods: {
+        selectNote(note) {
+            this.selectedNote = note;
+            console.log(note)
+        },
     },
     created() {
         this.notes = noteService.getNotes()
