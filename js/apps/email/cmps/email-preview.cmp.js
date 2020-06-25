@@ -7,14 +7,17 @@ export default {
             <td>
                 <input type="checkbox" >
             </td>
-            <td>
-                {{email.starred}}
+            <td :class="emailStarred">
+            
             </td>
             <td>
-                {{email.fromName}}
+                <b>{{email.fromName}}</b>
             </td>
             <td>
-                {{email.subject}}
+                <b>{{email.subject}}</b>
+            </td>
+            <td>
+                {{email.body}}
             </td>
             <td>
                 {{timeFormatted}}
@@ -30,10 +33,17 @@ export default {
     timeFormatted() {
       let emailTime = this.email.timestamp;
       if (this.timeInMs - emailTime < 86400000) {
-        return `${emailTime.getHours()}:${emailTime.getMinutes()}`;
+          if(emailTime.getMinutes()<=9){
+              return `${emailTime.getHours()}:0${emailTime.getMinutes()}`;
+          }else{ return `${emailTime.getHours()}:${emailTime.getMinutes()}`;}
       } else if (this.timeInMs - emailTime < 31536000000) {
         return `${emailTime.getDate()}/${emailTime.getMonth()+1}`;
       } else return `${emailTime.getMonth()+1}/${emailTime.getYear()}`;
     },
+    emailStarred(){
+        if (this.email.isStarred) {
+        return `fas fa-star`
+    } else return `far fa-star`
+    }
   },
 };
