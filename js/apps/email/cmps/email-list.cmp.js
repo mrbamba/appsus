@@ -9,6 +9,11 @@ export default {
         </table>
     </div>
     `,
+    methods:{
+        selectEmail(email){
+            this.$emit('emailSelected',email);
+        }
+    },
     components:{
         emailPreview
     }
