@@ -23,8 +23,6 @@ export default {
             var doneAt = x;
             if (!doneAt) this.isDone = true;
             else this.isDone = false;
-            // noteService.toggleDoneStatus()
-            // console.log('toggle',this.isDone)
         },
         changeBgc(ev) {
             const color = ev.target.value;

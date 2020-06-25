@@ -8,6 +8,7 @@ export default {
             <button :class="{chosen: type==='noteText'}" @click="type = noteText"><i class="fas fa-font"></i></button>
             <button :class="{chosen: type==='noteTodos'}" @click="type = noteTodos"><i class="fas fa-list"></i></button>
             <button :class="{chosen: type==='noteImg'}" @click="type = noteImg"><i class="far fa-image"></i></button>
+            <button :class="{chosen: type==='noteVideo'}" @click="type = noteVideo"><i class="fas fa-video"></i></button>
             <button class="add-btn" @click="onAddNote" >Add</button>
         </div>
 
@@ -21,13 +22,16 @@ export default {
             noteText: 'noteText',
             noteImg: 'noteImg',
             noteTodos: 'noteTodos',
+            noteVideo: 'noteVideo'
         }
     },
     computed: {
         placeholder() {
             if (this.type === 'noteText') return 'Enter a new note';
             else if (this.type === 'noteImg') return 'Enter Image URL';
+            else if (this.type === 'noteVideo') return 'Enter Video URL';
             else if (this.type === 'noteTodos') return 'Enter items separated by commas';
+
         },
     },
     methods: {

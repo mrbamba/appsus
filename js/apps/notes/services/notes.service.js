@@ -31,9 +31,6 @@ var notes = [
             url: 'https://c.stocksy.com/a/f9S500/z9/1299871.jpg',
             title: "Beautiful"
         },
-        style: {
-            backgroundColor: '#00d'
-        }
     },
     {
         id: utilService.makeId(),
@@ -159,35 +156,6 @@ function getUnpinnedNotes() {
 }
 
 function deleteNote(id) {
-//     const selectedNote = getNoteById(id);
-// // console.log(selectedNote)
-// const pinnedNotes = getPinnedNotes();
-// const unpinnedNotes = getUnpinnedNotes();
-// if (selectedNote.isPinned) {
-//     const idx = pinnedNotes.findIndex(note => note.id === id);
-//     pinnedNotes.splice(idx, 1);
-// } else {
-//     const idx = unpinnedNotes.findIndex(note => note.id === id);
-//     unpinnedNotes.splice(idx, 1);
-// }
 const idx = notes.findIndex(note => note.id === id);
 notes.splice(idx, 1);
-    // console.log(notes)
-    // var idxInNotes = notes.findIndex(note => note.id === id);
-    // console.log(idxInNotes)
-    // notes.splice(idxInNotes, 1);
 }
-
-// const selectedNote = getNoteById(id);
-// // console.log(selectedNote)
-// const pinnedNotes = getPinnedNotes();
-// const unpinnedNotes = getUnpinnedNotes();
-// if (selectedNote.isPinned) {
-//     const idx = pinnedNotes.findIndex(note => note.id === id);
-//     pinnedNotes.splice(idx, 1);
-// } else {
-//     const idx = unpinnedNotes.findIndex(note => note.id === id);
-//     unpinnedNotes.splice(idx, 1);
-// }
-// var idxInNotes = notes.findIndex(note => note.id === selectedNote.id);
-// notes.splice(idxInNotes,1);

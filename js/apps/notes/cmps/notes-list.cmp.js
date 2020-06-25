@@ -30,39 +30,19 @@ export default {
             noteId: null,
             bgc: '',
             selectedNote: null,
-            // pinnedNotes: [],
-            // unpinnedNotes: []
         }
-    },
-    computed: {
-        // pinnedNotes() {
-        //     return noteService.getPinnedNotes();
-        // },
-        // unpinnedNotes() {
-        //     return noteService.getUnpinnedNotes();
-        // }
     },
     created() {
         eventBus.$on('unselect', (data) => {
             this.selectedNote = data
         });
-        // this.pinnedNotes = noteService.getPinnedNotes();
-        // this.unpinnedNotes = noteService.getUnpinnedNotes();
     },
   
     methods: {
         selectNote(note) {
-            // this.$emit('selected', note);
-            // this.noteId = note.id;
-            // console.log(note)
             this.selectedNote = note;
             console.log(this.selectedNote)
-        },
-        // unselect(selNote) {
-        //     this.noteId = selNote;
-        //     console.log(this.selectedNote)
-        // },
-    
+        },    
     },
     components: {
         noteText,
@@ -72,14 +52,3 @@ export default {
         noteVideo
     }
 }
-
-        //  // <router-link :to="'/notes/' + note.id" :note="note">
-
-    //     <div>
-    // <ul class="pinned-notes">
-    //     <li v-for="note in pinnedNotes" :note="note" :key="note.id" @click="selectNote(note)">
-    //     <component :is="note.type" :info="note.info" :id="note.id"></component>
-
-    //     </li>
-    // </ul>
-    // </div>

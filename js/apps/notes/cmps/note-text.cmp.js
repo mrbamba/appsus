@@ -1,5 +1,5 @@
 import { noteService } from '../services/notes.service.js';
-// :style="{backgroundColor: bgc}
+
 export default {
     props:['info', 'id', 'note'],
     template: `
@@ -29,18 +29,3 @@ export default {
         }
     }
 }
-
-
-// <select id="colorPickerBackground" @change="changeBgc($event)">
-
-// <option value="transparent">None</option>
-// <option value="yellow">Yellow</option>
-// <option value="salmon">Salmon</option>
-// <option value="lightblue">Light Blue</option>
-// <option value="limegreen">Lime Green</option>
-// <option value="cyan">Cyan</option>
-// <option value="violet">Violet</option>
-// <option value="red">Red</option>
-// </select>
-
-/* <input type="color" class="color" @blur="onSetFillColor(value)"> */
