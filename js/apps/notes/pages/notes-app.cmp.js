@@ -17,6 +17,9 @@ export default {
     data() {
         return {
             notes: [],
+            // 
+            // pinnedNotes: [],
+            // unpinnedNotes: []
         }
     },
     methods: {
@@ -27,6 +30,8 @@ export default {
     },
     created() {
         this.notes = noteService.getNotes()
+        // this.pinnedNotes = noteService.getPinnedNotes();
+        // this.unpinnedNotes = noteService.getUnpinnedNotes();
     },
     components: {
         noteService,
