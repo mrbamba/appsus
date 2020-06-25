@@ -13,14 +13,15 @@ export default {
     
     <div v-if="isEditing" class="note-edit">
     <input v-if="note.type === 'noteImg' || note.type === 'noteTodos'" type="text" v-model="note.info.title" />
-    <input v-if="note.type === 'noteText' || note.type === 'noteTodos'" type="text" v-model="note.info.txt"/>
-    <input v-if="note.type === 'noteImg'" type="file" ref="imageUrl"/>
+    <input v-if="note.type === 'noteText' || note.type === 'noteTodos'" v-model="note.info.txt"/>
+    <input v-if="note.type === 'noteImg'" v-model="note.info.url"/>
     <button @click="unselect()">Done</button>
     </div>
 
     `,
     data() {
         return {
+            type: '',
             // input: note.info.txt,
             // note: null,
             isEditing: null
@@ -32,6 +33,7 @@ export default {
         this.isEditing = true;
 
     },
+ 
     methods: {
         unselect() {
             // this.$emit('unselect', '')

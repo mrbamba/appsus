@@ -52,6 +52,15 @@ var notes = [
             url: 'https://i.pinimg.com/originals/9d/d8/02/9dd802ea7726b25cbbf99ce3b853ccfe.jpg',
             title: 'Our dog'
         },
+    },
+    {
+        id: utilService.makeId(),
+        type: 'noteVideo',
+        isPinned: false,
+        info: {
+            url: 'https://www.youtube.com/watch?v=BBEaVSDRrm8',
+            title: 'Nietzsche'
+        }
     }
 ];
 
@@ -79,7 +88,7 @@ function addNote(type, txtOrUrl, title) {
         }
     }
     if (type === 'noteText') newNote.info.txt = txtOrUrl;
-    else if (type === 'noteImg') {
+    else if (type === 'noteImg' || type === 'noteVideo') {
         newNote.info.url = txtOrUrl;
         newNote.info.title = title;
     }
