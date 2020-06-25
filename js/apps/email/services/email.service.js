@@ -3,6 +3,7 @@ import {utilService} from '../../../services/util.service.js';
 export const emailService={
     getEmails,
     getById,
+    setAsRead,
 
 }
 
@@ -60,4 +61,11 @@ function getById(emailId){
 
 function getEmails(){
     return Promise.resolve(gEmails);
+}
+
+function setAsRead(emailId){
+    getById(emailId)
+        .then ((email)=>{
+            email.isRead=true;
+        })
 }
