@@ -41,7 +41,8 @@ export default {
             });
             console.log(filteredEmails)
             return filteredEmails;
-        }
+        },
+        
     },
     created(){
         console.log('created',Date.now)
@@ -72,6 +73,7 @@ export default {
             emailService.getById(emailId)
                 .then((email)=>{
                     this.selectedEmail=email
+                    emailService.setAsRead(emailId)
                 })
             console.log(this.selectedEmail)
             this.$router.push(`/email/${emailId}`);

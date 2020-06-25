@@ -3,11 +3,11 @@ export default {
 
   props: ["email"],
   template: `
-        <tr class="email-table-row">
+        <tr class="email-table-row" :class="emailTableRowClass">
             <td>
                 <input type="checkbox" >
             </td>
-            <td :class="emailStarred">
+            <td :class="emailStarred" @click.stop="starStatus">
             
             </td>
             <td>
@@ -44,6 +44,14 @@ export default {
         if (this.email.isStarred) {
         return `fas fa-star`
     } else return `far fa-star`
+    },
+    emailTableRowClass(){
+        if(this.email.isRead===true)return 'email-row-is-read'
     }
   },
+  methods:{
+      starStatus(){
+          this.email.isStarred=!this.email.isStarred;
+      }
+  }
 };
