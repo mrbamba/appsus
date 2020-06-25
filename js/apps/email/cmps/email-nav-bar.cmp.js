@@ -1,4 +1,6 @@
 export default{
+    name:'email-nav-bar',
+
     template: `
     <div class="mail-nav-bar">
     <button class="compose-button"><i class="fa fa-plus"></i>  Compose</button>
