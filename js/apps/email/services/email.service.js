@@ -14,6 +14,7 @@ var gEmails=[
         subject:'Testing the new email app',
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
         timestamp:Date.now(),
+        isRead:false,
         deleted:false, 
         spam:false,
     },
@@ -24,6 +25,7 @@ var gEmails=[
         subject:'Test 2',
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
         timestamp:Date.now(),
+        isRead:false,
         deleted:false, 
         spam:false,
 
@@ -35,6 +37,7 @@ var gEmails=[
         subject:'Testing the new email app third time',
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
         timestamp:Date.now(),
+        isRead:false,
         deleted:false, 
         spam:false,
 
