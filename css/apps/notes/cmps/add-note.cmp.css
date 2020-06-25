@@ -1,0 +1,22 @@
+.add-note {
+    background-color: #f1f3f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.chosen {
+    background-color: rgb(211, 210, 210);
+}
+
+.input-title {
+    width: 40%;
+}
+
+.input-txt {
+    width: 70%;
+}
+
+.add-btn {
+    font-weight: bold;
+    background-color: rgb(224, 250, 224);
+}

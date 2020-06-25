@@ -9,8 +9,32 @@
     border-radius: 10px;
 }
 
-.note option div {
+.note:hover {
+    cursor: pointer;
+}
+/* .note option div {
     width: 20px;
     height: 20px;
-    background-color: red;
+    background-color: red; */
+/* } */
+
+.note .color {
+    margin-left: -23px;
+    opacity: 0.5;
+    position: absolute;
+    width: 5%;
+}
+.note .color:hover {
+    cursor: pointer;
+}
+.note i:hover {
+    cursor: pointer;
+}
+
+.note i {
+    margin: 2px;
+}
+
+.note .icons {
+    float: right;
 }

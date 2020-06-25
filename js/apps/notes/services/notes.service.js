@@ -4,7 +4,8 @@ import {utilService} from '../../../services/util.service.js';
 export const noteService = {
    getNotes,
    addNote,
-   getNoteById
+   getNoteById,
+   deleteNote
 }
 
 function getNotes() {
@@ -13,6 +14,11 @@ function getNotes() {
 
 function getNoteById(id) {
     return notes.find(note => note.id === id)    
+}
+
+function deleteNote(id) {
+    const idx = notes.findIndex(note => note.id === id);
+    notes.splice(idx, 1);
 }
 
 function addNote(type, txtOrUrl, title) {

@@ -8,4 +8,9 @@
 
 .todo-list {
     list-style: circle;
+    margin-bottom: 20px;
+}
+
+.note ul {
+    padding-left: 10px;
 }

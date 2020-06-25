@@ -10,7 +10,7 @@ export default {
     <main>
     <h1>Notes</h1>
             <add-note></add-note>
-            
+            <p v-if="!notes.length"> You don't have any notes </p>
             <notes-list :notes="notes"></notes-list>
         </main>
     `,
