@@ -40,7 +40,7 @@ export default {
 </div>
 
 </div>
-    <p class="email-body"><pre>{{email.body}}</pre></p>
+    <p class="email-body">{{email.body}}</p>
 
 
 

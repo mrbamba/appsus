@@ -12,11 +12,11 @@ export default {
             <td :class="emailStarred" @click.stop="starStatus" title="Star/Unstar Email">
             
             </td>
-            <td>
-                <b>{{email.fromName}}</b>
+            <td :class="emailRead">
+                {{email.fromName}}
             </td>
-            <td>
-                <b>{{email.subject}}</b>
+            <td :class="emailRead">
+                {{email.subject}}
             </td>
             <td class="email-body">
                 <!-- <div class="email-preview-td-body"> -->
@@ -48,6 +48,11 @@ export default {
         if (this.email.isStarred) {
         return `fas fa-star`
     } else return `far fa-star`
+    },
+    emailRead(){
+      if (!this.email.isRead){
+        return 'email-preview-unread'
+      }
     },
     emailTableRowClass(){
         if(this.email.isRead===true)return 'email-row-is-read'
