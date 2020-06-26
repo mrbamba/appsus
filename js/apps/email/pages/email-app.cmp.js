@@ -11,8 +11,8 @@ export default {
   prop: "selectedEmail",
   template: `
         <div class="mail-main ">
-        <email-nav-bar v-on:compose="compose"></email-nav-bar>
-        <email-list v-if="!selectedEmail && emails" :emails="emailsToShow" v-on:emailSelected="emailSelected($event)"></email-list>
+        <email-nav-bar v-on:compose="compose" :emails="emails"></email-nav-bar>
+        <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" v-on:emailSelected="emailSelected($event)"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
         <email-compose v-if="composing" v-on:closeCompose="closeCompose"/>
