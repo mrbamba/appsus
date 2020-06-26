@@ -12,6 +12,7 @@ export const emailService={
     getCleanEmails,
     getEmptyEmail,
     sendEmail,
+    getUnreadCount,
 
 }
 
@@ -147,6 +148,14 @@ function getEmptyEmail(){
         direction:'outbound',
 
     })
+}
+
+function getUnreadCount(emails){
+    let count=0
+            emails.forEach((email) => {
+                if (!email.isRead) count ++
+            });
+            return Promise.resolve(count);
 }
 
 
