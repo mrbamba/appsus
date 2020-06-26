@@ -17,29 +17,28 @@ export default {
     data() {
         return {
             notes: [],
-            searchStr: ''
+            filterBy: {
+                searchStr: '',
+            },
         }
     },
     computed: {
         notesToShow() {
-            if (!this.searchStr) return this.notes;
+            const filterBy = this.filterBy;
+            if (!filterBy) return this.notes;
             var filteredNotes = this.notes.filter(note => {
-                if (note.type === 'noteText') return note.info.txt.toLowerCase().includes(this.searchStr.toLowerCase());
-                if (note.type === 'noteImg' || note.type === 'noteVideo') return note.info.title.toLowerCase().includes(this.searchStr.toLowerCase());
-                if (note.type === 'noteTodos') return note.info.label.toLowerCase().includes(this.searchStr.toLowerCase())
-                if (note.type === 'noteTodos') return note.info.todos.map(todo => todo.txt.toLowerCase().includes(this.searchStr.toLowerCase()))                
+                if (note.type === 'noteText') return note.info.txt.toLowerCase().includes(filterBy.searchStr.toLowerCase());
+                if (note.type === 'noteImg' || note.type === 'noteVideo') return note.info.title.toLowerCase().includes(filterBy.searchStr.toLowerCase());
+                if (note.type === 'noteTodos') return note.info.label.toLowerCase().includes(filterBy.searchStr.toLowerCase());
+                if (note.type === 'noteTodos') return note.info.todos.map(todo => todo.txt.toLowerCase().includes(filterBy.searchStr.toLowerCase()));               
             });
             return filteredNotes;
         }
     },
-    methods: {
-
-        
-    },
     created() {
         this.notes = noteService.getNotes();
         eventBus.$on('filter',(data) => {
-            this.searchStr = data
+            this.filterBy.searchStr = data
         });
     },
     components: {

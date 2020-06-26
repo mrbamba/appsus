@@ -16,7 +16,7 @@ export default {
     <div>
     <div>
     <ul class="notes-list">
-            <li v-for="note in notes" :note="note" :key="note.id" @click="selectNote(note)">
+            <li v-for="note in notes" :note="note" :key="note.id" @click.stop="selectNote(note)">
             <component :is="note.type" :note="note" :info="note.info" :id="note.id"></component>
             </li>
         </ul>

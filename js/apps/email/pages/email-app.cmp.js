@@ -21,22 +21,25 @@ export default {
   data() {
     return {
       emails: null,
-      searchStr: '',
+        filterBy: {
+            searchStr: '',
+        },
       selectedEmail: null,
       composing:false,
     };
   },
   computed: {
     emailsToShow() {
-      if (!this.searchStr) return this.emails;
+      const filterBy = this.filterBy;
+      if (!filterBy) return this.emails;
       let filteredEmails = this.emails.filter((email) => {
         return (
-          email.subject.toLowerCase().includes(this.searchStr.toLowerCase()) ||
-          email.body.toLowerCase().includes(this.searchStr.toLowerCase()) ||
-          email.fromAddress.toLowerCase().includes(this.searchStr.toLowerCase()) ||
-          email.fromName.toLowerCase().includes(this.searchStr.toLowerCase()) ||
-          email.toAddress.toLowerCase().includes(this.searchStr.toLowerCase()) ||
-          email.toName.toLowerCase().includes(this.searchStr.toLowerCase()) 
+          email.subject.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
+          email.body.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
+          email.fromAddress.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
+          email.fromName.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
+          email.toAddress.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
+          email.toName.toLowerCase().includes(filterBy.searchStr.toLowerCase()) 
         );
       });
       return filteredEmails;
@@ -64,7 +67,7 @@ export default {
     }
 
     eventBus.$on('filter',(data) => {
-      this.searchStr = data
+      this.filterBy.searchStr = data
   });
   },
   methods: {

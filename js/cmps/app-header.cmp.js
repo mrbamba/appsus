@@ -7,7 +7,7 @@ export default {
      <header class="app-header ">
      <img src="./img/logo.svg" class="logo">
 
-        <input class="main-search" placeholder="Search" v-model="searchStr" @input="filter"/>
+        <input class="main-search" placeholder="Search" v-model="filterBy.searchStr" @input="filter"/>
         <nav class="main-nav">
                 <router-link to="/" exact><i class="fas fa-igloo"></i></router-link>
                 <router-link to="/email/inbox"><i class="far fa-envelope"></i></router-link>
@@ -19,12 +19,15 @@ export default {
     `,
     data() {
       return {
-        searchStr: ''
+        filterBy: {
+          searchStr: ''
+
+        }
       }
     },
     methods: {
       filter() {
-        eventBus.$emit('filter', this.searchStr);
+        eventBus.$emit('filter', this.filterBy.searchStr);
       }
     }
 };
