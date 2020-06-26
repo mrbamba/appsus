@@ -1,3 +1,5 @@
+import longTxt from '../../../cmps/long-txt.cmp.js'
+
 export default {
     name:'email-preview',
 
@@ -17,9 +19,9 @@ export default {
                 <b>{{email.subject}}</b>
             </td>
             <td class="email-body">
-                <div class="email-preview-td-body">
-                    {{email.body}}
-                </div>
+                <!-- <div class="email-preview-td-body"> -->
+                    <long-txt :txt='email.body'/>
+                <!-- </div> -->
             </td>
             <td>
                 {{timeFormatted}}
@@ -55,5 +57,8 @@ export default {
       starStatus(){
           this.email.isStarred=!this.email.isStarred;
       }
+  },
+  components:{
+    longTxt,
   }
 };
