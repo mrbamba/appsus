@@ -8,7 +8,7 @@ export default {
     template: `
         <div class="note" :style="{backgroundColor: note.color}" > 
         <ul class="todo-list"> {{info.label}}
-        <li class="todo" v-for="todo in info.todos" :class="{done: todo.doneAt}" @click="todo.doneAt = !todo.doneAt">{{todo.txt}}</li>
+        <li class="todo" v-for="todo in info.todos" :class="{done: todo.doneAt}" @click.stop="todo.doneAt = !todo.doneAt">{{todo.txt}}</li>
         </ul>
         
         <div class="icons">

@@ -1,8 +1,9 @@
 import { emailService } from "../services/email.service.js";
+import { eventBus } from '../../../services/event-bus.service.js';
 
-export default{
-    name:'compose',
-    template:`
+export default {
+    name: 'compose',
+    template: `
     <div class="compose flex flex-column space-between">
         <h2>New Message</h2>
         <input class="compose-email-to" placeholder="Recepient Email address" v-model="outboundEmail.toAddress">
@@ -16,25 +17,28 @@ export default{
     `,
     data() {
         return {
-            outboundEmail:{},
-        } 
+            outboundEmail: {},
+        }
     },
-    created(){
-        
-            emailService.getEmptyEmail()
-                .then((email)=>{
-                    this.outboundEmail=email
-                    console.log(this.outboundEmail)
-                })
+    created() {
+
+        emailService.getEmptyEmail()
+            .then((email) => {
+                this.outboundEmail = email
+                console.log(this.outboundEmail)
+            })
+        eventBus.$on('sendNoteAsEmail', (data) => {
+            this.outboundEmail.body = data;
+        });
     },
-    methods:{
-        closeComposer(){
+    methods: {
+        closeComposer() {
             this.$emit('closeCompose');
         },
-        sendEmail(){
+        sendEmail() {
             console.log(this.outboundEmail);
             emailService.sendEmail(this.outboundEmail);
             this.$emit('closeCompose');
-                }
+        }
     },
 }

@@ -1,4 +1,5 @@
 import { noteService } from '../services/notes.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
     name: 'note-text',
@@ -11,8 +12,9 @@ export default {
         <input type="color" class="color" @blur.stop="changeBgc($event, id)">
         <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
         <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
+        <i class="far fa-envelope" @click.stop="sendNoteAsEmail(note.txt, id)"></i>
         </div>
-         </div>
+        </div>
     `,
     methods: {
         changeBgc(ev, id) {
@@ -25,6 +27,10 @@ export default {
         },
         pinNote(id) {
             noteService.pinNote(id);
+        },
+        sendNoteAsEmail(txt, id) {
+            this.$router.push('/email/:' + id);
+            eventBus.$emit('sendNoteAsEmail', txt);
         }
     }
 }
