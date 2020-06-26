@@ -1,5 +1,6 @@
 import {utilService} from '../../../services/util.service.js';
 
+
 export const emailService={
     getAllEmails,
     getById,
@@ -23,6 +24,21 @@ var gEmails=[
         toName:'Dror H',
         subject:'Testing the new email app',
         body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
+        timestamp:new Date(),
+        isRead:false,
+        isStarred:false,
+        deleted:false, 
+        spam:false,
+        direction:'outbound'
+    },
+    {
+        id:utilService.getRandomId(),
+        fromAddress:'dhaski@gmail.com',
+        fromName:'Dan Haski',
+        toAddress:'samantha@gmail.com',
+        toName:'Samantha Kofler',
+        subject:'You have a new message from Samantha',
+        body:'Hey Dan, I am working on the project and I think Search is now working, can you please test?',
         timestamp:new Date(),
         isRead:false,
         isStarred:false,
@@ -132,6 +148,7 @@ function getEmptyEmail(){
 
     })
 }
+
 
 
 function sendEmail(email){
