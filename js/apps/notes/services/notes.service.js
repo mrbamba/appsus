@@ -6,10 +6,11 @@ export const noteService = {
     addNote,
     getNoteById,
     deleteNote,
-    getPinnedNotes,
-    getUnpinnedNotes,
+    // getPinnedNotes,
+    // getUnpinnedNotes,
     pinNote,
-    changeColor
+    changeColor,
+    getTodos
 }
 
 var notes = [
@@ -180,19 +181,27 @@ function changeColor(color, id) {
     note.color = color;
 }
 
-function getPinnedNotes() {
-    const pinnedNotes = notes.filter(note => { return note.isPinned === true });
-    return pinnedNotes;
-}
+// function getPinnedNotes() {
+//     const pinnedNotes = notes.filter(note => { return note.isPinned === true });
+//     return pinnedNotes;
+// }
 
 
-function getUnpinnedNotes() {
-    const unpinnedNotes = notes.filter(note => !note.isPinned);
-    console.log(unpinnedNotes)
-    return unpinnedNotes;
-}
+// function getUnpinnedNotes() {
+//     const unpinnedNotes = notes.filter(note => !note.isPinned);
+//     console.log(unpinnedNotes)
+//     return unpinnedNotes;
+// }
 
 function deleteNote(id) {
     const idx = notes.findIndex(note => note.id === id);
     notes.splice(idx, 1);
+}
+
+function getTodos(id) {
+    const note = getNoteById(id);
+    const todos = note.info.todos;
+    const todoTxts = todos.map(todo => todo.txt).join(', ');
+    console.log(todoTxts);
+    return todoTxts
 }

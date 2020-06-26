@@ -4,7 +4,7 @@ export default {
   name: "email-status",
   // props:['emails'],
   template: `
-    <span >
+    <span>
         {{unreadCount}}
 </span>
     `,
