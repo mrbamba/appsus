@@ -7,7 +7,7 @@ import aboutTeam from './cmps/about-team.cmp.js';
 import aboutService from './cmps/about-service.cmp.js';
 import emailApp from './apps/email/pages/email-app.cmp.js';
 import notesApp from './apps/notes/pages/notes-app.cmp.js';
-import noteEdit from './apps/notes/pages/note-edit.cmp.js';
+// import noteEdit from './apps/notes/pages/note-edit.cmp.js';
 import emailDetails from './apps/email/cmps/email-details.cmp.js';
 import emailList from './apps/email/cmps/email-list.cmp.js'
 
@@ -64,12 +64,12 @@ const myRoutes = [
     {
         path: '/notes',
         component: notesApp,
-        children: [
-            {
-                path: ':noteId?',
-                component: noteEdit
-            }
-        ]
+        // children: [
+        //     {
+        //         path: ':noteId?',
+        //         component: noteEdit
+        //     }
+        // ]
     },
     {
         path: '/about/:who?',

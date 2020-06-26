@@ -1,6 +1,7 @@
 import { noteService } from '../services/notes.service.js';
 
 export default {
+    name: 'add-note',
     template: `
         <div class="add-note">
             <input class="input-title" v-if="type !== noteText" type="text" v-model="title" placeholder="Title" />

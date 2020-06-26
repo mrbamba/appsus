@@ -17,7 +17,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteText',
         isPinned: true,
-        color: 'lightyellow',
+        color: 'rgb(248, 248, 157)',
         info: {
             txt: 'Call mom'
         }
@@ -26,7 +26,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
-        color: 'burlywood',
+        color: '',
         info: {
             url: 'https://cdn.shopify.com/s/files/1/0808/8861/products/Milk_76b3410f-ff3e-496a-a64e-2de581a8db32_grande.jpg?v=1586811080',
             title: 'Save the earth - it is the only planet with chocolate!'
@@ -35,8 +35,8 @@ var notes = [
     {
         id: utilService.makeId(),
         type: 'noteText',
-        isPinned: true,
-        color: 'white',
+        isPinned: false,
+        color: 'rgb(248, 160, 248)',
         info: {
             txt: 'As a child i never imagined that all of the real monsters in the world would be humans.'
         }
@@ -45,7 +45,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
-        color: 'lightblue',
+        color: 'rgb(171, 210, 236)',
         info: {
             url: 'https://c.stocksy.com/a/f9S500/z9/1299871.jpg',
             title: "Beautiful"
@@ -55,7 +55,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteTodos',
         isPinned: false,
-        color: 'lightcoral',
+        color: 'rgb(81, 192, 186)',
         info: {
             label: 'To do:',
             todos: [
@@ -68,7 +68,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteTodos',
         isPinned: false,
-        color: 'lightpink',
+        color: 'rgb(248, 160, 248)',
         info: {
             label: 'Shopping List:',
             todos: [
@@ -95,7 +95,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteVideo',
         isPinned: false,
-        color: 'lightgreen',
+        color: 'rgb(241, 203, 98)',
         info: {
             url: 'https://steamcdn-a.akamaihd.net/steam/apps/256781910/movie480_vp9.webm?t=1587056339',
             title: 'Play games...'

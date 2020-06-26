@@ -2,6 +2,7 @@ import { eventBus } from '../../../services/event-bus.service.js';
 
 
 export default {
+    name: 'note-edit',
     props: ['note'],
     template: `
     

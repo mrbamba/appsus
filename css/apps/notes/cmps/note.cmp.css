@@ -11,11 +11,6 @@
 .note:hover {
     cursor: pointer;
 }
-/* .note option div {
-    width: 20px;
-    height: 20px;
-    background-color: red; */
-/* } */
 
 .note .color {
     margin-left: -26px;
@@ -42,4 +37,8 @@
 .pinned {
     background-color: rgb(201, 195, 195);
     border-radius: 5px;
+}
+
+.pinnedNote {
+    border: 3px solid gray;
 }

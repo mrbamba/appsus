@@ -3,6 +3,7 @@ import { noteService } from '../services/notes.service.js';
 
 
 export default {
+    name: 'note-todos',
     props: ['info', 'id', 'note'],
     template: `
         <div class="note" :style="{backgroundColor: note.color}" > 

@@ -1,9 +1,10 @@
 import { noteService } from '../services/notes.service.js';
 
 export default {
+    name: 'note-text',
     props:['info', 'id', 'note'],
     template: `
-        <div class="note" :style="{backgroundColor: note.color}"> 
+        <div :class="{pinnedNote: note.isPinned}" class="note" :style="{backgroundColor: note.color}"> 
         <p>{{info.txt}}</p>
         <div class="icons">
         <i class="fas fa-palette icon-color"></i>
@@ -17,8 +18,6 @@ export default {
         changeBgc(ev, id) {
             const color = ev.target.value;
             noteService.changeColor(color, id);
-
- 
          },
          deleteNote(id) {
             console.log(id)

@@ -2,6 +2,7 @@ import { noteService } from '../services/notes.service.js';
 
 
 export default {
+    name: 'note-video',
     props: ['info', 'id', 'note'],
     template: `
         <div class="note-img-container note" :style="{backgroundColor: note.color}">
