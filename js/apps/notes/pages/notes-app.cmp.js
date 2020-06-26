@@ -7,7 +7,7 @@ import noteEdit from '../cmps/note-edit.cmp.js';
 export default {
     name: 'notes-app',
     template: `
-    <main>
+    <main class="main-notes-container">
     <h1>Notes</h1>
             <add-note></add-note>
             <p v-if="!notes.length"> You don't have any notes </p>

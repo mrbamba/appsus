@@ -4,10 +4,6 @@
     border-radius: 5px;
 }
 
-.chosen {
-    background-color: rgb(211, 210, 210);
-}
-
 .input-title {
     width: 40%;
 }
@@ -19,4 +15,12 @@
 .add-btn {
     font-weight: bold;
     background-color: rgb(238, 240, 142);
+}
+
+.add-note i {
+    color: rgb(182, 182, 182);
+}
+
+.chosen i {
+    color: black;
 }

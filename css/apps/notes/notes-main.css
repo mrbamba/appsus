@@ -4,3 +4,7 @@
 @import './cmps/add-note.cmp.css';
 @import './cmps/note-video.cmp.css';
 @import './cmps/notes-list.cmp.css';
+
+/* .main-notes-container {
+    margin: 10px auto;
+} */

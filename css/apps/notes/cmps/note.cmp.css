@@ -8,6 +8,18 @@
     width: 30vw;
 }
 
+@media (max-width: 650px) {
+    .note {
+        width: 45vw;
+    }
+}
+
+@media (max-width: 420px) {
+    .note {
+        width: 90vw;
+    }
+}
+
 .note:hover {
     cursor: pointer;
 }

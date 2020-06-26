@@ -4,6 +4,7 @@ import emailDetalis from "../cmps/email-details.cmp.js";
 import emailCompose from "../cmps/email-compose.cmp.js";
 
 import { emailService } from "../services/email.service.js";
+import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
   name: "email-app",
@@ -15,36 +16,29 @@ export default {
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
         <email-compose v-if="composing" v-on:closeCompose="closeCompose"/>
-
         </div>
-
     `,
   data() {
     return {
       emails: null,
-      filterBy: {
-        searchStr: "",
-      },
+      searchStr: '',
       selectedEmail: null,
       composing:false,
     };
   },
   computed: {
     emailsToShow() {
-      const filterBy = this.filterBy;
-      if (!filterBy) return this.emails;
-
+      if (!this.searchStr) return this.emails;
       let filteredEmails = this.emails.filter((email) => {
         return (
-          email.subject
-            .toLowerCase()
-            .includes(filterBy.searchStr.toLowerCase()) ||
-          email.body.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
-          email.from.toLowerCase().includes(filterBy.searchStr.toLowerCase()) ||
-          email.to.toLowerCase().includes(filterBy.searchStr.toLowerCase())
+          email.subject.toLowerCase().includes(this.searchStr.toLowerCase()) ||
+          email.body.toLowerCase().includes(this.searchStr.toLowerCase()) ||
+          email.fromAddress.toLowerCase().includes(this.searchStr.toLowerCase()) ||
+          email.fromName.toLowerCase().includes(this.searchStr.toLowerCase()) ||
+          email.toAddress.toLowerCase().includes(this.searchStr.toLowerCase()) ||
+          email.toName.toLowerCase().includes(this.searchStr.toLowerCase()) 
         );
       });
-      console.log(filteredEmails);
       return filteredEmails;
     },
   },
@@ -63,11 +57,15 @@ export default {
         this.emails = emails;
       });
     }
+
+    eventBus.$on('filter',(data) => {
+      this.searchStr = data
+  });
   },
   methods: {
-    setFilter(filterBy) {
-      this.filterBy = filterBy;
-    },
+    // setFilter(filterBy) {
+    //   this.filterBy = filterBy;
+    // },
     emailSelected(emailId) {
       emailService.getById(emailId).then((email) => {
         this.selectedEmail = email;
