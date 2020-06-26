@@ -112,8 +112,9 @@ export default {
       this.selectedEmail = null;
 
       const emailId = this.$route.params.emailId;
-    //   const params = this.$route.params;
-    //   console.log('params',params)
+      const params = this.$route.params;
+      console.log('params',params)
+      console.log('id', emailId)
 
       if (emailId) {
         if (emailId === "inbox") {

@@ -5,3 +5,9 @@ body {
     margin: 0;
 }
 
+.home-icon {
+    padding: 3rem;
+}
+.home-icon i {
+    color: #014dcb;
+}

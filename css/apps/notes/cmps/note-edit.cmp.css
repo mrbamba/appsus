@@ -1,3 +1,9 @@
 .note-edit {
     text-align: center;
 }
+
+.note-edit .done-btn {
+    background-color: #014dcb;
+    color: white;
+    border: none;
+}

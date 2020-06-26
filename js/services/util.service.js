@@ -5,7 +5,8 @@ export const utilService = {
     loadFromStorage,
     getRandomId,
     getRandomInt,
-    makeId
+    makeId,
+    getQueryVariable
 }
 
 function saveToStorage(key, val) {
@@ -40,3 +41,13 @@ function makeId(length = 6) {
     }
     return result;
  }
+
+ function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) { return pair[1]; }
+    }
+    return (false);
+}
