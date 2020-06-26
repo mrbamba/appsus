@@ -1,5 +1,6 @@
 import { eventBus } from '../../../services/event-bus.service.js';
 import { noteService } from '../services/notes.service.js';
+import addNoteCmp from './add-note.cmp.js';
 
 
 export default {
@@ -10,7 +11,7 @@ export default {
     <input v-if="note.type === 'noteImg' || note.type === 'noteVideo'" type="text" v-model="note.info.title" />
     <input v-if="note.type === 'noteTodos'" type="text" v-model="note.info.label" />
     <input v-if="note.type === 'noteText'" v-model="note.info.txt"/>
-    <input v-if="note.type === 'noteTodos'" :todos="note.info.todos.map(todo => todo.txt)" v-model="todos"/>
+    <input v-if="note.type === 'noteTodos'" v-model="note.info.todosTxt" @change="convertTodo(note.id, note.info.todosTxt, note.info.label)"/>
     <input v-if="note.type === 'noteImg' || note.type === 'noteVideo'" v-model="note.info.url"/>
     <button @click="unselect()">Done</button>
     </div>
@@ -19,22 +20,21 @@ export default {
         return {
             type: '',
             isEditing: null,
-            // todos: [],
         }
-    },
-    computed: {
-        
     },
     created() {
         const noteId = this.$route.params.noteId;
         this.isEditing = true;
     },
- 
     methods: {
         unselect() {
             this.isEditing = false;
             eventBus.$emit('unselect', '')
         },
+        convertTodo(id, txt, title) {
+            noteService.addNote('noteTodos', txt, title);
+            noteService.deleteNote(id);
+        }
         // getTheTodos(id) {
         //     this.todos = noteService.getTodos(id);
         // }

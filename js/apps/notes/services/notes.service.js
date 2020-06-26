@@ -62,7 +62,8 @@ var notes = [
             todos: [
                 { txt: 'Do that', doneAt: null },
                 { txt: 'Do this', doneAt: 187111111 }
-            ]
+            ],
+            todosTxt: 'Do that, Do this'
         }
     },
     {
@@ -78,8 +79,8 @@ var notes = [
                 { txt: 'Chocolate', doneAt: null },
                 { txt: 'More chocolate', doneAt: null },
                 { txt: 'Pasta', doneAt: null },
-
-            ]
+            ],
+            todosTxt: 'Milk, Fruits, Chocolate, More chocolate, Pasta'
         }
     },
     {
@@ -143,6 +144,7 @@ function addNote(type, txtOrUrl, title) {
             url: '',
             title: '',
             label: '',
+            todosTxt: '',
             todos: null
         }
     }
@@ -153,8 +155,9 @@ function addNote(type, txtOrUrl, title) {
     }
     else if (type === 'noteTodos') {
         newNote.info.label = title;
-        var todosTxt = txtOrUrl.split(',');
-        var todos = todosTxt.map(todo => {
+        newNote.info.todosTxt = txtOrUrl;
+        var todosTxts = txtOrUrl.split(',');
+        var todos = todosTxts.map(todo => {
             return { txt: todo, doneAt: null };
         })
         newNote.info.todos = todos;
