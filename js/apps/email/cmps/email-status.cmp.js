@@ -4,16 +4,29 @@ export default{
     name:'email-status',
     props:['emails'],
     template:`
-    <div>
+    <div :unreadCount="getUnreadCount(emails)">
         {{unreadCount}}
     </div>
     `,
-    computed:{
-        unreadCount(){
-            let count=0
-            emails.forEach((email) => {
-                if (email.isRead) count ++
+    data() {
+        return {
+            unreadCount: 0
+        }
+    },
+    // computed:{
+    //     unreadCount(){
+    //         let count=0
+    //         emails.forEach((email) => {
+    //             if (email.isRead) count ++
                 
+    //         });
+    //     }
+    // },
+    methods: {
+        getUnreadCount(emails) {
+            console.log(emails)
+            emails.forEach((email) => {
+                if (!email.isRead) this.unreadCount++   
             });
         }
     }

@@ -48,7 +48,7 @@ var notes = [
         color: 'rgb(171, 210, 236)',
         info: {
             url: 'https://c.stocksy.com/a/f9S500/z9/1299871.jpg',
-            title: "Beautiful"
+            title: "Winter Wonderland"
         },
     },
     {
@@ -68,7 +68,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteTodos',
         isPinned: false,
-        color: 'rgb(248, 160, 248)',
+        color: 'rgb(171, 210, 236)',
         info: {
             label: 'Shopping List:',
             todos: [
@@ -79,6 +79,15 @@ var notes = [
                 { txt: 'Pasta', doneAt: null },
 
             ]
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'noteText',
+        isPinned: false,
+        color: 'rgb(248, 160, 248)',
+        info: {
+            txt: 'Where wisdom reigns, there is no conflict between thinking and feeling. - Carl Jung'
         }
     },
     {
@@ -100,7 +109,16 @@ var notes = [
             url: 'https://steamcdn-a.akamaihd.net/steam/apps/256781910/movie480_vp9.webm?t=1587056339',
             title: 'Play games...'
         }
-    }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'noteText',
+        isPinned: false,
+        color: 'rgb(248, 160, 248)',
+        info: {
+            txt: 'The true value of a human being is determined primarily by the measure and the sense in which he has attained to liberation from the self. - Albert Einstein'
+        }
+    },
 ];
 
 
