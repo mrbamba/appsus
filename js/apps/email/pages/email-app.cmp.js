@@ -12,7 +12,7 @@ export default {
   template: `
         <div class="mail-main ">
         <email-nav-bar v-on:compose="compose" v-bind:emails="emails"></email-nav-bar>
-        <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" v-bind:emailCount="emailCount"  v-on:emailSelected="emailSelected($event)"></email-list>
+        <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" v-bind:emailCount="emailCount"  v-on:emailSelected="emailSelected($event)" v-on:filtered="setFilter"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
         <email-compose v-if="composing" v-on:closeCompose="closeCompose"/>
@@ -23,6 +23,8 @@ export default {
       emails: null,
         filterBy: {
             searchStr: '',
+            readStatus:'both',
+
         },
       selectedEmail: null,
       composing:false,
@@ -42,6 +44,13 @@ export default {
           email.toName.toLowerCase().includes(filterBy.searchStr.toLowerCase()) 
         );
       });
+      filteredEmails=filteredEmails.filter(email=>{
+          if (filterBy.readStatus==='both'){
+              return filteredEmails
+          }else if(filterBy.readStatus==='read'){
+              return email.isRead===true;
+            }else return email.isRead===false;
+      })
       return filteredEmails;
     },
     emailCount(){
@@ -87,6 +96,9 @@ export default {
     },
     closeCompose(){
         this.composing=false;
+    },
+    setFilter(filterBy){
+        this.filterBy.readStatus=filterBy;
     }
   },
   components: {

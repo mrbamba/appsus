@@ -8,7 +8,7 @@ export default {
     template:`
     <div class="email-list">
         <table style="height:100%; width:100%">
-            <email-list-menu :emailCount='emailCount'/>
+            <email-list-menu :emailCount='emailCount' v-on:filtered="emitFilter"></email-list-menu>
             <email-preview v-for="email in emails" @click.native="selectEmail(email.id)" :email="email" :key="email.id"/>
         </table>
     </div>
@@ -16,6 +16,9 @@ export default {
     methods:{
         selectEmail(emailId){
             this.$emit('emailSelected',emailId);
+        },
+        emitFilter(filterBy){
+            this.$emit('filtered',filterBy)
         }
     },
     components:{
