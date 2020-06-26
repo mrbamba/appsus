@@ -1,7 +1,8 @@
 .add-note {
     background-color: #f1f3f4;
-    padding: 10px;
+    padding: 20px;
     border-radius: 5px;
+    text-align: center;
 }
 
 .input-title {
@@ -23,4 +24,8 @@
 
 .chosen i {
     color: black;
+}
+
+.add-note button {
+    margin: 0;
 }
