@@ -10,7 +10,7 @@ export const noteService = {
     // getUnpinnedNotes,
     pinNote,
     changeColor,
-    getTodos
+    getTodos,
 }
 
 var notes = [
@@ -159,7 +159,8 @@ function addNote(type, txtOrUrl, title) {
         })
         newNote.info.todos = todos;
     }
-    notes.unshift(newNote);
+    var idx = getNumOfPinnedNotes();
+    notes.splice(idx, 0, newNote);
 }
 
 function pinNote(id) {
@@ -185,6 +186,14 @@ function changeColor(color, id) {
 //     const pinnedNotes = notes.filter(note => { return note.isPinned === true });
 //     return pinnedNotes;
 // }
+
+function getNumOfPinnedNotes() {
+    var count = 0;
+    notes.forEach(note => {
+        if (note.isPinned) count++
+    })
+    return count;
+}
 
 
 // function getUnpinnedNotes() {
