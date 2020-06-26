@@ -1,15 +1,26 @@
 .email-details{
     text-align: left;
-    padding: 30px;
+    padding: 0px 30px 30px 30px;
     margin: 0 auto;
+    min-width: 100%;
 }
 
 .email-subject{
     font-size: 1.5rem;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 
 .email-to-details{
 
     padding-bottom: 30px;
 }
+.email-details-tool-bar{
+    border-bottom: 1px solid #eef0f2;
+    min-height: 50px;
+}
+
+.email-details-tool-bar button{
+    border: none;
+    /* font-size: 1.5rem; */
+}
+
