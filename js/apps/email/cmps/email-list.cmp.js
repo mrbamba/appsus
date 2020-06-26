@@ -7,7 +7,7 @@ export default {
     props:['emails','emailCount'],
     template:`
     <div class="email-list">
-        <table>
+        <table style="height:100%; width:100%">
             <email-list-menu :emailCount='emailCount'/>
             <email-preview v-for="email in emails" @click.native="selectEmail(email.id)" :email="email" :key="email.id"/>
         </table>

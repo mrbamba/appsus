@@ -5,9 +5,9 @@ export default {
   template: `
         <tr class="email-table-row" :class="emailTableRowClass">
             <td>
-                <input type="checkbox" >
+                <input type="checkbox" @click.stop >
             </td>
-            <td :class="emailStarred" @click.stop="starStatus">
+            <td :class="emailStarred" @click.stop="starStatus" title="Star/Unstar Email">
             
             </td>
             <td>
@@ -17,7 +17,9 @@ export default {
                 <b>{{email.subject}}</b>
             </td>
             <td class="email-body">
-                {{email.body}}
+                <div class="email-preview-td-body">
+                    {{email.body}}
+                </div>
             </td>
             <td>
                 {{timeFormatted}}

@@ -6,7 +6,7 @@ export default{
 
     template: `
     <div class="mail-nav-bar">
-    <button class="compose-button" v-on:click="compose"><i class="fa fa-plus"></i>  Compose</button>
+    <button class="compose-button" v-on:click="compose"><i class="fa fa-plus" title="Compose new Email"></i>  Compose</button>
     <ul class="email-nav-list">
         <li><router-link class="router-link" to="/email/inbox">Inbox</router-link><email-status v-bind:emails="emails"/></li>
         <li><router-link class="router-link" to="/email/starred">Starred</router-link></li>
