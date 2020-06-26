@@ -13,7 +13,8 @@
 .email-table-row td{
     text-align: left;
     padding: 10px;
-    vertical-align: middle;
+    /* vertical-align: middle; */
+    align-self: center;
 
 }
 .email-row-is-read{
