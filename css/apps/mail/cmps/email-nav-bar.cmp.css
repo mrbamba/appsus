@@ -1,12 +1,41 @@
-.mail-nav-bar{
+.email-nav-list{
     text-align: left;
+    padding: 15px 35px 5px 15px;
+    margin: 0px;
+    padding: 0px;
+    color: black;
+
+
+
+}
+.email-nav-list .router-link{
+    padding: 15px 35px 15px 15px;
+    color: black;
+    transition: ease-in-out .3s;
+
+
+
+}
+.email-nav-list li{
+    padding: 15px 35px 15px 15px;
+    transition: ease-in-out .3s;
+}
+.email-nav-list .router-link-active{
+    background-color: #fce8e6;
+    color: #da332a;
+    /* text-align: left; */
+    padding: 15px 35px 15px 15px;
+    transition: ease-in-out .3s;
+
+
 }
 
 .compose-button{
     padding: 10px 20px;
     border-radius: 50px;
     font-size: 1rem;
-    
+    margin-bottom:20px ;
+    min-width: 140px;
 
 }
 .compose-button .fa{
@@ -16,6 +45,3 @@
 
 }
 
-.mail-nav-list{
-    text-align: left;
-}

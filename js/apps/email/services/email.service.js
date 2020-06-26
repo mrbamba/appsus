@@ -13,6 +13,9 @@ export const emailService={
     getEmptyEmail,
     sendEmail,
     getUnreadCount,
+    deleteEmail,
+    markAsSpam,
+    markAsUnread,
 
 }
 
@@ -69,7 +72,7 @@ var gEmails=[
         toAddress:'steven@gmail.com',
         toName:'Steven',
         subject:'Testing the new email app third time',
-        body:'Hey Dan, I am just testing the new Email app, how do you like it so far',
+        body:'last item in array - Hey Dan, I am just testing the new Email app, how do you like it so far',
         timestamp:new Date('2020-03-21'),
         isRead:false,
         isStarred:true,
@@ -158,8 +161,21 @@ function getUnreadCount(emails){
             return Promise.resolve(count);
 }
 
-
-
 function sendEmail(email){
     gEmails.push(email)
+}
+
+function deleteEmail(emailId){
+    let emailToBeDeletedIndex= gEmails.findIndex(email=> email.id===emailId)
+    gEmails[emailToBeDeletedIndex].deleted=true;
+}
+
+function markAsSpam(emailId){
+    let emailToMarkAsSpamIndex= gEmails.findIndex(email=> email.id===emailId)
+    gEmails[emailToMarkAsSpamIndex].spam=true;
+}
+function markAsUnread(emailId){
+    let emailToMarkAsUnread =  gEmails.findIndex(email=> email.id===emailId)
+    gEmails[emailToMarkAsUnread].isRead=false;
+
 }
