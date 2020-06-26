@@ -1,10 +1,14 @@
 .email-table-row{
-    border-top: 1px solid #eef0f2;
+    border-bottom: 1px solid #eef0f2;
     padding: 10px;
     cursor: pointer;
     min-width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.email-table-row:hover{
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+
 }
 .email-table-row td{
     text-align: left;

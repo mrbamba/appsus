@@ -12,7 +12,7 @@ export default {
   template: `
         <div class="mail-main ">
         <email-nav-bar v-on:compose="compose" v-bind:emails="emails"></email-nav-bar>
-        <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" v-on:emailSelected="emailSelected($event)"></email-list>
+        <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" v-bind:emailCount="emailCount"  v-on:emailSelected="emailSelected($event)"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
         <email-compose v-if="composing" v-on:closeCompose="closeCompose"/>
@@ -41,6 +41,12 @@ export default {
       });
       return filteredEmails;
     },
+    emailCount(){
+        emailService.getUnreadCount(this.emails)
+            .then((count)=>{
+                return count;
+            })
+    }
   },
   created() {
     console.log("created", Date.now);

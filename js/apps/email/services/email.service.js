@@ -158,8 +158,6 @@ function getUnreadCount(emails){
             return Promise.resolve(count);
 }
 
-
-
 function sendEmail(email){
     gEmails.push(email)
 }

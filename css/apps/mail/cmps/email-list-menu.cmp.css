@@ -1,0 +1,8 @@
+.email-list-menu{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eef0f2;
+    min-height: 50px;
+}
+
+

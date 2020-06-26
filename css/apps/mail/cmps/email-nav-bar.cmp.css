@@ -1,5 +1,26 @@
-.mail-nav-bar{
+.email-nav-list{
     text-align: left;
+    padding: 15px 35px 5px 15px;
+    margin: 0px;
+    padding: 0px;
+
+}
+.email-nav-list .router-link{
+    padding: 15px 35px 15px 15px;
+
+}
+.email-nav-list li{
+    /* padding: 10px; */
+    padding: 15px 35px 15px 15px;
+
+
+}
+.email-nav-list .router-link-active{
+    background-color: #fce8e6;
+    color: #da332a;
+    /* text-align: left; */
+    padding: 15px 35px 15px 15px;
+
 }
 
 .compose-button{
@@ -16,6 +37,3 @@
 
 }
 
-.mail-nav-list{
-    text-align: left;
-}
