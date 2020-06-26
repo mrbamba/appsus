@@ -29,9 +29,17 @@
     border: none;
     transition: ease-in-out .3s;
     outline: none;
+    border-radius: 10px;
+    flex-grow: 1;
+    margin-left: 25px;
 }
 
 .app-header input:hover{
     -webkit-box-shadow: 10px 9px 17px -10px rgba(0,0,0,0.78); 
-box-shadow: 10px 9px 17px -10px rgba(0,0,0,0.78);
+    box-shadow: 10px 9px 17px -10px rgba(0,0,0,0.78);
+}
+
+.logo{
+    width: 70px;
+    padding-left: 25px;
 }

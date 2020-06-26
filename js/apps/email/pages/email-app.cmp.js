@@ -53,7 +53,6 @@ export default {
     this.selectedEmail = null;
 
     const emailId = this.$route.params.emailID;
-    console.log(emailId);
     if (emailId) {
       emailService.getById(emailID).then((email) => {
         this.selectedEmail = email;

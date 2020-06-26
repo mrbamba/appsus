@@ -1,31 +1,51 @@
 .add-note {
     background-color: #f1f3f4;
-    padding: 20px;
+    padding: 30px;
     border-radius: 5px;
     text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.add-note > .fa-2x{
+    padding: 55px;
 }
 
 .input-title {
     width: 40%;
+    /* padding: 10px */
+    margin: 10px;
 }
 
 .input-txt {
-    width: 70%;
+    width: 60%;
+    margin: 10px;
+    /* padding: 5px */
+
+}
+
+.add-note > button{
+    border: none;
+    margin: 10px;
 }
 
 .add-btn {
     font-weight: bold;
-    background-color: rgb(238, 240, 142);
+    background-color: #014dcb;
+    color: white;
 }
-
 .add-note i {
     color: rgb(182, 182, 182);
 }
+.add-btn i{
+color: white;
+}
+
 
 .chosen i {
     color: black;
 }
 
-.add-note button {
+/* .add-note button {
     margin: 0;
-}
+} */
