@@ -8,10 +8,10 @@ import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
   name: "email-app",
-  prop: "selectedEmail",
+//   prop: "selectedEmail",
   template: `
         <div class="mail-main ">
-        <email-nav-bar v-on:compose="compose" :emails="emails"></email-nav-bar>
+        <email-nav-bar v-on:compose="compose" v-bind:emails="emails"></email-nav-bar>
         <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" v-on:emailSelected="emailSelected($event)"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>

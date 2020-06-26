@@ -1,20 +1,31 @@
-// import { emailService } from "../services/email.service.js";
+import { emailService } from "../services/email.service.js";
 
-export default{
-    name:'email-status',
-    props:['emails'],
-    template:`
-    <div>
+export default {
+  name: "email-status",
+  // props:['emails'],
+  template: `
+    <span >
         {{unreadCount}}
-    </div>
+</span>
     `,
-    computed:{
-        unreadCount(){
-            let count=0
-            emails.forEach((email) => {
-                if (email.isRead) count ++
-                
-            });
-        }
-    }
-}
+  data() {
+    return {
+      // unreadCount:null,
+      emails: null,
+    };
+  },
+  computed: {
+    unreadCount() {
+      emailService.getCleanEmails()
+        .then((emails) => {
+            this.emails = emails;
+            emailService.getUnreadCount(emails)
+                .then((count) => {
+                    console.log(count)
+                    return count
+        });
+      });
+    },
+  },
+  created() {},
+};
