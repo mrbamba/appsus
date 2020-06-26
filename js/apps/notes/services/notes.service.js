@@ -19,7 +19,26 @@ var notes = [
         isPinned: true,
         color: 'lightyellow',
         info: {
-            txt: 'Gotta call mom'
+            txt: 'Call mom'
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'noteImg',
+        isPinned: false,
+        color: 'burlywood',
+        info: {
+            url: 'https://cdn.shopify.com/s/files/1/0808/8861/products/Milk_76b3410f-ff3e-496a-a64e-2de581a8db32_grande.jpg?v=1586811080',
+            title: 'Save the earth - it is the only planet with chocolate!'
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'noteText',
+        isPinned: true,
+        color: 'white',
+        info: {
+            txt: 'As a child i never imagined that all of the real monsters in the world would be humans.'
         }
     },
     {
@@ -69,7 +88,7 @@ var notes = [
         color: 'white',
         info: {
             url: 'https://i.pinimg.com/originals/9d/d8/02/9dd802ea7726b25cbbf99ce3b853ccfe.jpg',
-            title: 'Our dog'
+            title: 'Shimi'
         },
     },
     {
@@ -130,12 +149,12 @@ function pinNote(id) {
     note.isPinned = !note.isPinned;
     notes.splice(idx, 1);
     if (note.isPinned) {
-    notes.unshift(note);
+        notes.unshift(note);
     }
     else {
         notes.push(note);
     }
-    
+
 }
 
 function changeColor(color, id) {
@@ -156,6 +175,6 @@ function getUnpinnedNotes() {
 }
 
 function deleteNote(id) {
-const idx = notes.findIndex(note => note.id === id);
-notes.splice(idx, 1);
+    const idx = notes.findIndex(note => note.id === id);
+    notes.splice(idx, 1);
 }

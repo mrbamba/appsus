@@ -1,7 +1,11 @@
+import { eventBus } from '../services/event-bus.service.js';
+
+
 export default {
+  name: 'app-header',
   template: `
      <header class="app-header ">
-        <input class="main-search" placeholder="Search"/>
+        <input class="main-search" placeholder="Search" v-model="searchStr" @input="filter"/>
         <nav class="main-nav">
                 <router-link to="/" exact><i class="fas fa-igloo"></i></router-link>
                 <router-link to="/email"><i class="far fa-envelope"></i></router-link>
@@ -11,4 +15,14 @@ export default {
         </nav>
     </header>
     `,
+    data() {
+      return {
+        searchStr: ''
+      }
+    },
+    methods: {
+      filter() {
+        eventBus.$emit('filter', this.searchStr);
+      }
+    }
 };
