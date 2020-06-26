@@ -14,3 +14,7 @@
 .email-row-is-read{
     background-color: #f2f5f5cc;
 }
+
+.email-body{
+    flex-grow: 1;
+}

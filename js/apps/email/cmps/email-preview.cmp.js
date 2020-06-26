@@ -16,7 +16,7 @@ export default {
             <td>
                 <b>{{email.subject}}</b>
             </td>
-            <td>
+            <td class="email-body">
                 {{email.body}}
             </td>
             <td>

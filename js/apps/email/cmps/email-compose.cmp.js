@@ -10,13 +10,13 @@ export default{
         <textarea class="compose-body" placeholder="Message Body" rows="30" cols="70" v-model="outboundEmail.body"></textarea>
         <div class="compose-bottom-controls flex space-between">
             <button class="send-button" @click="sendEmail" >Send Email</button>
-            <button class="trash-button"><i class=" far fa-trash-alt"></i></button>
+            <button class="trash-button" @click="closeComposer"><i class=" far fa-trash-alt"></i></button>
         </div>
     </div>
     `,
     data() {
         return {
-            outboundEmail:null,
+            outboundEmail:{},
         } 
     },
     created(){
@@ -24,13 +24,17 @@ export default{
             emailService.getEmptyEmail()
                 .then((email)=>{
                     this.outboundEmail=email
+                    console.log(this.outboundEmail)
                 })
     },
     methods:{
+        closeComposer(){
+            this.$emit('closeCompose');
+        },
         sendEmail(){
-            console.log(this.outboundEmail)
-            emailService.sendEmail(this.outboundEmail)
-            this.$emit('closeCompose')
-        }
+            console.log(this.outboundEmail);
+            emailService.sendEmail(this.outboundEmail);
+            this.$emit('closeCompose');
+                }
     },
 }

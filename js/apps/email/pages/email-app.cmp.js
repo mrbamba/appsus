@@ -14,7 +14,7 @@ export default {
         <email-list v-if="!selectedEmail && emails" :emails="emailsToShow" v-on:emailSelected="emailSelected($event)"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
-        <email-compose v-if="composing" :closeCompose="closeCompose"/>
+        <email-compose v-if="composing" v-on:closeCompose="closeCompose"/>
 
         </div>
 
@@ -26,7 +26,7 @@ export default {
         searchStr: "",
       },
       selectedEmail: null,
-      composing:null,
+      composing:false,
     };
   },
   computed: {
