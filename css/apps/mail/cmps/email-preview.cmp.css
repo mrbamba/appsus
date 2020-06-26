@@ -22,3 +22,9 @@
 .email-body{
     flex-grow: 1;
 }
+
+.email-preview-td-body{
+    display: flex;
+    min-width: 100%;
+    height: 100%;
+}

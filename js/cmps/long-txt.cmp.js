@@ -2,12 +2,12 @@ export default {
     props:['txt'],
     template: `
         <section class="long-txt">
-        Description: 
-        <p>{{ shortText }}
+        
+        {{ shortText }}
             <span v-if="showMore"> {{ longText }}</span>
-            <button class="more-btn" v-if="!showMore && isLong" @click="showMore = true">...more</button>
-            <button class="less-btn" v-if="showMore" @click="showMore = false">less</button>
-        </p>
+            <button class="more-btn" v-if="!showMore && isLong" @click.stop="showMore = true">...more</button>
+            <button class="less-btn" v-if="showMore" @click.stop="showMore = false">less</button>
+        
         </section>
     `,
     data() {

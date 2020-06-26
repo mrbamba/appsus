@@ -15,10 +15,10 @@
 
 .more-btn, .less-btn {
     border: none;
-    background-color: rgba(220, 220, 220, 0);
+    /* background-color: rgba(220, 220, 220, 0); */
     ;
     display: inline-flex;
-    color: gainsboro;
+    color: rgb(255, 87, 87);
 }
 
 .close-btn {
