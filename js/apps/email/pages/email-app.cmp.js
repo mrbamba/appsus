@@ -15,7 +15,7 @@ export default {
         <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" v-bind:emailCount="emailCount"  v-on:emailSelected="emailSelected($event)" v-on:filtered="setFilter"></email-list>
         <!-- <email-details v-else :email="selectedEmail"></email-details> -->
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
-        <email-compose v-if="composing" v-on:closeCompose="closeCompose"/>
+        <email-compose v-if="composing" v-on:closeCompose="closeCompose" />
         </div>
     `,
   data() {
@@ -28,6 +28,7 @@ export default {
         },
       selectedEmail: null,
       composing:false,
+      emailTo:null,
     };
   },
   computed: {
@@ -96,14 +97,15 @@ export default {
       this.$router.push(`/email/${emailId}`);
     },
     compose(){
-        this.composing=true;
+        this.composing=!this.composing;
     },
     closeCompose(){
         this.composing=false;
     },
     setFilter(filterBy){
         this.filterBy.readStatus=filterBy;
-    }
+    },
+
   },
   components: {
     emailNavBar,

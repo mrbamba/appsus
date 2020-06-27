@@ -3,6 +3,7 @@ import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
     name: 'compose',
+    props:['emailTo'],
     template: `
     <div class="compose flex flex-column space-between">
         <h2>New Message</h2>
@@ -24,6 +25,10 @@ export default {
 
         emailService.getEmptyEmail()
             .then((email) => {
+                if(this.emailTo){
+                    email.toAddress=this.emailTo.address,
+                    email.subject='Re: '+this.emailTo.subject
+                }
                 this.outboundEmail = email
                 console.log(this.outboundEmail)
             })
