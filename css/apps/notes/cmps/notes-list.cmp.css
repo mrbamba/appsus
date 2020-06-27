@@ -1,5 +1,5 @@
 .notes-list {
-    /* padding: 0; */
+    padding: 0;
     columns: 3;
 }
 
@@ -15,6 +15,10 @@
 @media (max-width: 650px) {
     .notes-list {
         columns: 2;
+    }
+    .notes-list{
+        margin: 0px;
+        padding: 0px;
     }
 }
 
