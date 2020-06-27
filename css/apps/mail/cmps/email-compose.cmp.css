@@ -1,5 +1,5 @@
 .compose {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     right: 10px;
     padding: 0px;
@@ -55,4 +55,20 @@
     border: none;
     font-size: 1.35rem;
     margin: 25px;
+}
+
+@media (max-width: 650px) {
+.compose{
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    border-radius: 0px;
+    right: 0px;
+}
+.compose-header {  
+    border-radius: 0px;
+}
+
 }
