@@ -11,13 +11,13 @@
     padding: 55px;
 }
 
-.input-title {
+.add-note .input-title {
     width: 40%;
     /* padding: 10px */
     margin: 10px;
 }
 
-.input-txt {
+.add-note .input-txt {
     width: 60%;
     margin: 10px;
     /* padding: 5px */
@@ -45,7 +45,3 @@ color: white;
 .chosen i {
     color: black;
 }
-
-/* .add-note button {
-    margin: 0;
-} */

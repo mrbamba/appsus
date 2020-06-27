@@ -18,7 +18,8 @@ var notes = [
         isPinned: true,
         color: 'rgb(248, 248, 157)',
         info: {
-            txt: 'Call mom'
+            txt: 'Call mom',
+            title: ''
         }
     },
     {
@@ -27,7 +28,8 @@ var notes = [
         isPinned: false,
         color: 'rgb(248, 160, 248)',
         info: {
-            txt: 'As a child i never imagined that all of the real monsters in the world would be humans.'
+            txt: 'As a child i never imagined that all of the real monsters in the world would be humans.',
+            title: ''
         }
     },
     {
@@ -78,7 +80,8 @@ var notes = [
         isPinned: false,
         color: 'rgb(248, 160, 248)',
         info: {
-            txt: 'Where wisdom reigns, there is no conflict between thinking and feeling. - Carl Jung'
+            txt: 'Where wisdom reigns, there is no conflict between thinking and feeling. - Carl Jung',
+            title: 'Quote'
         }
     },
     {
@@ -117,7 +120,8 @@ var notes = [
         isPinned: false,
         color: 'rgb(248, 160, 248)',
         info: {
-            txt: 'The true value of a human being is determined primarily by the measure and the sense in which he has attained to liberation from the self. - Albert Einstein'
+            txt: 'The true value of a human being is determined primarily by the measure and the sense in which he has attained to liberation from the self. - Albert Einstein',
+            title: 'Quote'
         }
     },
     {
@@ -157,7 +161,10 @@ function addNote(type, txtOrUrl, title) {
             todos: null
         }
     }
-    if (type === 'noteText') newNote.info.txt = txtOrUrl;
+    if (type === 'noteText') {
+        newNote.info.txt = txtOrUrl;
+        newNote.info.title = title;
+    }
     else if (type === 'noteImg' || type === 'noteVideo' || type === 'noteAudio') {
         newNote.info.url = txtOrUrl;
         newNote.info.title = title;

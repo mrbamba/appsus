@@ -1,12 +1,21 @@
 export default {
         template: `
-        <section class="about about-team">
+        <section>
             <h2>Our Team</h2>
-            <img src="/img/hermione.jpg">
-            <div class="about-text">
-            <p class="name-about"> Hermione Granger </p>
-            <p> Hermione Granger is an English Muggle-born witch who loves books and learning. Her skills she didn't learn at Coding Academy, but at Hogwarts School of Witchcraft and Wizardry. However, we can say that Coding Academy is Hogwarts for Full-Stack Coding.</p>
-    </div>
+                <div  class="about about-team">
+                        <img src="/img/profile-male.png">
+                        <div class="about-text">
+                        <p class="name-about"> Dan Haski </p>
+                        <p> </p>
+                        </div>
+                </div>
+                <div  class="about about-team">
+                <img src="/img/profile-female.png">
+                <div class="about-text">
+                <p class="name-about"> Samantha Kofler </p>
+                <p> </p>
+                </div>
+        </div>
     </section>
         `
 }

@@ -8,12 +8,12 @@ export default {
     props: ['note'],
     template: `
     <div v-if="isEditing" :note="note" class="note-edit">
-    <input v-if="note.type === 'noteImg' || note.type === 'noteVideo' || note.type === 'noteAudio" type="text" v-model="note.info.title" />
-    <input v-if="note.type === 'noteTodos'" type="text" v-model="note.info.label" />
-    <input v-if="note.type === 'noteText'" v-model="note.info.txt"/>
-    <input v-if="note.type === 'noteTodos'" v-model="note.info.todosTxt" @change="convertTodo(note.id, note.info.todosTxt, note.info.label)"/>
-    <input v-if="note.type === 'noteImg' || note.type === 'noteVideo' || note.type === 'noteAudio" v-model="note.info.url"/>
-    <button class="done-btn" @click="unselect()">Done</button>
+    <input class="input-title" v-if="note.type !== 'noteTodos'" type="text" v-model="note.info.title" />
+    <input class="input-title" v-if="note.type === 'noteTodos'" type="text" v-model="note.info.label" />
+    <input class="input-txt" v-if="note.type === 'noteText'" v-model="note.info.txt"/>
+    <input class="input-txt" v-if="note.type === 'noteTodos'" v-model="note.info.todosTxt" @change="convertTodo(note.id, note.info.todosTxt, note.info.label)"/>
+    <input class="input-txt" v-if="note.type === 'noteImg' || note.type === 'noteVideo' || note.type === 'noteAudio'" v-model="note.info.url"/>
+    <button class="done-btn" @click="unselect()"><i class="fas fa-check fa-2x"></i></button>
     </div>
     `,
     data() {
@@ -35,9 +35,6 @@ export default {
             noteService.addNote('noteTodos', txt, title);
             noteService.deleteNote(id);
         }
-        // getTheTodos(id) {
-        //     this.todos = noteService.getTodos(id);
-        // }
     },
 }
 {/* <div v-if="note.type === 'noteTodos'"><input /><span v-for="todo in note.info.todos" v-model="todo.txt">{{todo.txt}}</span></div> */}

@@ -6,6 +6,7 @@ export default {
     props: ['info', 'id', 'note'],
     template: `
         <div :class="{pinnedNote: note.isPinned}" class="note" :style="{backgroundColor: note.color}"> 
+        <p class="note-title">{{info.title}}</p>
         <p>{{info.txt}}</p>
         <div class="icons">
         <i class="fas fa-palette icon-color"></i>

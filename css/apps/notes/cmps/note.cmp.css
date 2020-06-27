@@ -60,3 +60,8 @@
 .pinnedNote {
     border: 3px solid gray;
 }
+
+.note-title {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
