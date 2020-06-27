@@ -491,7 +491,7 @@ function getEmptyEmail(){
         subject:'',
         body:'',
         timestamp:new Date(),
-        isRead:false,
+        isRead:true,
         isStarred:false,
         deleted:false, 
         spam:false,

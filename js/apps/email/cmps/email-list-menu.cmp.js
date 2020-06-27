@@ -12,7 +12,7 @@ export default{
             <i class="fas fa-sort-alpha-down fa-2x"></i>
             </button>
         </div>
-        <h2>{{emailCount}} unread emails</h2>
+        <p>{{emailCount}} unread emails</p>
         <div class="email-list-menu-filters">
             <button class="Show-unread-emails" title="Show Unread Emails"  @click="filtered('unread')">
                 <i class="fas fa-envelope fa-2x"></i>
