@@ -3,7 +3,7 @@ import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
     name: 'note-text',
-    props:['info', 'id', 'note'],
+    props: ['info', 'id', 'note'],
     template: `
         <div :class="{pinnedNote: note.isPinned}" class="note" :style="{backgroundColor: note.color}"> 
         <p>{{info.txt}}</p>
@@ -20,16 +20,17 @@ export default {
         changeBgc(ev, id) {
             const color = ev.target.value;
             noteService.changeColor(color, id);
-         },
-         deleteNote(id) {
+        },
+        deleteNote(id) {
             noteService.deleteNote(id);
         },
         pinNote(id) {
             noteService.pinNote(id);
         },
         sendNoteAsEmail(txt) {
-           this.$router.push(`/email/:?subject=${''}&body=${txt}`);
-           
+            eventBus.$emit('sendNoteAsEmail', txt);
+            this.$router.push(`/email/:?subject=${''}&body=${txt}`);
+
         }
     }
 }

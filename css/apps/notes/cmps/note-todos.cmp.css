@@ -15,3 +15,8 @@
 .note ul {
     padding-left: 20px;
 }
+
+.todo-label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}

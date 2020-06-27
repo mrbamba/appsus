@@ -6,6 +6,7 @@
     color: black;
     border-radius: 10px;
     width: 30vw;
+    font-size: 1.2em;
 }
 
 .note:hover{
