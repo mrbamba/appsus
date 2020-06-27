@@ -45,8 +45,19 @@
     padding-left: 25px;
 }
 
+.btn-menu {
+    visibility: hidden;
+}
+
 
 @media (max-width: 420px) {
+    .btn-menu {
+        cursor: pointer;
+        visibility: visible;
+        font-size: 3rem;
+        border: none;
+        /* background-color: lightsalmon; */
+    }
     .main-nav {
         font-size: 1.5rem;
         display: flex;
@@ -62,7 +73,7 @@
         transition: transform 1s;
     }
     .main-nav i {
-        padding: 2rem 4rem 2rem 1rem;
+        padding: 2rem;
         border-right: none;
     }
     .menu-open .main-nav {
@@ -80,3 +91,4 @@
         opacity: 1;
     }
 }
+/* 4rem 2rem 1rem */

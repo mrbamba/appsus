@@ -9,9 +9,18 @@
 @media (max-width: 800px) {
     .add-note {
         flex-wrap: wrap;
+        padding: 0px;
     }
 }
 
+@media (max-width: 420px) {
+    .add-note .input-title {
+        width:100%;
+    }
+    .add-note .input-txt {
+        width: 100%;
+    }
+}
 
 
 .add-note > .fa-2x{

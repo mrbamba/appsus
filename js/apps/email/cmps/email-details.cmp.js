@@ -94,8 +94,8 @@ export default {
             this.replyTo=null;
         },
         addToNotes(email) {
-            console.log(email)
             noteService.addNote('noteText', email.body, email.subject);
+            eventBus.$emit('user-msg', 'Email saved as note');
             this.$router.push('/notes');
         }
     },
