@@ -10,11 +10,11 @@ export default {
         <input class="main-search" placeholder="Search" v-model="filterBy.searchStr" @input="filter"/>
         <button class="btn-menu" @click="onToggleMenu()">☰</button>
         <nav class="main-nav">
-                <router-link to="/" exact><i class="fas fa-igloo"></i></router-link>
-                <router-link to="/email/inbox"><i class="far fa-envelope"></i></router-link>
-                <router-link to="/notes"><i class="far fa-sticky-note"></i></i></router-link>
-                <router-link to="/books"><i class="fas fa-book"></i></router-link>
-                <router-link to="/about/"><i class="far fa-address-card"></i></router-link>
+                <router-link to="/" exact><i class="fas fa-igloo" @click="onToggleMenu"></i></router-link>
+                <router-link to="/email/inbox"><i class="far fa-envelope" @click="onToggleMenu"></i></router-link>
+                <router-link to="/notes"><i class="far fa-sticky-note" @click="onToggleMenu"></i></i></router-link>
+                <router-link to="/books"><i class="fas fa-book" @click="onToggleMenu"></i></router-link>
+                <router-link to="/about/"><i class="far fa-address-card" @click="onToggleMenu"></i></router-link>
         </nav>
     </header>
     `,
