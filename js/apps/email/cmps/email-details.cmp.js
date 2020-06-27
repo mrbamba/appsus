@@ -51,7 +51,7 @@ export default {
 </div>
 
 </div>
-    <p class="email-body">{{email.body}}</p>
+    <p class="email-body"><pre class="email-details-email-body-pre">{{email.body}}</pre></p>
 
 
 

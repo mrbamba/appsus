@@ -52,3 +52,8 @@
     /* max-width: 80%; */
 }
 
+.email-details-email-body-pre{
+    overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+}
