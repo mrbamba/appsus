@@ -1,11 +1,24 @@
 .notes-list {
-    /* padding: 0; */
+    padding: 0;
     columns: 3;
+}
+
+.notes-list .pinned-container p {
+    margin: 1em;
+    font-style: italic;
+}
+
+.notes-list-hr {
+    background-color: #eef0f2;
 }
 
 @media (max-width: 650px) {
     .notes-list {
         columns: 2;
+    }
+    .notes-list{
+        margin: 0px;
+        padding: 0px;
     }
 }
 
@@ -13,13 +26,4 @@
     .notes-list {
         columns: 1;
     }
-}
-
-.notes-list .pinned-container p{
-    margin: 1em;
-    font-style: italic;
-}
-
-.notes-list-hr{
-    background-color: #eef0f2;
 }
