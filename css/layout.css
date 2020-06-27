@@ -14,12 +14,11 @@
     color: rgb(162, 0, 0);
 } */
 
-.router-link-active{
+.router-link-active {
     color: rgb(3, 3, 196);
     background-color: #eee;
     border-radius: 5px;
     /* border: 1px solid black; */
-    
     box-shadow: 5px 5px 5px -6px rgba(51, 83, 212, 1);
 }
 

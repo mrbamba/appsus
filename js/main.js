@@ -1,5 +1,5 @@
 
-import {myRouter} from './routes.js';
+import { myRouter } from './routes.js';
 
 import appHeader from './cmps/app-header.cmp.js';
 import userMsg from './cmps/user-msg.cmp.js';
@@ -14,6 +14,7 @@ new Vue({
     router: myRouter,
     template: `
     <div>
+    <div class="screen" @click="onToggleMenu()"></div>
        <user-msg/>
         <app-header></app-header>
         <main>
@@ -24,5 +25,10 @@ new Vue({
     components: {
         appHeader,
         userMsg
+    },
+    methods: {
+        onToggleMenu() {
+            document.body.classList.toggle('menu-open');
+        }
     }
 });
