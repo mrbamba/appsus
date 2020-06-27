@@ -50,7 +50,7 @@
 }
 
 
-@media (max-width: 420px) {
+@media (max-width: 780px) {
     .btn-menu {
         cursor: pointer;
         visibility: visible;

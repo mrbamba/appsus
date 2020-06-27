@@ -1,10 +1,8 @@
 .add-note {
     background-color: #f1f3f4;
-    padding: 30px;
     border-radius: 5px;
     text-align: center;
-    display: flex;
-    justify-content: space-evenly;
+    display: inline-flex;
 }
 @media (max-width: 800px) {
     .add-note {
