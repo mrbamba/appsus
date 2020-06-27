@@ -51,6 +51,8 @@ export default {
             console.log(this.outboundEmail);
             emailService.sendEmail(this.outboundEmail);
             this.$emit('closeCompose');
+            eventBus.$emit('user-msg', 'Email Sent!');
+
         }
     },
 }

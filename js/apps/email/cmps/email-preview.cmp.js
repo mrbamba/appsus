@@ -1,4 +1,6 @@
 import longTxt from '../../../cmps/long-txt.cmp.js'
+import { eventBus } from "../../../services/event-bus.service.js";
+
 
 export default {
     name:'email-preview',
@@ -45,9 +47,14 @@ export default {
       } else return `${emailTime.getMonth()+1}/${emailTime.getYear()}`;
     },
     emailStarred(){
+
         if (this.email.isStarred) {
+
         return `fas fa-star`
-    } else return `far fa-star`
+    } else {
+
+      return `far fa-star`
+    }
     },
     emailRead(){
       if (!this.email.isRead){
@@ -61,6 +68,9 @@ export default {
   methods:{
       starStatus(){
           this.email.isStarred=!this.email.isStarred;
+          eventBus.$emit('user-msg', 'Star status changed');
+
+          
       }
   },
   components:{

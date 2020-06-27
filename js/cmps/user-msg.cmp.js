@@ -15,7 +15,7 @@ export default {
     created() {
         eventBus.$on('user-msg', msg => {
             this.msg = msg;
-            setTimeout(() => this.msg = '', 3000);
+            setTimeout(() => this.msg = '', 2500);
         });
     }
     
