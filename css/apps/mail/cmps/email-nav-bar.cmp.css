@@ -45,3 +45,30 @@
 
 }
 
+@media (max-width: 650px) {
+    .email-nav-list  {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        /* paddin; */
+    }
+    .email-nav-list li{
+        padding: 8px;
+        /* transition: ease-in-out .3s; */
+    }
+    .email-nav-list .router-link-active{
+        /* background-color: #fce8e6;
+        color: #da332a; */
+        /* text-align: left; */
+        padding: 8px;
+        /* transition: ease-in-out .3s; */
+    
+    
+    }
+    .email-nav-list .router-link{
+        padding: 8px;
+        color: black;
+        transition: ease-in-out .3s;
+    }
+}

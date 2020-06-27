@@ -34,3 +34,10 @@
 .email-preview-unread{
     font-weight: bold;
 }
+@media (max-width: 480px) {
+    .email-table-row{
+        display: flex;
+        flex-direction: column;
+    }
+
+}

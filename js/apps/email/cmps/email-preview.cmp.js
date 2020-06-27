@@ -8,9 +8,9 @@ export default {
   props: ["email"],
   template: `
         <tr class="email-table-row" :class="emailTableRowClass">
-            <td>
+            <!-- <td>
                 <input type="checkbox" @click.stop >
-            </td>
+            </td> -->
             <td :class="emailStarred" @click.stop="starStatus" title="Star/Unstar Email">
             
             </td>

@@ -9,3 +9,11 @@
     display: flex;
     flex-direction: row;
 }
+
+
+@media (max-width: 650px) {
+    .mail-main {
+        display: flex;
+        flex-direction: column;
+    }
+}
