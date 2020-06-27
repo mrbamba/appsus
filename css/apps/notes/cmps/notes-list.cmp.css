@@ -2,6 +2,10 @@
     padding: 0;
     columns: 3;
 }
+.notes-list li{
+    padding: 0px;
+    margin: 0px;
+}
 
 .notes-list .pinned-container p {
     margin: 1em;
