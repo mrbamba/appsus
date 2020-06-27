@@ -90,5 +90,13 @@
         visibility: visible;
         opacity: 1;
     }
+    .app-header input{
+        padding: 0px;
+        margin: 0px;
+    }
+    .logo {
+        width: 50px;
+        padding: 5px;
+    }
 }
 /* 4rem 2rem 1rem */
