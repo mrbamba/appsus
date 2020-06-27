@@ -1,4 +1,5 @@
 import { noteService } from '../services/notes.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 
 
@@ -6,7 +7,7 @@ export default {
     name: 'note-todos',
     props: ['info', 'id', 'note'],
     template: `
-        <div class="note" :style="{backgroundColor: note.color}" > 
+        <div :class="{pinnedNote: note.isPinned}" class="note" :style="{backgroundColor: note.color}" > 
         <ul class="todo-list"> 
         <p class="note-title"> {{info.label}} </p>
         <li class="todo" v-for="todo in info.todos" :class="{done: todo.doneAt}" @click.stop="todo.doneAt = !todo.doneAt">{{todo.txt}}</li>

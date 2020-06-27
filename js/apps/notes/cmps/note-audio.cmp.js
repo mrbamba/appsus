@@ -1,11 +1,12 @@
 import { noteService } from '../services/notes.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 
 export default {
     name: 'note-audio',
     props: ['info', 'id', 'note'],
     template: `
-        <div class="note-img-container note" :style="{backgroundColor: note.color}">
+        <div :class="{pinnedNote: note.isPinned}" class="note-img-container note" :style="{backgroundColor: note.color}">
         <audio controls class="note-audio">
         <source :src="info.url" type="audio/mp3">
         </audio>       

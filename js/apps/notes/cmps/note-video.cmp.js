@@ -1,11 +1,12 @@
 import { noteService } from '../services/notes.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 
 export default {
     name: 'note-video',
     props: ['info', 'id', 'note'],
     template: `
-        <div class="note-img-container note" :style="{backgroundColor: note.color}">
+        <div :class="{pinnedNote: note.isPinned}" class="note-img-container note" :style="{backgroundColor: note.color}">
         <video width="320" height="240" controls class="note-video">
         <source :src="info.url" type="video/mp4">
         </video>       

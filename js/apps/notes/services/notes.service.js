@@ -9,6 +9,8 @@ export const noteService = {
     pinNote,
     changeColor,
     getTodos,
+    getPinnedNotes,
+    getUnpinnedNotes
 }
 
 var notes = [
@@ -19,7 +21,7 @@ var notes = [
         color: 'rgb(248, 248, 157)',
         info: {
             txt: 'Call mom',
-            title: ''
+            title: 'Reminder'
         }
     },
     {
@@ -78,7 +80,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteText',
         isPinned: false,
-        color: 'rgb(248, 160, 248)',
+        color: 'rgb(81, 192, 186)',
         info: {
             txt: 'Where wisdom reigns, there is no conflict between thinking and feeling. - Carl Jung',
             title: 'Quote'
@@ -136,6 +138,7 @@ var notes = [
     },
 ];
 
+console.log(notes);
 
 function getNotes() {
     return notes;
@@ -184,15 +187,27 @@ function addNote(type, txtOrUrl, title) {
 
 function pinNote(id) {
     const note = getNoteById(id);
-    const idx = notes.findIndex(note => note.id === id);
-    note.isPinned = !note.isPinned;
-    notes.splice(idx, 1);
+    const pinnedNotes = getPinnedNotes();
+    const unpinnedNotes = getUnpinnedNotes();
     if (note.isPinned) {
-        notes.unshift(note);
+        var oldIdx = pinnedNotes.findIndex(note => note.id === id);
+        pinnedNotes.splice(oldIdx, 1);
+        unpinnedNotes.push(note);
     }
     else {
-        notes.push(note);
+        oldIdx = unpinnedNotes.findIndex(note => note.id === id);
+    // const idx = notes.findIndex(note => note.id === id);
+        unpinnedNotes.splice(oldIdx, 1);
+        pinnedNotes.unshift(note);
     }
+    note.isPinned = !note.isPinned;
+    // notes.splice(idx, 1);
+    // if (note.isPinned) {
+    //     notes.unshift(note);
+    // }
+    // else {
+    //     notes.push(note);
+    // }
 
 }
 
@@ -201,10 +216,10 @@ function changeColor(color, id) {
     note.color = color;
 }
 
-// function getPinnedNotes() {
-//     const pinnedNotes = notes.filter(note => { return note.isPinned === true });
-//     return pinnedNotes;
-// }
+function getPinnedNotes() {
+    const pinnedNotes = notes.filter(note => { return note.isPinned === true });
+    return pinnedNotes;
+}
 
 function getNumOfPinnedNotes() {
     var count = 0;
@@ -215,11 +230,11 @@ function getNumOfPinnedNotes() {
 }
 
 
-// function getUnpinnedNotes() {
-//     const unpinnedNotes = notes.filter(note => !note.isPinned);
-//     console.log(unpinnedNotes)
-//     return unpinnedNotes;
-// }
+function getUnpinnedNotes() {
+    const unpinnedNotes = notes.filter(note => !note.isPinned);
+    console.log(unpinnedNotes)
+    return unpinnedNotes;
+}
 
 function deleteNote(id) {
     const idx = notes.findIndex(note => note.id === id);

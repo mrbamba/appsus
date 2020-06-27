@@ -1,11 +1,12 @@
 import { noteService } from '../services/notes.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 
 export default {
     name: 'note-img',
     props: ['info', 'id', 'note'],
     template: `
-        <div class="note-img-container note" :style="{backgroundColor: note.color}">
+        <div :class="{pinnedNote: note.isPinned}" class="note-img-container note" :style="{backgroundColor: note.color}">
         <img :src="info.url" class="note-img"/>
         <p>{{info.title}}</p>
         <div class="icons">
