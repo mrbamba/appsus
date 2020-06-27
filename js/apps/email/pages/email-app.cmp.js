@@ -26,11 +26,10 @@ export default {
         searchStr: "",
         readStatus: "both",
       },
-      sortBy:'reverseChronological',
+      sortBy: "reverseChronological",
       selectedEmail: null,
       composing: false,
       emailTo: null,
-
     };
   },
   computed: {
@@ -62,37 +61,36 @@ export default {
           return email.isRead === true;
         } else return email.isRead === false;
       });
-      
-      if(this.sortBy==='reverseChronological'){
-        filteredEmails.sort((emailA,emailB)=>{
+
+      if (this.sortBy === "reverseChronological") {
+        filteredEmails.sort((emailA, emailB) => {
           return emailB.timestamp - emailA.timestamp;
-        })} else{
-          filteredEmails.sort((emailA,emailB)=>{
-            var subjectA = emailA.subject.toLowerCase();
-            var subjectB = emailB.subject.toLowerCase();
-            if(subjectA<subjectB){
-              return -1
-            }
-            if (subjectA>subjectB){
-              return 1;
-            }
-            return 0;
-          })
-        }
-
-
+        });
+      } else {
+        filteredEmails.sort((emailA, emailB) => {
+          var subjectA = emailA.subject.toLowerCase();
+          var subjectB = emailB.subject.toLowerCase();
+          if (subjectA < subjectB) {
+            return -1;
+          }
+          if (subjectA > subjectB) {
+            return 1;
+          }
+          return 0;
+        });
+      }
 
       return filteredEmails;
     },
     emailCount() {
-        emailService.getUnreadCount(this.emailsToShow)
-          .then((count) => {
-            console.log('Unread Email Count:',count)
-          return count;
-        });
+      const unreadCounter = this.emails.reduce((acc, email) => {
+        if (!email.isRead) {return acc +1}else return acc
+      }, 0);
+      return unreadCounter
     },
   },
   created() {
+    // emailService.syncEmailsWithStorage()
     console.log("created", Date.now);
     this.selectedEmail = null;
 
@@ -137,7 +135,7 @@ export default {
     },
     setSort(sortBy) {
       this.sortBy = sortBy;
-      console.log('sortBy ',this.sortBy)
+      console.log("sortBy ", this.sortBy);
     },
   },
   components: {

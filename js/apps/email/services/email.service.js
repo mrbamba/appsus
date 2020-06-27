@@ -1,7 +1,5 @@
 import {utilService} from '../../../services/util.service.js';
 
-
-
 export const emailService={
     getAllEmails,
     getById,
@@ -17,8 +15,11 @@ export const emailService={
     deleteEmail,
     markAsSpam,
     markAsUnread,
+    syncEmailsWithStorage
 
 }
+
+const EMAILSKEY="emails"
 
 var gEmails=[
     {
@@ -431,20 +432,42 @@ var gEmails=[
     }
 ]
 
+// .then((email) => {
+//     this.selectedEmail = email;
+//   });
+
+function syncEmailsWithStorage(){
+    let emailsFromStorage=utilService.loadFromStorage(EMAILSKEY)
+    //     .then(emails=>{
+    //     emailsFromStorage = emails
+    // })
+    if (emailsFromStorage){
+        gEmails=emailsFromStorage;
+    }
+}
+
+function _saveEmailsToStorage(){
+    utilService.saveToStorage(EMAILSKEY,gEmails)
+}
+
 function getById(emailId){
+    // _syncEmailsWithStorage()
     const email = gEmails.find(email=>email.id===emailId)
     return Promise.resolve(email)
 }
 
 
 function setAsRead(emailId){
+    // _syncEmailsWithStorage()
     getById(emailId)
     .then ((email)=>{
         email.isRead=true;
     })
+    _saveEmailsToStorage()
 }
 
 function getCleanEmails(){
+    // _syncEmailsWithStorage()
     let emailsToReturn=gEmails.filter(email=>{
         return email.spam===false && email.deleted===false;
     })
@@ -452,16 +475,18 @@ function getCleanEmails(){
 }
 
 function getAllEmails(){
+    // _syncEmailsWithStorage()
     return Promise.resolve(gEmails);
 }
 function getStarredEmails(){
-    
+    // _syncEmailsWithStorage()
     let emailsToReturn=gEmails.filter(email=>{
         return email.isStarred;
     })
     return Promise.resolve(emailsToReturn)
 }
 function getSentEmails(){
+    // _syncEmailsWithStorage()
     let emailsToReturn=gEmails.filter(email=>{
         return email.direction==='outbound'
     })
@@ -469,6 +494,7 @@ function getSentEmails(){
 }
 
 function getSpamEmails(){
+    // _syncEmailsWithStorage()
     let emailsToReturn=gEmails.filter(email=>{
         return email.spam;
     })
@@ -476,6 +502,7 @@ function getSpamEmails(){
 }
 
 function getTrashEmails(){
+    // _syncEmailsWithStorage()
     let emailsToReturn=gEmails.filter(email=>{
         return email.deleted;
     })
@@ -510,20 +537,24 @@ function getUnreadCount(emails){
 }
 
 function sendEmail(email){
+    // _syncEmailsWithStorage()
     gEmails.push(email)
+    _saveEmailsToStorage()
 }
 
 function deleteEmail(emailId){
     let emailToBeDeletedIndex= gEmails.findIndex(email=> email.id===emailId)
     gEmails[emailToBeDeletedIndex].deleted=true;
+    _saveEmailsToStorage()
 }
 
 function markAsSpam(emailId){
     let emailToMarkAsSpamIndex= gEmails.findIndex(email=> email.id===emailId)
     gEmails[emailToMarkAsSpamIndex].spam=true;
+    _saveEmailsToStorage()
 }
 function markAsUnread(emailId){
     let emailToMarkAsUnread =  gEmails.findIndex(email=> email.id===emailId)
     gEmails[emailToMarkAsUnread].isRead=false;
-
+    _saveEmailsToStorage()
 }
