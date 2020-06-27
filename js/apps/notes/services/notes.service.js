@@ -106,6 +106,16 @@ var notes = [
             title: 'Play games...'
         }
     },
+    // {
+    //     id: utilService.makeId(),
+    //     type: 'noteVideo',
+    //     isPinned: false,
+    //     color: 'rgb(241, 203, 98)',
+    //     info: {
+    //         url: 'https://www.youtube.com/embed/BBEaVSDRrm8',
+    //         title: 'Play games...'
+    //     }
+    // },
     {
         id: utilService.makeId(),
         type: 'noteAudio',
@@ -137,6 +147,8 @@ var notes = [
         }
     },
 ];
+var pinnedNotes = notes.filter(note => { return note.isPinned === true });
+var unpinnedNotes = notes.filter(note => !note.isPinned);
 
 console.log(notes);
 
@@ -217,7 +229,8 @@ function changeColor(color, id) {
 }
 
 function getPinnedNotes() {
-    const pinnedNotes = notes.filter(note => { return note.isPinned === true });
+    // const pinnedNotes = notes.filter(note => { return note.isPinned === true });
+    console.log(pinnedNotes)
     return pinnedNotes;
 }
 
@@ -231,14 +244,24 @@ function getNumOfPinnedNotes() {
 
 
 function getUnpinnedNotes() {
-    const unpinnedNotes = notes.filter(note => !note.isPinned);
+    // const unpinnedNotes = notes.filter(note => !note.isPinned);
     console.log(unpinnedNotes)
     return unpinnedNotes;
 }
 
 function deleteNote(id) {
-    const idx = notes.findIndex(note => note.id === id);
-    notes.splice(idx, 1);
+    const note = getNoteById(id);
+    const pinnedNotes = getPinnedNotes();
+    const unpinnedNotes = getUnpinnedNotes();
+    if (note.isPinned) {
+        var idx = pinnedNotes.findIndex(note => note.id === id);
+        pinnedNotes.splice(idx, 1);
+    } else {
+        idx = unpinnedNotes.findIndex(note => note.id === id);
+        unpinnedNotes.splice(idx, 1);
+    }
+    var idxInAllNotes = notes.findIndex(note => note.id === id);
+    notes.splice(idxInAllNotes, 1);
 }
 
 function getTodos(id) {

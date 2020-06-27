@@ -1,6 +1,8 @@
 import { emailService } from "../services/email.service.js";
 import { eventBus } from '../../../services/event-bus.service.js';
+import { noteService } from '../../notes/services/notes.service.js';
 import emailCompose from "../cmps/email-compose.cmp.js";
+import notesEditorCmp from "../../notes/cmps/notes-editor.cmp.js";
 
 
 export default {
@@ -90,6 +92,11 @@ export default {
         },
         closeCompose(){
             this.replyTo=null;
+        },
+        addToNotes(email) {
+            console.log(email)
+            noteService.addNote('noteText', email.body, email.subject);
+            this.$router.push('/notes');
         }
     },
     components:{
