@@ -18,9 +18,27 @@
 }
 
 .about-text {
-    width: 300px;
+    /* width: 300px; */
 }
 
 .profile-img{
     border-radius: 100px;
+}
+.about-personel{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media (max-width: 650px) {
+    .about img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0px;
+    }
+    .about-personel{
+        display: flex;
+        flex-direction: column;
+    }
 }
