@@ -84,7 +84,7 @@ export default {
             if(email.direction==='inbound'){
                 emailAddress=this.email.fromAddress
             }else emailAddress=this.email.toAddress;
-            this.replyTo={address:emailAddress,subject:this.email.subject}
+            this.replyTo={address:emailAddress,subject:this.email.subject,body:''}
             // console.log('replyto',replyTo)
 
         },

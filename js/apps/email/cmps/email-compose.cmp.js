@@ -33,6 +33,7 @@ export default {
                 if(this.emailTo){
                     email.toAddress=this.emailTo.address,
                     email.subject='Re: '+this.emailTo.subject
+                    email.body=this.emailTo.body
                 }
                 this.outboundEmail = email
                 console.log(this.outboundEmail)
