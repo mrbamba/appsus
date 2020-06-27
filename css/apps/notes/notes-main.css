@@ -5,9 +5,11 @@
 @import './cmps/note-video.cmp.css';
 @import './cmps/notes-list.cmp.css';
 @import './cmps/note-edit.cmp.css';
+@import './cmps//note-audio.cmp.css';
 
 .main-notes-container {
     text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 h1 {
     text-align: center;

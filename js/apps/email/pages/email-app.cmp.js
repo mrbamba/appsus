@@ -78,6 +78,10 @@ export default {
     eventBus.$on('filter',(data) => {
       this.filterBy.searchStr = data
   });
+  eventBus.$on('sendNoteAsEmail', () => {
+    this.composing = true;
+
+});
   },
   methods: {
     // setFilter(filterBy) {

@@ -7,10 +7,10 @@ export default {
     props: ['info', 'id', 'note'],
     template: `
         <div class="note" :style="{backgroundColor: note.color}" > 
-        <ul class="todo-list"> {{info.label}}
+        <ul class="todo-list"> 
+        <p class="todo-label"> {{info.label}} </p>
         <li class="todo" v-for="todo in info.todos" :class="{done: todo.doneAt}" @click.stop="todo.doneAt = !todo.doneAt">{{todo.txt}}</li>
         </ul>
-        
         <div class="icons">
         <i class="fas fa-palette icon-color"></i>
         <input type="color" class="color" @blur.stop="changeBgc($event, id)">

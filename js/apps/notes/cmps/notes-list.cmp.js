@@ -2,6 +2,7 @@ import noteText from '../cmps/note-text.cmp.js';
 import noteImg from '../cmps/note-img.cmp.js';
 import noteVideo from '../cmps/note-video.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
+import noteAudio from '../cmps/note-audio.cmp.js';
 import noteEdit from './note-edit.cmp.js';
 // import { noteService } from '../services/notes.service.js';
 import { eventBus } from '../../../services/event-bus.service.js';
@@ -48,6 +49,7 @@ export default {
         noteImg,
         noteTodos,
         noteEdit,
-        noteVideo
+        noteVideo,
+        noteAudio
     }
 }

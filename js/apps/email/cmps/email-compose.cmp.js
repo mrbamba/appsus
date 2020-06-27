@@ -28,7 +28,9 @@ export default {
                 console.log(this.outboundEmail)
             })
         eventBus.$on('sendNoteAsEmail', (data) => {
+
             this.outboundEmail.body = data;
+            emailService.sendEmail(this.outboundEmail);
         });
     },
     methods: {

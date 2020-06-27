@@ -6,8 +6,6 @@ export const noteService = {
     addNote,
     getNoteById,
     deleteNote,
-    // getPinnedNotes,
-    // getUnpinnedNotes,
     pinNote,
     changeColor,
     getTodos,
@@ -21,16 +19,6 @@ var notes = [
         color: 'rgb(248, 248, 157)',
         info: {
             txt: 'Call mom'
-        }
-    },
-    {
-        id: utilService.makeId(),
-        type: 'noteImg',
-        isPinned: false,
-        color: '',
-        info: {
-            url: 'https://cdn.shopify.com/s/files/1/0808/8861/products/Milk_76b3410f-ff3e-496a-a64e-2de581a8db32_grande.jpg?v=1586811080',
-            title: 'Save the earth - it is the only planet with chocolate!'
         }
     },
     {
@@ -66,6 +54,7 @@ var notes = [
             todosTxt: 'Do that, Do this'
         }
     },
+   
     {
         id: utilService.makeId(),
         type: 'noteTodos',
@@ -96,9 +85,9 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
-        color: 'white',
+        color: 'rgb(248, 248, 157)',
         info: {
-            url: 'https://i.pinimg.com/originals/9d/d8/02/9dd802ea7726b25cbbf99ce3b853ccfe.jpg',
+            url: 'https://www.rspca-pix.com/pimage/114/640033/640033_450_450_81393_0_fill_0_03347f0da3079474cd9cea1d47498f6a.jpg',
             title: 'Shimi'
         },
     },
@@ -114,11 +103,31 @@ var notes = [
     },
     {
         id: utilService.makeId(),
+        type: 'noteAudio',
+        isPinned: false,
+        color: 'white',
+        info: {
+            url: 'http://www.hochmuth.com/mp3/Tchaikovsky_Nocturne__orch.mp3',
+            title: 'Listen to this!'
+        }
+    },
+    {
+        id: utilService.makeId(),
         type: 'noteText',
         isPinned: false,
         color: 'rgb(248, 160, 248)',
         info: {
             txt: 'The true value of a human being is determined primarily by the measure and the sense in which he has attained to liberation from the self. - Albert Einstein'
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'noteImg',
+        isPinned: false,
+        color: '',
+        info: {
+            url: 'https://cdn.shopify.com/s/files/1/0808/8861/products/Milk_76b3410f-ff3e-496a-a64e-2de581a8db32_grande.jpg?v=1586811080',
+            title: 'Save the earth - it is the only planet with chocolate!'
         }
     },
 ];
@@ -149,7 +158,7 @@ function addNote(type, txtOrUrl, title) {
         }
     }
     if (type === 'noteText') newNote.info.txt = txtOrUrl;
-    else if (type === 'noteImg' || type === 'noteVideo') {
+    else if (type === 'noteImg' || type === 'noteVideo' || type === 'noteAudio') {
         newNote.info.url = txtOrUrl;
         newNote.info.title = title;
     }
