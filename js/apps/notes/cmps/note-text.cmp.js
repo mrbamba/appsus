@@ -2,6 +2,7 @@ import { noteService } from '../services/notes.service.js';
 import { eventBus } from '../../../services/event-bus.service.js';
 // import notesEditor from './notes-editor.cmp.js';
 import emailCompose from '../../email/cmps/email-compose.cmp.js';
+// import longTxt from '../../../cmps/long-txt.cmp.js';
 
 export default {
     name: 'note-text',
@@ -53,6 +54,10 @@ export default {
         }
     },
     components: {
-        emailCompose
+        emailCompose,
+        // longTxt
     }
 }
+
+{/* <p>{{info.txt}}</p> */}
+{/* <long-txt :txt='info.txt'/> */}

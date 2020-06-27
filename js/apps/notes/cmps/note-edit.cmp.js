@@ -11,7 +11,7 @@ export default {
     <input class="input-title" v-if="note.type !== 'noteTodos'" type="text" v-model="note.info.title" />
     <input class="input-title" v-if="note.type === 'noteTodos'" type="text" v-model="note.info.label" />
     <input class="input-txt" v-if="note.type === 'noteText'" v-model="note.info.txt"/>
-    <input class="input-txt" v-if="note.type === 'noteTodos'" v-model="note.info.todosTxt" @change="convertTodo(note.id, note.info.todosTxt, note.info.label)"/>
+    <input class="input-txt" v-if="note.type === 'noteTodos'" v-model="note.info.todosTxt" @change="convertTodo(note.id, note.info.todosTxt, note.info.label, note.color)"/>
     <input class="input-txt" v-if="note.type === 'noteImg' || note.type === 'noteVideo' || note.type === 'noteAudio'" v-model="note.info.url"/>
     <button class="done-btn" @click="unselect()"><i class="fas fa-check fa-2x"></i></button>
     </div>
@@ -32,8 +32,8 @@ export default {
             eventBus.$emit('unselect', '')
             eventBus.$emit('user-msg', 'Note successfully edited');
         },
-        convertTodo(id, txt, title) {
-            noteService.addNote('noteTodos', txt, title);
+        convertTodo(id, txt, title, color) {
+            noteService.addNote('noteTodos', txt, title, color);
             noteService.deleteNote(id);
         }
     },

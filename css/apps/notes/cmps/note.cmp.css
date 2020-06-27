@@ -9,21 +9,8 @@
     font-size: 1.2em;
 }
 
-.note:hover{
+.note:hover {
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-
-}
-
-@media (max-width: 650px) {
-    .note {
-        width: 45vw;
-    }
-}
-
-@media (max-width: 420px) {
-    .note {
-        width: 90vw;
-    }
 }
 
 .note:hover {
@@ -36,9 +23,11 @@
     position: absolute;
     width: 2%;
 }
+
 .note .color:hover {
     cursor: pointer;
 }
+
 .note i:hover {
     cursor: pointer;
 }
@@ -63,4 +52,16 @@
 .note-title {
     font-weight: bold;
     margin-bottom: 0.5em;
+}
+
+@media (max-width: 650px) {
+    .note {
+        width: 45vw;
+    }
+}
+
+@media (max-width: 420px) {
+    .note {
+        width: 90vw;
+    }
 }

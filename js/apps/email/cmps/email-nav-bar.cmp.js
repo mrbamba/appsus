@@ -21,7 +21,10 @@ export default{
     methods:{
         compose(){
             this.$emit('compose');
-        }
+        },
+        onToggleMenu() {
+            document.body.classList.toggle('menu-open');
+          }
     },
     components:{
         emailStatus,

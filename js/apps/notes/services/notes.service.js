@@ -58,7 +58,7 @@ var notes = [
             todosTxt: 'Do that, Do this'
         }
     },
-   
+
     {
         id: utilService.makeId(),
         type: 'noteTodos',
@@ -158,12 +158,12 @@ function getNoteById(id) {
 }
 
 
-function addNote(type, txtOrUrl, title) {
+function addNote(type, txtOrUrl, title, color = 'white') {
     var newNote = {
         id: utilService.makeId(),
         type: type,
         isPinned: false,
-        color: 'white',
+        color: color,
         info: {
             txt: '',
             url: '',
@@ -190,8 +190,12 @@ function addNote(type, txtOrUrl, title) {
         })
         newNote.info.todos = todos;
     }
-    var idx = getNumOfPinnedNotes();
-    notes.splice(idx, 0, newNote);
+    notes.unshift(newNote);
+    var unpinnedNotes = getUnpinnedNotes();
+    unpinnedNotes.unshift(newNote);
+    // this is a plaster:
+    unpinnedNotes[1].isPinned = !unpinnedNotes[1].isPinned;
+    unpinnedNotes[1].isPinned = !unpinnedNotes[1].isPinned;
 }
 
 function pinNote(id) {
@@ -221,13 +225,13 @@ function getPinnedNotes() {
     return pinnedNotes;
 }
 
-function getNumOfPinnedNotes() {
-    var count = 0;
-    notes.forEach(note => {
-        if (note.isPinned) count++
-    })
-    return count;
-}
+// function getNumOfPinnedNotes() {
+//     var count = 0;
+//     notes.forEach(note => {
+//         if (note.isPinned) count++
+//     })
+//     return count;
+// }
 
 
 function getUnpinnedNotes() {
@@ -250,9 +254,6 @@ function deleteNote(id) {
     }
     var idxInAllNotes = notes.findIndex(note => note.id === id);
     notes.splice(idxInAllNotes, 1);
-    console.log(notes)
-    console.log(pinnedNotes)
-    console.log(unpinnedNotes)
 }
 
 function getTodos(id) {
