@@ -53,7 +53,7 @@ export default {
 
 
 
-<!-- <pre>{{email}}</pre> --><email-compose v-if="replyTo" :emailTo="replyTo" v-on:closeCompose="closeCompose"/>
+<email-compose v-if="replyTo" :emailTo="replyTo" v-on:closeCompose="closeCompose"/>
     </div>
     `,
     data(){
