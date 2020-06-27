@@ -4,7 +4,15 @@ export default{
     props:['emailCount'],
     template:`
     <tr><th colspan="4" class="email-list-menu flex space-between">
-        <h2>Email-List-Menu - Needs work {{emailCount}}</h2>
+        <div class="email-list-menu-sort">
+            <button class="email-list-menu-sort-date" title="Sort by latest on Top" @click="sorted('reverseChronological')">
+                <i class="far fa-clock fa-2x"></i>
+            </button>
+            <button class="email-list-menu-sort-subject" title="Sort by subject" @click="sorted('alphabetical')">
+            <i class="fas fa-sort-alpha-down fa-2x"></i>
+            </button>
+        </div>
+        <h2>{{emailCount}} unread emails</h2>
         <div class="email-list-menu-filters">
             <button class="Show-unread-emails" title="Show Unread Emails"  @click="filtered('unread')">
                 <i class="fas fa-envelope fa-2x"></i>
@@ -18,6 +26,9 @@ export default{
     methods:{
         filtered(filterBy){
             this.$emit('filtered',filterBy)
+        },
+        sorted(sortBy){
+            this.$emit('sorted',sortBy)
         }
     }
 }

@@ -87,7 +87,7 @@ var gEmails=[
         timestamp:new Date('2020-03-21'),
         isRead:false,
         isStarred:true,
-        deleted:true, 
+        deleted:false, 
         spam:true,
         direction:'outbound'
 
