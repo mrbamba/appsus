@@ -6,21 +6,9 @@
     display: flex;
     justify-content: space-evenly;
 }
-@media (max-width: 800px) {
-    .add-note {
-        flex-wrap: wrap;
-        padding: 0px;
-    }
-}
 
-@media (max-width: 420px) {
-    .add-note .input-title {
-        width:100%;
-    }
-    .add-note .input-txt {
-        width: 100%;
-    }
-}
+
+
 
 
 .add-note > .fa-2x{
@@ -62,4 +50,28 @@ color: white;
 
 .add-note .chosen i {
     color: black;
+}
+
+@media (max-width: 800px) {
+    .add-note {
+        flex-wrap: wrap;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 420px) {
+    .add-note input {
+        width: 100%;
+    }
+    .add-note .input-txt {
+        width: 100%;
+    }
+    .add-note button{
+        margin: 5px;
+    }
+    .add-note .input-title {
+        width: 100%;
+        /* padding: 10px */
+        /* margin: 10px; */
+    }
 }
