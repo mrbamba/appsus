@@ -443,7 +443,11 @@ function syncEmailsWithStorage(){
         gEmails=emailsFromStorage;
     }
     console.log(emailsFromStorage)
+    console.log(emailsFromStorage[0].timestamp)
 }
+
+
+
 
 function _saveEmailsToStorage(){
     utilService.saveToStorage(EMAILSKEY,gEmails)
@@ -467,9 +471,14 @@ function setAsRead(emailId){
 
 function getCleanEmails(){
     // _syncEmailsWithStorage()
+    // let emailsFromStorage=utilService.loadFromStorage(EMAILSKEY)
+    // if(emailsFromStorage){
+    //     gEmails=emailsFromStorage;
+    // }
     let emailsToReturn=gEmails.filter(email=>{
         return email.spam===false && email.deleted===false;
     })
+    console.log(gEmails)
     return Promise.resolve(emailsToReturn);
 }
 

@@ -24,7 +24,7 @@ export default {
                     </li>
                 </ul>
             </div>
-            <hr />
+            <hr class="notes-list-hr"/>
             <div>
                 <ul class="notes-list">
                     <li v-for="note in unpinnedNotes" :note="note" :key="note.id" @click.stop="selectNote(note)">
