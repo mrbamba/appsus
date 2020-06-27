@@ -93,6 +93,8 @@
     .app-header input{
         padding: 0px;
         margin: 0px;
+        font-size: 1.3rem;
+
     }
     .logo {
         width: 50px;
