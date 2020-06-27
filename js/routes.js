@@ -74,16 +74,6 @@ const myRoutes = [
     {
         path: '/about/:who?',
         component: about,
-        children: [
-            {
-                path: 'team',
-                component: aboutTeam
-            },
-            {
-                path: 'service',
-                component: aboutService
-            }
-        ]
     }
 
 ];
