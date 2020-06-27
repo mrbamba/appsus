@@ -92,7 +92,7 @@ export default {
       this.$router.push(`/email/${emailId}`);
     },
     compose(){
-        this.composing=true;
+        this.composing=!this.composing;
     },
     closeCompose(){
         this.composing=false;
