@@ -38,7 +38,7 @@ export default {
             if (!doneAt) this.isDone = true;
             else this.isDone = false;
         },
-        changeBgc(ev) {
+        changeBgc(ev, id) {
             const color = ev.target.value;
             noteService.changeColor(color, id);
          },

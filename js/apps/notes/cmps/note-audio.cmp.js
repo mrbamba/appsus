@@ -32,7 +32,7 @@ export default {
         }
     },
     methods: {
-        changeBgc(ev) {
+        changeBgc(ev, id) {
             const color = ev.target.value;
             noteService.changeColor(color, id);
 

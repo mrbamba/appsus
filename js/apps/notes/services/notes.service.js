@@ -147,8 +147,8 @@ var notes = [
         }
     },
 ];
-var pinnedNotes = notes.filter(note => { return note.isPinned === true });
-var unpinnedNotes = notes.filter(note => !note.isPinned);
+// var pinnedNotes = notes.filter(note => note.isPinned);
+// var unpinnedNotes = notes.filter(note => !note.isPinned);
 
 console.log(notes);
 
@@ -229,8 +229,8 @@ function changeColor(color, id) {
 }
 
 function getPinnedNotes() {
-    // const pinnedNotes = notes.filter(note => { return note.isPinned === true });
-    console.log(pinnedNotes)
+    const pinnedNotes = notes.filter(note => note.isPinned);
+    // console.log(pinnedNotes)
     return pinnedNotes;
 }
 
@@ -244,8 +244,8 @@ function getNumOfPinnedNotes() {
 
 
 function getUnpinnedNotes() {
-    // const unpinnedNotes = notes.filter(note => !note.isPinned);
-    console.log(unpinnedNotes)
+    const unpinnedNotes = notes.filter(note => !note.isPinned);
+    // console.log(unpinnedNotes)
     return unpinnedNotes;
 }
 
@@ -254,14 +254,19 @@ function deleteNote(id) {
     const pinnedNotes = getPinnedNotes();
     const unpinnedNotes = getUnpinnedNotes();
     if (note.isPinned) {
+        note.isPinned = !note.isPinned
         var idx = pinnedNotes.findIndex(note => note.id === id);
         pinnedNotes.splice(idx, 1);
     } else {
+        note.isPinned = !note.isPinned
         idx = unpinnedNotes.findIndex(note => note.id === id);
         unpinnedNotes.splice(idx, 1);
     }
     var idxInAllNotes = notes.findIndex(note => note.id === id);
     notes.splice(idxInAllNotes, 1);
+    console.log(notes)
+    console.log(pinnedNotes)
+    console.log(unpinnedNotes)
 }
 
 function getTodos(id) {
@@ -271,3 +276,7 @@ function getTodos(id) {
     console.log(todoTxts);
     return todoTxts
 }
+
+// console.log(notes)
+// console.log(pinnedNotes)
+// console.log(unpinnedNotes)

@@ -40,7 +40,6 @@ export default {
             noteId: null,
             bgc: '',
             selectedNote: null,
-            
         }
     },
     computed: {
