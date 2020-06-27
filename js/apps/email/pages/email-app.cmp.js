@@ -3,7 +3,7 @@ import emailList from "../cmps/email-list.cmp.js";
 import emailDetalis from "../cmps/email-details.cmp.js";
 import emailCompose from "../cmps/email-compose.cmp.js";
 
-import { emailService } from "../services/email.service.js";
+import { emailService } from "../services/email-service.js";
 import { eventBus } from "../../../services/event-bus.service.js";
 
 export default {

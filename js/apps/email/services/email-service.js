@@ -438,12 +438,11 @@ var gEmails=[
 
 function syncEmailsWithStorage(){
     let emailsFromStorage=utilService.loadFromStorage(EMAILSKEY)
-    //     .then(emails=>{
-    //     emailsFromStorage = emails
-    // })
+
     if (emailsFromStorage){
         gEmails=emailsFromStorage;
     }
+    console.log(emailsFromStorage)
 }
 
 function _saveEmailsToStorage(){

@@ -31,9 +31,12 @@
 
 }
 
-.add-note > button{
+.add-note  button{
     border: none;
     margin: 10px;
+}
+.add-note input{
+    border: none;
 }
 
 .add-btn {

@@ -1,4 +1,4 @@
-import { emailService } from "../services/email.service.js";
+import { emailService } from "../services/email-service.js";
 import { eventBus } from '../../../services/event-bus.service.js';
 import { noteService } from '../../notes/services/notes.service.js';
 import emailCompose from "../cmps/email-compose.cmp.js";
