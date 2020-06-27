@@ -1,4 +1,5 @@
 import { noteService } from '../services/notes.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
     name: 'add-note',
@@ -6,7 +7,7 @@ export default {
         <div class="add-note">
             <input class="input-title" type="text" v-model="title" placeholder="Title" />
             <input class="input-txt" type="text" v-model="input" :placeholder="placeholder"/>
-            <button :class="{chosen: type==='noteText'}" @click="type = 'noteText'"><i class="fas fa-font fa-2x"></i></button>
+            <button :class="{chosen: type === 'noteText'}" @click="type = 'noteText'"><i class="fas fa-font fa-2x"></i></button>
             <button :class="{chosen: type==='noteTodos'}" @click="type = 'noteTodos'"><i class="fas fa-list fa-2x"></i></button>
             <button :class="{chosen: type==='noteImg'}" @click="type = 'noteImg'"><i class="far fa-image fa-2x"></i></button>
             <button :class="{chosen: type==='noteVideo'}" @click="type = 'noteVideo'"><i class="fas fa-video fa-2x"></i></button>
@@ -35,7 +36,6 @@ export default {
             else if (this.type === 'noteVideo') return 'Enter Video URL';
             else if (this.type === 'noteAudio') return 'Enter Audio URL';
             else if (this.type === 'noteTodos') return 'Enter items separated by commas';
-
         },
     },
     methods: {
@@ -43,6 +43,7 @@ export default {
             noteService.addNote(this.type, this.input, this.title);
             this.input = '';
             this.title = '';
+            eventBus.$emit('user-msg', 'Note successfully added');
         }
     }
 

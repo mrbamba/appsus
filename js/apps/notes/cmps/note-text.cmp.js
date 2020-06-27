@@ -1,5 +1,6 @@
 import { noteService } from '../services/notes.service.js';
 import { eventBus } from '../../../services/event-bus.service.js';
+// import notesEditor from './notes-editor.cmp.js';
 
 export default {
     name: 'note-text',
@@ -13,7 +14,7 @@ export default {
         <input type="color" class="color" @blur.stop="changeBgc($event, id)">
         <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
         <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
-        <i class="far fa-share-square" @click.stop="sendNoteAsEmail(note.info.txt)"></i>
+        <i class="far fa-share-square" @click.stop="sendNoteAsEmail(note.info.txt)" title="Send Note as Email"></i>
         </div>
         </div>
     `,
@@ -24,14 +25,19 @@ export default {
         },
         deleteNote(id) {
             noteService.deleteNote(id);
+            eventBus.$emit('user-msg', 'Note deleted');
         },
         pinNote(id) {
             noteService.pinNote(id);
+            eventBus.$emit('user-msg', 'Note pinned');
         },
         sendNoteAsEmail(txt) {
             eventBus.$emit('sendNoteAsEmail', txt);
+            eventBus.$emit('user-msg', 'Action failed :(');
             this.$router.push(`/email/:?subject=${''}&body=${txt}`);
-
         }
-    }
+    },
+    // components: {
+    //     notesEditor
+    // }
 }

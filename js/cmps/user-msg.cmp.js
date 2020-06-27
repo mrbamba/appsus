@@ -1,7 +1,6 @@
 import {eventBus} from '../services/event-bus.service.js';
 
 export default {
-    // give name for debugging
     name: 'user-msg',
     template: `
     <section v-if="msg" class="user-msg">

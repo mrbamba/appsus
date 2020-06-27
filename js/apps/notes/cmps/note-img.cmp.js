@@ -13,6 +13,7 @@ export default {
         <input type="color" class="color" @blur.stop="changeBgc($event, id)">
         <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
         <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
+        <i class="far fa-share-square" @click.stop="sendNoteAsEmail(note.info.txt)" title="Send Note as Email"></i>
         </div>
         </div>
     `,
@@ -23,11 +24,16 @@ export default {
  
          },
          deleteNote(id) {
-             console.log('delete')
             noteService.deleteNote(id);
+            eventBus.$emit('user-msg', 'Note deleted');
         },
         pinNote(id) {
             noteService.pinNote(id);
+            eventBus.$emit('user-msg', 'Note pinned');
+        },
+        sendNoteAsEmail(txt) {
+            eventBus.$emit('user-msg', 'Action failed :(');
+            this.$router.push(`/email/:?subject=${''}&body=${txt}`);
         }
     }
 }

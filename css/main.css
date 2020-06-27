@@ -12,6 +12,9 @@
 @import 'pages/about.css';
 @import './layout.css';
 @import './helpers.css';
+
+/* GENERAL CMPS */
+@import './cmps/user-msg.cmp.css';
 /* BOOKS CMPS */
 
 @import './apps/books/cmps/book-details.css';

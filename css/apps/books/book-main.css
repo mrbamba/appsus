@@ -65,14 +65,14 @@ input {
     color: darkred;
 }
 
-.user-msg {
+/* .user-msg {
     height: 60px;
     width: 150px;
     background-color: indianred;
     position: fixed;
     top: 5px;
     right: 5px;
-}
+} */
 
 .add-book {
     color: white;

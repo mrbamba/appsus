@@ -1,4 +1,5 @@
 import { emailService } from "../services/email.service.js";
+import { eventBus } from '../../../services/event-bus.service.js';
 import emailCompose from "../cmps/email-compose.cmp.js";
 
 
@@ -66,10 +67,12 @@ export default {
         },
         deleteEmail(email){
             emailService.deleteEmail(email.id);
+            eventBus.$emit('user-msg', 'Email deleted');
             this.$router.go(-1)
         },
         markAsSpam(email){
             emailService.markAsSpam(email.id);
+            eventBus.$emit('user-msg', 'Email moved to spam');
             this.$router.go(-1)
         },
         markAsUnread(email){

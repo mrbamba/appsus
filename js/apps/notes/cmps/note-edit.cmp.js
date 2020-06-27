@@ -30,6 +30,7 @@ export default {
         unselect() {
             this.isEditing = false;
             eventBus.$emit('unselect', '')
+            eventBus.$emit('user-msg', 'Note successfully edited');
         },
         convertTodo(id, txt, title) {
             noteService.addNote('noteTodos', txt, title);
