@@ -11,14 +11,22 @@
     background-color: #fff;
 }
 
-.compose h2 {
+.compose-header {
     background-color: #404040;
     color: #fcfcfc;
-    font-size: 1rem;
-    border-radius: 15px 15px 0px 0px;
-    padding: 10px 0px;
+    /* font-size: 1rem; */
+    border-radius: 10px 10px 0px 0px;
+    padding: 0px 0px;
     outline: none;
-    text-align: center;
+}
+.compose-header h2{
+    font-size: 1rem;
+    padding: 12px;
+}
+.compose-header .composer-close-button{
+    border: none;
+    background-color: #404040;
+    color: #b8b8b8;
 }
 
 .compose input {

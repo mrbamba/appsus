@@ -6,7 +6,12 @@ export default {
     props:['emailTo'],
     template: `
     <div class="compose flex flex-column space-between">
-        <h2>New Message</h2>
+        <div class="compose-header flex space-between">
+            <h2>New Message</h2>
+            <button class="composer-close-button" @click="closeComposer" title="Scrap message">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
         <input class="compose-email-to" placeholder="Recepient Email address" v-model="outboundEmail.toAddress">
         <input class="compose-subject" placeholder="Email subject" v-model="outboundEmail.subject">
         <textarea class="compose-body" placeholder="Message Body" rows="30" cols="70" v-model="outboundEmail.body"></textarea>
