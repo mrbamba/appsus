@@ -2,7 +2,11 @@
     text-align: left;
     padding: 0px 30px 30px 30px;
     margin: 0 auto;
-    min-width: 100%;
+    
+    /* min-width: 100%; */
+}
+.email-details span{
+    display: flex;
 }
 
 .email-subject{
@@ -21,6 +25,7 @@
 
 .email-details-tool-bar button{
     border: none;
+    vertical-align: bottom;
     /* font-size: 1.5rem; */
 }
 
@@ -44,6 +49,6 @@
 
 .email-body{
     font-size: 1.2rem;
-    max-width: 80%;
+    /* max-width: 80%; */
 }
 

@@ -1,4 +1,5 @@
 import { emailService } from "../services/email.service.js";
+import emailCompose from "../cmps/email-compose.cmp.js";
 
 
 export default {
@@ -6,25 +7,32 @@ export default {
   props: ["email"],
   template: `
     <div class="email-details">
-<div class="email-details-tool-bar flex"> 
-    <button class="back-button" @click="navigateBack" title="Back">
-    <i class="fas fa-long-arrow-alt-left fa-2x" ></i>
-    </button>
-    <button class="trash-button" @click="deleteEmail(email)" title="Delete Email">
-        <i class=" far fa-trash-alt fa-2x"></i>
-    </button> 
-    <button class="spam-button" @click="markAsSpam(email)" title="Mark as Spam">
-        <i class="fas fa-ban fa-2x"></i>
-    </button>
-    <button class="mark-as-unread-button" @click="markAsUnread(email)" title="Mark as Unread">
-    <i class="fas fa-envelope fa-2x"></i>
-    </button>
-    <button class="add-email-to-notes" @click="addToNotes(email)" title="Add to Notes">
-        <span class="fa-stack">
-        <i class="far fa-sticky-note fa-stack-2x"></i>
-        <i class="fas fa-plus fa-stack-1x fa-1x"></i>
-</span>
-    </button>
+<div class="email-details-tool-bar flex space-between"> 
+    <div class="email-details-left-tool-bar">
+        <button class="back-button" @click="navigateBack" title="Back">
+                <i class="fas fa-long-arrow-alt-left fa-2x" ></i>
+        </button>
+        <button class="trash-button" @click="deleteEmail(email)" title="Delete Email">
+            <i class=" far fa-trash-alt fa-2x"></i>
+        </button> 
+        <button class="spam-button" @click="markAsSpam(email)" title="Mark as Spam">
+            <i class="fas fa-ban fa-2x"></i>
+        </button>
+        <button class="mark-as-unread-button" @click="markAsUnread(email)" title="Mark as Unread">
+            <i class="fas fa-envelope fa-2x"></i>
+        </button>
+        <button class="add-email-to-notes" @click="addToNotes(email)" title="Add to Notes">
+            <span class="fa-stack">
+                <i class="far fa-sticky-note fa-stack-2x"></i>
+                <i class="fas fa-plus fa-stack-1x fa-1x"></i>
+            </span>
+        </button>
+    </div>
+    <div class="email-details-right-tool-bar">
+        <button class="reply-to-button" @click="replyToEmail" title="Reply to Email">
+            <i class="fas fa-reply fa-2x"></i>
+        </button>
+    </div>
 </div>
 <div class="email-details-header">
     <div class="email-details-header-left">
@@ -44,9 +52,14 @@ export default {
 
 
 
-<!-- <pre>{{email}}</pre> -->
+<!-- <pre>{{email}}</pre> --><email-compose v-if="replyTo" :emailTo="replyTo" v-on:closeCompose="closeCompose"/>
     </div>
     `,
+    data(){
+        return{
+            replyTo:null
+        }
+    },
     methods:{
         navigateBack(){
             this.$router.go(-1)
@@ -62,6 +75,21 @@ export default {
         markAsUnread(email){
             emailService.markAsUnread(email.id);
             this.$router.go(-1)
+        },
+        replyToEmail(email){
+            let emailAddress;
+            if(email.direction==='inbound'){
+                emailAddress=this.email.fromAddress
+            }else emailAddress=this.email.toAddress;
+            this.replyTo={address:emailAddress,subject:this.email.subject}
+            // console.log('replyto',replyTo)
+
+        },
+        closeCompose(){
+            this.replyTo=null;
         }
+    },
+    components:{
+        emailCompose,
     }
 };
