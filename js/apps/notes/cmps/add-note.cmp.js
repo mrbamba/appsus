@@ -7,7 +7,7 @@ export default {
         <div class="add-note">
             <input class="input-title" type="text" v-model="title" placeholder="Title" />
             <input class="input-txt" type="text" v-model="input" :placeholder="placeholder"/>
-            <div class="add-icons">
+            <div class="add-icons flex">
             <button :class="{chosen: type === 'noteText'}" @click="type = 'noteText'"><i class="fas fa-font fa-2x"></i></button>
             <button :class="{chosen: type==='noteTodos'}" @click="type = 'noteTodos'"><i class="fas fa-list fa-2x"></i></button>
             <button :class="{chosen: type==='noteImg'}" @click="type = 'noteImg'"><i class="far fa-image fa-2x"></i></button>

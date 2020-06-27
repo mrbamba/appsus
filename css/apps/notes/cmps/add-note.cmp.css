@@ -4,9 +4,15 @@
     border-radius: 5px;
     text-align: center;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
 }
+@media (max-width: 800px) {
+    .add-note {
+        flex-wrap: wrap;
+    }
+}
+
+
 
 .add-note > .fa-2x{
     padding: 55px;
