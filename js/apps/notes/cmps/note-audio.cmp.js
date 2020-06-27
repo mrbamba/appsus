@@ -8,18 +8,18 @@ export default {
     props: ['info', 'id', 'note'],
     template: `
         <div :class="{pinnedNote: note.isPinned}" class="note-img-container note" :style="{backgroundColor: note.color}">
-        <audio controls class="note-audio">
-        <source :src="info.url" type="audio/mp3">
-        </audio>       
-        <p>{{info.title}}</p>
-        <div class="icons">
-        <i class="fas fa-palette icon-color"></i>
-        <input type="color" class="color" @blur.stop="changeBgc($event, id)">
-        <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
-        <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
-        <i class="far fa-share-square" @click.stop="sendNoteAsEmail(note.info.url, note.info.title)" title="Send Note as Email"></i>
-        </div>
-        <email-compose v-if="replyTo" :emailTo="replyTo" v-on:closeCompose="closeCompose"/>
+            <audio controls class="note-audio">
+                <source :src="info.url" type="audio/mp3">
+            </audio>       
+            <p>{{info.title}}</p>
+            <div class="icons">
+                <i class="fas fa-palette icon-color"></i>
+                <input type="color" class="color" @blur.stop="changeBgc($event, id)">
+                <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
+                <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
+                <i class="far fa-share-square" @click.stop="sendNoteAsEmail(note.info.url, note.info.title)" title="Send Note as Email"></i>
+            </div>
+            <email-compose v-if="replyTo" :emailTo="replyTo" v-on:closeCompose="closeCompose"/>
         </div>
     `,
     data() {

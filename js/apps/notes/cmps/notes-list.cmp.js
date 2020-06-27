@@ -6,7 +6,7 @@ import noteAudio from '../cmps/note-audio.cmp.js';
 import noteEdit from './note-edit.cmp.js';
 import { noteService } from '../services/notes.service.js';
 import { eventBus } from '../../../services/event-bus.service.js';
-import notesEditorCmp from './notes-editor.cmp.js';
+// import notesEditorCmp from './notes-editor.cmp.js';
 
 
 export default {
@@ -54,8 +54,6 @@ export default {
         eventBus.$on('unselect', (data) => {
             this.selectedNote = data
         });
-        // this.pinnedNotes = noteService.getPinnedNotes();
-        // this.unpinnedNotes = noteService.getUnpinnedNotes();
     },
   
     methods: {

@@ -2,8 +2,6 @@ import { noteService } from '../services/notes.service.js';
 import { eventBus } from '../../../services/event-bus.service.js';
 import emailCompose from'../../email/cmps/email-compose.cmp.js';
 
-
-
 export default {
     name: 'note-todos',
     props: ['info', 'id', 'note'],

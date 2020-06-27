@@ -147,10 +147,7 @@ var notes = [
         }
     },
 ];
-// var pinnedNotes = notes.filter(note => note.isPinned);
-// var unpinnedNotes = notes.filter(note => !note.isPinned);
 
-console.log(notes);
 
 function getNotes() {
     return notes;
@@ -208,19 +205,10 @@ function pinNote(id) {
     }
     else {
         oldIdx = unpinnedNotes.findIndex(note => note.id === id);
-    // const idx = notes.findIndex(note => note.id === id);
         unpinnedNotes.splice(oldIdx, 1);
         pinnedNotes.unshift(note);
     }
     note.isPinned = !note.isPinned;
-    // notes.splice(idx, 1);
-    // if (note.isPinned) {
-    //     notes.unshift(note);
-    // }
-    // else {
-    //     notes.push(note);
-    // }
-
 }
 
 function changeColor(color, id) {
@@ -230,7 +218,6 @@ function changeColor(color, id) {
 
 function getPinnedNotes() {
     const pinnedNotes = notes.filter(note => note.isPinned);
-    // console.log(pinnedNotes)
     return pinnedNotes;
 }
 
@@ -245,7 +232,6 @@ function getNumOfPinnedNotes() {
 
 function getUnpinnedNotes() {
     const unpinnedNotes = notes.filter(note => !note.isPinned);
-    // console.log(unpinnedNotes)
     return unpinnedNotes;
 }
 
@@ -276,7 +262,3 @@ function getTodos(id) {
     console.log(todoTxts);
     return todoTxts
 }
-
-// console.log(notes)
-// console.log(pinnedNotes)
-// console.log(unpinnedNotes)
