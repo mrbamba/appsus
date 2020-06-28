@@ -56,7 +56,11 @@
             white-space: pre-wrap;
             word-wrap: break-word;
 }
-
+@media (max-width: 950px){
+    .email-details{
+        width: calc(100vw - 170px);
+    }
+}
 @media (max-width: 800px){
     .email-details{
         text-align: left;
