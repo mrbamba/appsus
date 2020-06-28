@@ -12,7 +12,7 @@ export default {
   template: `
         <div class="mail-main ">
         <email-nav-bar v-on:compose="compose" v-bind:emails="emails" v-bind:count=unreadInboxEmailCount></email-nav-bar>
-        <email-list v-on:emit-read="checkInboxCount" v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" 
+        <email-list v-on:emit-read="unreadInboxEmailCount" v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" 
           :emailCount="emailCount"  v-on:emailSelected="emailSelected($event)" 
           v-on:filtered="setFilter" v-on:sorted="setSort"></email-list>
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
@@ -95,7 +95,7 @@ export default {
     },
   },
   created() {
-    // emailService.syncEmailsWithStorage()
+    emailService.syncEmailsWithStorage()
     console.log("created", Date.now);
     this.selectedEmail = null;
 

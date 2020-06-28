@@ -98,6 +98,7 @@
         padding: 15px 0px 0px 0px;
         width: 100vw;
         text-align: center;
+        border-bottom: 1px solid #eef0f2;
     }
     .email-nav-list .router-link-active{
 

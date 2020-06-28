@@ -1,6 +1,6 @@
 .email-details{
     text-align: left;
-    padding: 0px 30px 30px 30px;
+    padding: 0px  8px;
     margin: 0 auto;
     width: calc(100vw - 250px);
 
@@ -22,6 +22,7 @@
 .email-details-tool-bar{
     border-bottom: 1px solid #eef0f2;
     min-height: 50px;
+    padding: 10px 0px;
 }
 
 .email-details-tool-bar button{
