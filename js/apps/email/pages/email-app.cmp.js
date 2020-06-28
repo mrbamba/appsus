@@ -11,8 +11,8 @@ export default {
   //   prop: "selectedEmail",
   template: `
         <div class="mail-main ">
-        <email-nav-bar v-on:compose="compose" v-bind:emails="emails"></email-nav-bar>
-        <email-list v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" 
+        <email-nav-bar v-on:compose="compose" v-bind:emails="emails" v-bind:count=unreadInboxEmailCount></email-nav-bar>
+        <email-list v-on:emit-read="checkInboxCount" v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" 
           :emailCount="emailCount"  v-on:emailSelected="emailSelected($event)" 
           v-on:filtered="setFilter" v-on:sorted="setSort"></email-list>
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
@@ -84,9 +84,14 @@ export default {
     },
     emailCount() {
       const unreadCounter = this.emails.reduce((acc, email) => {
-        if (!email.isRead) {return acc +1}else return acc
+        if (!email.isRead) {
+          return acc + 1;
+        } else return acc;
       }, 0);
-      return unreadCounter
+      return unreadCounter;
+    },
+    unreadInboxEmailCount() {
+      return emailService.getInboxUnreadCount();
     },
   },
   created() {

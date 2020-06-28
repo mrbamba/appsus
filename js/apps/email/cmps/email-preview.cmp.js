@@ -38,7 +38,7 @@ export default {
   computed: {
     timeFormatted() {
       let emailTime = this.email.timestamp;
-      console.log(emailTime);      
+      // console.log(emailTime);      
       if (this.timeInMs - emailTime < 86400000) {
         if(emailTime.getMinutes()<=9){
               return `${emailTime.getHours()}:0${emailTime.getMinutes()}`;
@@ -59,6 +59,8 @@ export default {
     },
     emailRead(){
       if (!this.email.isRead){
+        this.$emit('email-read');
+
         return 'email-preview-unread'
       }
     },

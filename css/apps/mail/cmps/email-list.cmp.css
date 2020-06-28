@@ -13,9 +13,10 @@
     .email-list {
         width: calc(100vw - 170px);
     }
-    @media (max-width: 800px) {
-        .email-list {
-            width: calc(100vw);
-        }
+}
+
+@media (max-width: 800px) {
+    .email-list {
+        width: calc(100vw);
     }
 }
