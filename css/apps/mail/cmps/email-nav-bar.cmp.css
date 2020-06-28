@@ -1,6 +1,6 @@
 .email-nav-list{
     text-align: left;
-    padding: 15px 35px 5px 15px;
+    padding: 15px 45px 5px 15px;
     margin: 0px;
     padding: 0px;
     color: black;
@@ -9,7 +9,7 @@
 
 }
 .email-nav-list .router-link{
-    padding: 15px 35px 15px 15px;
+    padding: 15px 45px 15px 15px;
     color: black;
     transition: ease-in-out .3s;
 
@@ -17,14 +17,15 @@
 
 }
 .email-nav-list li{
-    padding: 15px 35px 15px 15px;
+    /* padding: 15px 35px 15px 15px; */
     transition: ease-in-out .3s;
+    display: flex;
 }
 .email-nav-list .router-link-active{
     background-color: #fce8e6;
     color: #da332a;
     /* text-align: left; */
-    padding: 15px 35px 15px 15px;
+    padding: 15px 45px 15px 15px;
     transition: ease-in-out .3s;
 
 
@@ -43,6 +44,9 @@
     text-align: center;
     vertical-align: middle;
 
+}
+.mail-nav-bar{
+    padding: 15px 25px 0px 0px;
 }
 
 @media (max-width: 650px) {
