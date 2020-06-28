@@ -194,8 +194,8 @@ function addNote(type, txtOrUrl, title, color = 'white') {
     var unpinnedNotes = getUnpinnedNotes();
     unpinnedNotes.unshift(newNote);
     // this is a total plaster
-    unpinnedNotes[2].isPinned = !unpinnedNotes[2].isPinned;
-    unpinnedNotes[2].isPinned = !unpinnedNotes[2].isPinned;
+    // unpinnedNotes[2].isPinned = !unpinnedNotes[2].isPinned;
+    // unpinnedNotes[2].isPinned = !unpinnedNotes[2].isPinned;
 }
 
 function pinNote(id) {

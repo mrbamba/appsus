@@ -13,7 +13,7 @@ export default {
     <input class="input-txt" v-if="note.type === 'noteText'" v-model="note.info.txt"/>
     <input class="input-txt" v-if="note.type === 'noteTodos'" v-model="note.info.todosTxt" @change="convertTodo(note.id, note.info.todosTxt, note.info.label, note.color)"/>
     <input class="input-txt" v-if="note.type === 'noteImg' || note.type === 'noteVideo' || note.type === 'noteAudio'" v-model="note.info.url"/>
-    <button class="done-btn" @click="unselect()"><i class="fas fa-check fa-2x"></i></button>
+    <button class="done-btn" @click="unselect"><i class="fas fa-check fa-2x"></i></button>
     </div>
     `,
     data() {
@@ -24,13 +24,21 @@ export default {
     },
     created() {
         const noteId = this.$route.params.noteId;
+        // console.log(this.$route.params)
         this.isEditing = true;
+
+    },
+    computed: {
+        notes() {
+            return noteService.getNotes();
+        }
     },
     methods: {
         unselect() {
             this.isEditing = false;
             eventBus.$emit('unselect', '')
             eventBus.$emit('user-msg', 'Note successfully edited');
+            eventBus.$emit('edit', this.notes);
         },
         convertTodo(id, txt, title, color) {
             noteService.addNote('noteTodos', txt, title, color);

@@ -11,7 +11,7 @@ import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
     name: 'notes-list',
-    props: ['notes'],
+    props: ['notes', 'unpinnedNotes', 'pinnedNotes'],
     template: `
     <main>
         <note-edit v-if="selectedNote" :note="selectedNote"></note-edit>
@@ -40,26 +40,32 @@ export default {
             noteId: null,
             bgc: '',
             selectedNote: null,
+            // notes: []
         }
     },
     computed: {
-        pinnedNotes() {
-            return noteService.getPinnedNotes();
-        },
-        unpinnedNotes() {
-           return noteService.getUnpinnedNotes();
-        }
+        // pinnedNotes() {
+        //     console.log(noteService.getPinnedNotes())
+        //     return noteService.getPinnedNotes();
+        // },
+        // unpinnedNotes() {
+        //     console.log(noteService.getUnpinnedNotes())
+        //    return noteService.getUnpinnedNotes();
+        // }
     },
     created() {
-        eventBus.$on('unselect', (data) => {
-            this.selectedNote = data
+        eventBus.$on('unselect', (note) => {
+           this.selectedNote = null;
         });
+        // console.log(this.$route.params)
+        // this.notes.concat(noteService.getPinnedNotes(),noteService.getUnpinnedNotes());
+        // console.log(this.notes)
     },
   
     methods: {
         selectNote(note) {
             this.selectedNote = note;
-            console.log(this.selectedNote)
+            this.noteId = note.id;
         },    
     },
     components: {
