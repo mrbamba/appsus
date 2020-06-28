@@ -33,7 +33,7 @@ var gEmails = [
                 I'm sorry but it turns out I will be at a board meeting 
                 from noon till the end of the day, 
                 can we reschedule to next monday at 1PM?`,
-    timestamp: new Date(),
+    timestamp: Date.now(),
     isRead: false,
     isStarred: false,
     deleted: false,
@@ -50,7 +50,7 @@ var gEmails = [
     body: `Hey Dan, 
             I am working on the project and I think Search is now working, 
             can you please test?`,
-    timestamp: new Date(),
+    timestamp: Date.now()-1440000,
     isRead: false,
     isStarred: false,
     deleted: false,
@@ -69,7 +69,7 @@ var gEmails = [
                 the next time you will log in you will be greeted with a new UI and improved workflow.
                 
                 Thank you for being a loyal customer, as always, here for you, PowerDispatch.`,
-    timestamp: new Date(),
+    timestamp: Date.now()-2440000,
     isRead: false,
     isStarred: true,
     deleted: false,
@@ -84,7 +84,7 @@ var gEmails = [
     toName: "Steven",
     subject: `Unable to get you on the phone, please call me ASAP`,
     body: "You can call me at (602)653-7688",
-    timestamp: new Date("2020-03-21"),
+    timestamp: Date.now()-4440000,
     isRead: false,
     isStarred: true,
     deleted: false,
@@ -103,7 +103,7 @@ var gEmails = [
         
         Michael is almost finished with college now, 
         he plans on joining his father's firm as an engineer, we are so proud.`,
-    timestamp: new Date(),
+    timestamp: Date.now()-67440000,
     isRead: true,
     isStarred: true,
     deleted: false,
@@ -119,7 +119,7 @@ var gEmails = [
     subject: "Can you stop by the shop?",
     body: `Hey Honey,
             I know you are busy but can you stop by the shop and bring milk and cereal on the way back from work please?`,
-    timestamp: new Date(),
+    timestamp: Date.now()-1000000,
     isRead: true,
     isStarred: true,
     deleted: false,
@@ -137,7 +137,7 @@ var gEmails = [
             We noticed you haven't checked your credit score in 3 months, 
             log in now to check your credit score and stay up to date on any changes 
             to your credit history or events on your credit. log in now at www.mint.com`,
-    timestamp: new Date(),
+    timestamp: Date.now()-5000000,
     isRead: true,
     isStarred: false,
     deleted: true,
@@ -154,7 +154,7 @@ var gEmails = [
     body: `הכרטיס החדש של בנק מזרחי הוא לא כרטיס רגיל,
          תוכל להתצטרף ללא עמלות למשך 18 חודשים,
           בנוסף הכרטיס הוא ללא עלויות למשך 5 שנים, אז למה אתה מחכה`,
-    timestamp: new Date(),
+    timestamp: Date.now()-86400000,
     isRead: false,
     isStarred: false,
     deleted: false,
@@ -179,7 +179,7 @@ var gEmails = [
         Remember, you control all of your settings by going to your settings page on Stocktwits. That is where you can change your profile, bio, username and more.
         
         We're thrilled to welcome you to the largest network for investors and traders!`,
-    timestamp: new Date(),
+    timestamp: Date.now()-186400000,
     isRead: false,
     isStarred: false,
     deleted: false,
@@ -228,7 +228,7 @@ var gEmails = [
         Read how Kaggle used automated machine learning to beat back a siege of spam that threatened its community of nearly 5 million data scientists.
         How to secure secret storage using Google Cloud Platform, from Rhys Kentish on Medium.
         Lock down keys, passwords, certificates, and critical data at the user and app level across Google Cloud with this step-by-step tutorial.`,
-    timestamp: new Date(),
+    timestamp: Date.now()-604800016,
     isRead: true,
     isStarred: false,
     deleted: false,
@@ -264,7 +264,7 @@ var gEmails = [
         
         
         Whether you’re planning a trip around the block or around the world, we’ll be here to help you travel confidently. The Travel Safe tools are available beginning today to travelers searching for hotels, and soon to come for restaurants, tours and activities. To learn more about Tripadvisor’s Travel Safe initiative and our commitment to COVID-19 recovery, please visit tripadvisor.com/travel-safe.`,
-    timestamp: new Date(),
+    timestamp: Date.now()-2629800000,
     isRead: false,
     isStarred: false,
     deleted: false,
@@ -296,7 +296,7 @@ var gEmails = [
         Pool condition: Clear
         Water level: Normal
         `,
-    timestamp: new Date(),
+    timestamp: Date.now()-31557600000,
     isRead: false,
     isStarred: false,
     deleted: false,
@@ -383,7 +383,7 @@ var gEmails = [
         Thursday: Weekly jobless claims. Earnings expected from Nike, Darden Restaurants, and Rite Aid.
         Friday: Consumer spending and personal income report for May.
         Disclosure: Authors of this Snacks own shares of Amazon and Spotify`,
-    timestamp: new Date(),
+    timestamp: Date.now()-61557600000,
     isRead: true,
     isStarred: false,
     deleted: false,
@@ -420,7 +420,7 @@ var gEmails = [
         Check it out  Right Arrow
         Take a yoga break
         Celebrate International Yoga Day with a beginner session from Yoga Studio, available with Fitbit Premium.`,
-    timestamp: new Date(),
+    timestamp: Date.now()-91557600000,
     isRead: true,
     isStarred: true,
     deleted: false,
@@ -444,7 +444,10 @@ function syncEmailsWithStorage() {
 }
 
 function _saveEmailsToStorage() {
-  utilService.saveToStorage(EMAILSKEY, gEmails);
+
+  setTimeout(()=>{ utilService.saveToStorage(EMAILSKEY, gEmails); }, 1);
+        
+  
 }
 
 function getById(emailId) {
@@ -563,7 +566,10 @@ function markAsSpam(emailId) {
   _saveEmailsToStorage();
 }
 function markAsUnread(emailId) {
-  let emailToMarkAsUnread = gEmails.findIndex((email) => email.id === emailId);
-  gEmails[emailToMarkAsUnread].isRead = false;
+let emailToMarkAsUnread=gEmails.find((email)=>{
+  return email.id===emailId;
+})
+emailToMarkAsUnread.isRead=true;
+
   _saveEmailsToStorage();
 }

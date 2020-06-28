@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     timeFormatted() {
-      let emailTime = this.email.timestamp;
+      let emailTime = new Date(this.email.timestamp);
       // console.log(emailTime);      
       if (this.timeInMs - emailTime < 86400000) {
         if(emailTime.getMinutes()<=9){
@@ -45,7 +45,7 @@ export default {
           }else{ return `${emailTime.getHours()}:${emailTime.getMinutes()}`;}
       } else if (this.timeInMs - emailTime < 31536000000) {
         return `${emailTime.getDate()}/${emailTime.getMonth()+1}`;
-      } else return `${emailTime.getMonth()+1}/${emailTime.getYear()}`;
+      } else return `${emailTime.getMonth()+1}/${emailTime.getFullYear()}`;
     },
     emailStarred(){
 
@@ -59,7 +59,7 @@ export default {
     },
     emailRead(){
       if (!this.email.isRead){
-        this.$emit('email-read');
+        // this.$emit('email-read');
 
         return 'email-preview-unread'
       }

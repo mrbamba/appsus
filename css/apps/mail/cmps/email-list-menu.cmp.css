@@ -4,7 +4,7 @@
     border-bottom: 1px solid #eef0f2;
     min-height: 50px;
     max-width: 100vw-160px;
-    padding-top: 15px;
+    padding: 10px 0px;
 }
 
 .email-list-menu-filters button{
