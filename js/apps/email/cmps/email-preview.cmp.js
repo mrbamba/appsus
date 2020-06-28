@@ -38,8 +38,9 @@ export default {
   computed: {
     timeFormatted() {
       let emailTime = this.email.timestamp;
+      console.log(emailTime);      
       if (this.timeInMs - emailTime < 86400000) {
-          if(emailTime.getMinutes()<=9){
+        if(emailTime.getMinutes()<=9){
               return `${emailTime.getHours()}:0${emailTime.getMinutes()}`;
           }else{ return `${emailTime.getHours()}:${emailTime.getMinutes()}`;}
       } else if (this.timeInMs - emailTime < 31536000000) {
