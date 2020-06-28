@@ -1,15 +1,18 @@
 .email-nav-list{
     text-align: left;
-    padding: 15px 45px 5px 15px;
+    padding: 15px;
     margin: 0px;
     padding: 0px;
     color: black;
+    width: 100%;
 
 
 
 }
 .email-nav-list .router-link{
-    padding: 15px 45px 15px 15px;
+    padding: 15px;
+    width: 100%;
+
     color: black;
     transition: ease-in-out .3s;
 
@@ -23,10 +26,14 @@
 }
 .email-nav-list .router-link-active{
     background-color: #fce8e6;
-    color: #da332a;
+    color: #d93025;
+    font-weight: bold;
     /* text-align: left; */
-    padding: 15px 45px 15px 15px;
+    padding:  15px;
+    width: 100%;
+
     transition: ease-in-out .3s;
+    border-radius: 0px 50px 50px 0px;
 
 
 }
@@ -37,6 +44,8 @@
     font-size: 1rem;
     margin-bottom:20px ;
     min-width: 140px;
+    transition: ease-in-out .3s;
+
 
 }
 .compose-button .fa{
@@ -45,8 +54,14 @@
     vertical-align: middle;
 
 }
+.compose-button:hover{
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+
+}
+
 .mail-nav-bar{
     padding: 15px 25px 0px 0px;
+    width: 250px;
 }
 
 @media (max-width: 650px) {

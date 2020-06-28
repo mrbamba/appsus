@@ -1,5 +1,6 @@
 .email-list{
     margin: 0 auto;
+    width: calc(100vw - 250px);
 
 }
 .email-list table{

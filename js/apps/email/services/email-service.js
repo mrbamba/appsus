@@ -1,177 +1,174 @@
-import {utilService} from '../../../services/util.service.js';
+import { utilService } from "../../../services/util.service.js";
 
-export const emailService={
-    getAllEmails,
-    getById,
-    setAsRead,
-    getStarredEmails,
-    getSentEmails,
-    getSpamEmails,
-    getTrashEmails,
-    getCleanEmails,
-    getEmptyEmail,
-    sendEmail,
-    getUnreadCount,
-    deleteEmail,
-    markAsSpam,
-    markAsUnread,
-    syncEmailsWithStorage
+export const emailService = {
+  getAllEmails,
+  getById,
+  setAsRead,
+  getStarredEmails,
+  getSentEmails,
+  getSpamEmails,
+  getTrashEmails,
+  getCleanEmails,
+  getEmptyEmail,
+  sendEmail,
+  getInboxUnreadCount,
+  deleteEmail,
+  markAsSpam,
+  markAsUnread,
+  syncEmailsWithStorage,
+};
 
-}
+const EMAILSKEY = "emails";
 
-const EMAILSKEY="emails"
-
-var gEmails=[
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'dan@gmail.com',
-        fromName:'Dan',
-        toAddress:'dror@gmail.com',
-        toName:'Dror',
-        subject:'Zoom Meeting at 2PM tomorrow',
-        body:`Hey Dror, 
+var gEmails = [
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "dan@gmail.com",
+    fromName: "Dan",
+    toAddress: "dror@gmail.com",
+    toName: "Dror",
+    subject: "Zoom Meeting at 2PM tomorrow",
+    body: `Hey Dror, 
                 I will not be able to attend our metting tomorrow, 
                 I'm sorry but it turns out I will be at a board meeting 
                 from noon till the end of the day, 
-                can we reschedule to next monday at 1PM?` ,
-        timestamp:new Date(),
-        isRead:false,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'outbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'dan@gmail.com',
-        fromName:'Dan Haski',
-        toAddress:'samantha@gmail.com',
-        toName:'Samantha Kofler',
-        subject:'You have a new message from Samantha',
-        body:`Hey Dan, 
+                can we reschedule to next monday at 1PM?`,
+    timestamp: new Date(),
+    isRead: false,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "outbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "dan@gmail.com",
+    fromName: "Dan Haski",
+    toAddress: "samantha@gmail.com",
+    toName: "Samantha Kofler",
+    subject: "You have a new message from Samantha",
+    body: `Hey Dan, 
             I am working on the project and I think Search is now working, 
             can you please test?`,
-        timestamp:new Date(),
-        isRead:false,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'outbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'powerdispatch@gmail.com',
-        fromName:'PowerDispatch',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'Field service management software simplified',
-        body:`We at PowerDispatch are always thinking about how we can simplify your workflow,
+    timestamp: new Date(),
+    isRead: false,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "outbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "powerdispatch@gmail.com",
+    fromName: "PowerDispatch",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "Field service management software simplified",
+    body: `We at PowerDispatch are always thinking about how we can simplify your workflow,
                 as a result we have beem working on and have now released the latest version of the software,
                 the next time you will log in you will be greeted with a new UI and improved workflow.
                 
                 Thank you for being a loyal customer, as always, here for you, PowerDispatch.`,
-        timestamp:new Date(),
-        isRead:false,
-        isStarred:true,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-
-    },    
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'dan@gmail.com',
-        fromName:'Dan Haski',
-        toAddress:'steven@gmail.com',
-        toName:'Steven',
-        subject:`Unable to get you on the phone, please call me ASAP`,
-        body:'You can call me at (602)653-7688',
-        timestamp:new Date('2020-03-21'),
-        isRead:false,
-        isStarred:true,
-        deleted:false, 
-        spam:true,
-        direction:'outbound'
-
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'michelle@gmail.com',
-        fromName:'Michelle',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'I miss you!',
-        body:`How is my favorite cousin doing? How is Ethan? I hear he has grown so much! 
+    timestamp: new Date(),
+    isRead: false,
+    isStarred: true,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "dan@gmail.com",
+    fromName: "Dan Haski",
+    toAddress: "steven@gmail.com",
+    toName: "Steven",
+    subject: `Unable to get you on the phone, please call me ASAP`,
+    body: "You can call me at (602)653-7688",
+    timestamp: new Date("2020-03-21"),
+    isRead: false,
+    isStarred: true,
+    deleted: false,
+    spam: true,
+    direction: "outbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "michelle@gmail.com",
+    fromName: "Michelle",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "I miss you!",
+    body: `How is my favorite cousin doing? How is Ethan? I hear he has grown so much! 
         I miss guys dearly! When are you planning on visiting us?
         
         Michael is almost finished with college now, 
         he plans on joining his father's firm as an engineer, we are so proud.`,
-        timestamp:new Date(),
-        isRead:true,
-        isStarred:true,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'dan@gmail.com',
-        fromName:'Dan',
-        toAddress:'elite@gmail.com',
-        toName:'Wifey',
-        subject:'Can you stop by the shop?',
-        body:`Hey Honey,
+    timestamp: new Date(),
+    isRead: true,
+    isStarred: true,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "dan@gmail.com",
+    fromName: "Dan",
+    toAddress: "elite@gmail.com",
+    toName: "Wifey",
+    subject: "Can you stop by the shop?",
+    body: `Hey Honey,
             I know you are busy but can you stop by the shop and bring milk and cereal on the way back from work please?`,
-        timestamp:new Date(),
-        isRead:true,
-        isStarred:true,
-        deleted:false, 
-        spam:false,
-        direction:'ourbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'mint@mint.com',
-        fromName:'Mint Financial',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'Do you know your credit score?',
-        body:`Stay on top of your financials!
+    timestamp: new Date(),
+    isRead: true,
+    isStarred: true,
+    deleted: false,
+    spam: false,
+    direction: "ourbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "mint@mint.com",
+    fromName: "Mint Financial",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "Do you know your credit score?",
+    body: `Stay on top of your financials!
             We noticed you haven't checked your credit score in 3 months, 
             log in now to check your credit score and stay up to date on any changes 
             to your credit history or events on your credit. log in now at www.mint.com`,
-        timestamp:new Date(),
-        isRead:true,
-        isStarred:false,
-        deleted:true, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'mizrahi@mizrahi.co.il',
-        fromName:'Mizrahi Bank',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'אתה מוזמן לנסות את הכרטיס אשראי החדש של בנק מזרחי',
-        body:`הכרטיס החדש של בנק מזרחי הוא לא כרטיס רגיל,
+    timestamp: new Date(),
+    isRead: true,
+    isStarred: false,
+    deleted: true,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "mizrahi@mizrahi.co.il",
+    fromName: "Mizrahi Bank",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "אתה מוזמן לנסות את הכרטיס אשראי החדש של בנק מזרחי",
+    body: `הכרטיס החדש של בנק מזרחי הוא לא כרטיס רגיל,
          תוכל להתצטרף ללא עמלות למשך 18 חודשים,
           בנוסף הכרטיס הוא ללא עלויות למשך 5 שנים, אז למה אתה מחכה`,
-        timestamp:new Date(),
-        isRead:false,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'automated@stocktwits.com',
-        fromName:'StockTwits',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'Verify Your Email on Stocktwits',
-        body:`To Get Started, Verify Your Email
+    timestamp: new Date(),
+    isRead: false,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "automated@stocktwits.com",
+    fromName: "StockTwits",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "Verify Your Email on Stocktwits",
+    body: `To Get Started, Verify Your Email
 
 
         Please verify your email by pressing the button below:
@@ -182,21 +179,21 @@ var gEmails=[
         Remember, you control all of your settings by going to your settings page on Stocktwits. That is where you can change your profile, bio, username and more.
         
         We're thrilled to welcome you to the largest network for investors and traders!`,
-        timestamp:new Date(),
-        isRead:false,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'googlecloud@google.com',
-        fromName:'Google Cloud',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'Google Cloud Newsletter, June 2020 | Next OnAir is coming',
-        body:`Google Cloud Next ’20: OnAir | July 14–September 8
+    timestamp: new Date(),
+    isRead: false,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "googlecloud@google.com",
+    fromName: "Google Cloud",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "Google Cloud Newsletter, June 2020 | Next OnAir is coming",
+    body: `Google Cloud Next ’20: OnAir | July 14–September 8
         Join live Q&As with Google Cloud experts, watch on-demand sessions, and get fresh content every week.
         Register now
         
@@ -231,21 +228,21 @@ var gEmails=[
         Read how Kaggle used automated machine learning to beat back a siege of spam that threatened its community of nearly 5 million data scientists.
         How to secure secret storage using Google Cloud Platform, from Rhys Kentish on Medium.
         Lock down keys, passwords, certificates, and critical data at the user and app level across Google Cloud with this step-by-step tutorial.`,
-        timestamp:new Date(),
-        isRead:true,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'inspiration@mp1.tripadvisor.com',
-        fromName:'Tripadvisor',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'See how we’re helping you Travel Safe',
-        body:`Dear Fellow Travelers,
+    timestamp: new Date(),
+    isRead: true,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "inspiration@mp1.tripadvisor.com",
+    fromName: "Tripadvisor",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "See how we’re helping you Travel Safe",
+    body: `Dear Fellow Travelers,
 
         At Tripadvisor, we believe travel is a force for good — it brings out the best in us, lifts businesses, strengthens communities, and compels us to share our experiences with others. As hotels and restaurants begin to reopen, we know millions of travelers around the world are relying on us for our people-powered guidance and knowledge.
         
@@ -267,21 +264,21 @@ var gEmails=[
         
         
         Whether you’re planning a trip around the block or around the world, we’ll be here to help you travel confidently. The Travel Safe tools are available beginning today to travelers searching for hotels, and soon to come for restaurants, tours and activities. To learn more about Tripadvisor’s Travel Safe initiative and our commitment to COVID-19 recovery, please visit tripadvisor.com/travel-safe.`,
-        timestamp:new Date(),
-        isRead:false,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'noreply@useaquasuite.com',
-        fromName:'Oasis Pools & Spas',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'Your Swimming Pool Has Just Been Professionally Serviced',
-        body:`Here are the details from your service stop today:
+    timestamp: new Date(),
+    isRead: false,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "noreply@useaquasuite.com",
+    fromName: "Oasis Pools & Spas",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "Your Swimming Pool Has Just Been Professionally Serviced",
+    body: `Here are the details from your service stop today:
         Out time: 06-22-2020 12:29 PM
         Chemical Readings:
         Ph: 7.4
@@ -299,21 +296,21 @@ var gEmails=[
         Pool condition: Clear
         Water level: Normal
         `,
-        timestamp:new Date(),
-        isRead:false,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'noreply@robinhood.com',
-        fromName:'Robinhood Snacks',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'Amazon and Apple want live sports',
-        body:`Last Week’s Market Moves
+    timestamp: new Date(),
+    isRead: false,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "noreply@robinhood.com",
+    fromName: "Robinhood Snacks",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "Amazon and Apple want live sports",
+    body: `Last Week’s Market Moves
  
         Dow Jones
         25,871 (+1.03%)
@@ -386,21 +383,21 @@ var gEmails=[
         Thursday: Weekly jobless claims. Earnings expected from Nike, Darden Restaurants, and Rite Aid.
         Friday: Consumer spending and personal income report for May.
         Disclosure: Authors of this Snacks own shares of Amazon and Spotify`,
-        timestamp:new Date(),
-        isRead:true,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    },
-    {
-        id:utilService.getRandomId(),
-        fromAddress:'noreply@e.fitbit.com',
-        fromName:'Fitbit',
-        toAddress:'dan@gmail.com',
-        toName:'Dan',
-        subject:'Your Weekly Boost: June 21',
-        body:`First, a very Happy Father’s Day to all our dads. You inspire us everyday! In this week’s boost, discover a simple trick for managing stress—plus learn how Fitbit built a ventilator in just weeks to support COVID-19 efforts.
+    timestamp: new Date(),
+    isRead: true,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+  {
+    id: utilService.getRandomId(),
+    fromAddress: "noreply@e.fitbit.com",
+    fromName: "Fitbit",
+    toAddress: "dan@gmail.com",
+    toName: "Dan",
+    subject: "Your Weekly Boost: June 21",
+    body: `First, a very Happy Father’s Day to all our dads. You inspire us everyday! In this week’s boost, discover a simple trick for managing stress—plus learn how Fitbit built a ventilator in just weeks to support COVID-19 efforts.
         Fitbit builds a ventilator
         Learn how Fitbit moved fast to design and build an emergency ventilator to support COVID-19 patients in need.
         
@@ -423,146 +420,150 @@ var gEmails=[
         Check it out  Right Arrow
         Take a yoga break
         Celebrate International Yoga Day with a beginner session from Yoga Studio, available with Fitbit Premium.`,
-        timestamp:new Date(),
-        isRead:true,
-        isStarred:true,
-        deleted:false, 
-        spam:false,
-        direction:'inbound'
-    }
-]
+    timestamp: new Date(),
+    isRead: true,
+    isStarred: true,
+    deleted: false,
+    spam: false,
+    direction: "inbound",
+  },
+];
 
 // .then((email) => {
 //     this.selectedEmail = email;
 //   });
 
-function syncEmailsWithStorage(){
-    let emailsFromStorage=utilService.loadFromStorage(EMAILSKEY)
+function syncEmailsWithStorage() {
+  let emailsFromStorage = utilService.loadFromStorage(EMAILSKEY);
 
-    if (emailsFromStorage){
-        gEmails=emailsFromStorage;
-    }
-    console.log(emailsFromStorage)
-    console.log(emailsFromStorage[0].timestamp)
+  if (emailsFromStorage) {
+    gEmails = emailsFromStorage;
+  }
+  console.log(emailsFromStorage);
+  //onsole.log(emailsFromStorage[0].timestamp)
 }
 
-
-
-
-function _saveEmailsToStorage(){
-    utilService.saveToStorage(EMAILSKEY,gEmails)
+function _saveEmailsToStorage() {
+  utilService.saveToStorage(EMAILSKEY, gEmails);
 }
 
-function getById(emailId){
-    // _syncEmailsWithStorage()
-    const email = gEmails.find(email=>email.id===emailId)
-    return Promise.resolve(email)
+function getById(emailId) {
+  // _syncEmailsWithStorage()
+  const email = gEmails.find((email) => email.id === emailId);
+  return Promise.resolve(email);
 }
 
-
-function setAsRead(emailId){
-    // _syncEmailsWithStorage()
-    getById(emailId)
-    .then ((email)=>{
-        email.isRead=true;
-    })
-    _saveEmailsToStorage()
+function setAsRead(emailId) {
+  // _syncEmailsWithStorage()
+  getById(emailId).then((email) => {
+    email.isRead = true;
+  });
+  _saveEmailsToStorage();
 }
 
-function getCleanEmails(){
-    // _syncEmailsWithStorage()
-    // let emailsFromStorage=utilService.loadFromStorage(EMAILSKEY)
-    // if(emailsFromStorage){
-    //     gEmails=emailsFromStorage;
-    // }
-    let emailsToReturn=gEmails.filter(email=>{
-        return email.spam===false && email.deleted===false;
-    })
-    console.log(gEmails)
-    return Promise.resolve(emailsToReturn);
+function getCleanEmails() {
+  // _syncEmailsWithStorage()
+  // let emailsFromStorage=utilService.loadFromStorage(EMAILSKEY)
+  // if(emailsFromStorage){
+  //     gEmails=emailsFromStorage;
+  // }
+  let emailsToReturn = gEmails.filter((email) => {
+    return email.spam === false && email.deleted === false;
+  });
+  console.log(gEmails);
+  return Promise.resolve(emailsToReturn);
 }
 
-function getAllEmails(){
-    // _syncEmailsWithStorage()
-    return Promise.resolve(gEmails);
+function getAllEmails() {
+  // _syncEmailsWithStorage()
+  return Promise.resolve(gEmails);
 }
-function getStarredEmails(){
-    // _syncEmailsWithStorage()
-    let emailsToReturn=gEmails.filter(email=>{
-        return email.isStarred;
-    })
-    return Promise.resolve(emailsToReturn)
+function getStarredEmails() {
+  // _syncEmailsWithStorage()
+  let emailsToReturn = gEmails.filter((email) => {
+    return email.isStarred;
+  });
+  return Promise.resolve(emailsToReturn);
 }
-function getSentEmails(){
-    // _syncEmailsWithStorage()
-    let emailsToReturn=gEmails.filter(email=>{
-        return email.direction==='outbound'
-    })
-    return Promise.resolve(emailsToReturn)
-}
-
-function getSpamEmails(){
-    // _syncEmailsWithStorage()
-    let emailsToReturn=gEmails.filter(email=>{
-        return email.spam;
-    })
-    return Promise.resolve(emailsToReturn)
+function getSentEmails() {
+  // _syncEmailsWithStorage()
+  let emailsToReturn = gEmails.filter((email) => {
+    return email.direction === "outbound";
+  });
+  return Promise.resolve(emailsToReturn);
 }
 
-function getTrashEmails(){
-    // _syncEmailsWithStorage()
-    let emailsToReturn=gEmails.filter(email=>{
-        return email.deleted;
-    })
-    return Promise.resolve(emailsToReturn)
+function getSpamEmails() {
+  // _syncEmailsWithStorage()
+  let emailsToReturn = gEmails.filter((email) => {
+    return email.spam;
+  });
+  return Promise.resolve(emailsToReturn);
 }
 
-function getEmptyEmail(){
-    return Promise.resolve({
-        id:utilService.getRandomId(),
-        fromAddress:'dhaski@gmail.com',
-        fromName:'Dan Haski',
-        toAddress:'',
-        toName:'',
-        subject:'',
-        body:'',
-        timestamp:new Date(),
-        isRead:true,
-        isStarred:false,
-        deleted:false, 
-        spam:false,
-        direction:'outbound',
-
-    })
+function getTrashEmails() {
+  // _syncEmailsWithStorage()
+  let emailsToReturn = gEmails.filter((email) => {
+    return email.deleted;
+  });
+  return Promise.resolve(emailsToReturn);
 }
 
-function getUnreadCount(emails){
-    let count=0
-            emails.forEach((email) => {
-                if (!email.isRead) count ++
-            });
-            return Promise.resolve(count);
+function getEmptyEmail() {
+  return Promise.resolve({
+    id: utilService.getRandomId(),
+    fromAddress: "dhaski@gmail.com",
+    fromName: "Dan Haski",
+    toAddress: "",
+    toName: "",
+    subject: "",
+    body: "",
+    timestamp: new Date(),
+    isRead: true,
+    isStarred: false,
+    deleted: false,
+    spam: false,
+    direction: "outbound",
+  });
 }
 
-function sendEmail(email){
-    // _syncEmailsWithStorage()
-    gEmails.push(email)
-    _saveEmailsToStorage()
+function getInboxUnreadCount() {
+  let emails = gEmails.filter((email) => {
+    return email.spam === false && email.deleted === false;
+  });
+
+  const unreadCounter = emails.reduce((acc, email) => {
+    if (!email.isRead) {
+      return acc + 1;
+    } else return acc;
+  }, 0);
+
+  return unreadCounter;
 }
 
-function deleteEmail(emailId){
-    let emailToBeDeletedIndex= gEmails.findIndex(email=> email.id===emailId)
-    gEmails[emailToBeDeletedIndex].deleted=true;
-    _saveEmailsToStorage()
+function sendEmail(email) {
+  // _syncEmailsWithStorage()
+  gEmails.push(email);
+  _saveEmailsToStorage();
 }
 
-function markAsSpam(emailId){
-    let emailToMarkAsSpamIndex= gEmails.findIndex(email=> email.id===emailId)
-    gEmails[emailToMarkAsSpamIndex].spam=true;
-    _saveEmailsToStorage()
+function deleteEmail(emailId) {
+  let emailToBeDeletedIndex = gEmails.findIndex(
+    (email) => email.id === emailId
+  );
+  gEmails[emailToBeDeletedIndex].deleted = true;
+  _saveEmailsToStorage();
 }
-function markAsUnread(emailId){
-    let emailToMarkAsUnread =  gEmails.findIndex(email=> email.id===emailId)
-    gEmails[emailToMarkAsUnread].isRead=false;
-    _saveEmailsToStorage()
+
+function markAsSpam(emailId) {
+  let emailToMarkAsSpamIndex = gEmails.findIndex(
+    (email) => email.id === emailId
+  );
+  gEmails[emailToMarkAsSpamIndex].spam = true;
+  _saveEmailsToStorage();
+}
+function markAsUnread(emailId) {
+  let emailToMarkAsUnread = gEmails.findIndex((email) => email.id === emailId);
+  gEmails[emailToMarkAsUnread].isRead = false;
+  _saveEmailsToStorage();
 }
