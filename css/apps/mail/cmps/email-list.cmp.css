@@ -9,3 +9,10 @@
     flex-direction: column;
 }
 
+
+@media (max-width: 800px) {
+    .email-list{
+        width: calc(100vw);
+    
+    }
+}
