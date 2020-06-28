@@ -1,9 +1,4 @@
-body {
-    text-align: center;
-    font-family: sans-serif;
 
-    margin: 0;
-}
 
 .home-icon {
     padding: 3rem;
@@ -14,5 +9,10 @@ body {
 
 .home-page {
     height: 100vh;
-    background-image: url('/img/home-bg.jpg');
+    background-image: url('./img/home-bg.jpg');
+}
+
+.home-page h1{
+    text-align: center;
+    padding-top: 15px;
 }
