@@ -14,10 +14,10 @@ export default {
             <td :class="emailStarred" @click.stop="starStatus" title="Star/Unstar Email">
             
             </td>
-            <td :class="emailRead">
+            <td :class="emailRead" class="email-preview-from-name">
                 {{email.fromName}}
             </td>
-            <td :class="emailRead">
+            <td :class="emailRead" class="email-preview-subject">
                 {{email.subject}}
             </td>
             <td class="email-body">

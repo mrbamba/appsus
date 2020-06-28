@@ -11,7 +11,7 @@
 }
 
 
-@media (max-width: 650px) {
+@media (max-width: 800px) {
     .mail-main {
         display: flex;
         flex-direction: column;

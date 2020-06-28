@@ -43,6 +43,7 @@
 .logo{
     width: 70px;
     padding-left: 25px;
+    cursor: pointer;
 }
 
 .btn-menu {
@@ -56,6 +57,7 @@
         visibility: visible;
         font-size: 2rem;
         border: none;
+        /* text-align: center; */
         /* background-color: lightsalmon; */
     }
     .main-nav {
@@ -68,13 +70,25 @@
         cursor: pointer;
         z-index: 1;
         height: 100vh;
-        background-color: rgba(90, 87, 87, 0.6);
+        background-color: rgba(26, 115, 232, 0.6);
         transform: translateX(100%);
         transition: transform 1s;
     }
+    .main-nav a{
+        text-align: center;
+    }
     .main-nav i {
-        padding: 2rem;
+        font-size: 2.5rem;
+        padding: 1rem;
         border-right: none;
+        color: rgb(237, 237, 237);
+
+    }
+    .main-nav .router-link-active i{
+        padding: 1rem;
+        border-right: none;
+        color: rgb(24, 24, 24);
+
     }
     .menu-open .main-nav {
         z-index: 2;

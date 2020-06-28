@@ -10,7 +10,7 @@ export default{
     <div class="mail-nav-bar">
     <button class="compose-button" v-on:click="compose"><i class="fa fa-plus" title="Compose new Email"></i>  Compose</button>
     <ul class="email-nav-list">
-        <li><router-link class="router-link flex space-between" to="/email/inbox"><span>Inbox</span><span>{{unreadInboxEmailCount}}</span> </router-link><email-status v-bind:emails="emails"/></li>
+        <li><router-link class="router-link flex space-between" to="/email/inbox"><span>Inbox </span><span>&nbsp; {{unreadInboxEmailCount}}</span> </router-link><email-status v-bind:emails="emails"/></li>
         <li><router-link class="router-link" to="/email/starred">Starred</router-link></li>
         <li><router-link class="router-link" to="/email/sent">Sent</router-link></li>
         <li><router-link class="router-link" to="/email/spam">Spam</router-link></li>

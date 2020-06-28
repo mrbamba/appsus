@@ -63,8 +63,12 @@
     padding: 15px 25px 0px 0px;
     width: 250px;
 }
-
-@media (max-width: 650px) {
+@media (max-width: 950px){
+    .mail-nav-bar{
+        width: 170px;
+    }
+}
+@media (max-width: 800px) {
     .email-nav-list  {
         display: flex;
         flex-direction: row;
@@ -87,7 +91,18 @@
     }
     .email-nav-list .router-link{
         padding: 8px;
-        color: black;
+        /* color: black; */
         transition: ease-in-out .3s;
+    }
+    .mail-nav-bar{
+        padding: 15px 0px 0px 0px;
+        width: 100vw;
+        text-align: center;
+    }
+    .email-nav-list .router-link-active{
+
+        padding:  8px;
+    
+        border-radius: 15px 15px 15px 15px;
     }
 }

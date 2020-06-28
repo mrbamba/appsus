@@ -1,11 +1,21 @@
-.email-list{
+.email-list {
     margin: 0 auto;
     width: calc(100vw - 250px);
-
 }
-.email-list table{
+
+.email-list table {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
 }
 
+@media (max-width: 950px) {
+    .email-list {
+        width: calc(100vw - 170px);
+    }
+    @media (max-width: 800px) {
+        .email-list {
+            width: calc(100vw);
+        }
+    }
+}
