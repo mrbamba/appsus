@@ -193,9 +193,6 @@ function addNote(type, txtOrUrl, title, color = 'white') {
     notes.unshift(newNote);
     var unpinnedNotes = getUnpinnedNotes();
     unpinnedNotes.unshift(newNote);
-    // this is a total plaster
-    // unpinnedNotes[2].isPinned = !unpinnedNotes[2].isPinned;
-    // unpinnedNotes[2].isPinned = !unpinnedNotes[2].isPinned;
 }
 
 function pinNote(id) {
@@ -224,15 +221,6 @@ function getPinnedNotes() {
     const pinnedNotes = notes.filter(note => note.isPinned);
     return pinnedNotes;
 }
-
-// function getNumOfPinnedNotes() {
-//     var count = 0;
-//     notes.forEach(note => {
-//         if (note.isPinned) count++
-//     })
-//     return count;
-// }
-
 
 function getUnpinnedNotes() {
     const unpinnedNotes = notes.filter(note => !note.isPinned);

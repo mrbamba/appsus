@@ -8,12 +8,10 @@
     margin-top: 10px;
     z-index: 10;
     position: fixed;
-    /* center the element */
     right: 0;
     left: 0;
     margin-right: auto;
     margin-left: auto;
-    /* dimensions */
     min-height: 10em;
     width: 70%;
     border: 1px solid #014dcb;

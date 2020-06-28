@@ -39,28 +39,15 @@ export default {
     data() {
         return {
             noteId: null,
-            bgc: '',
             selectedNote: null,
-            // notes: []
         }
     },
     computed: {
-        // pinnedNotes() {
-        //     console.log(noteService.getPinnedNotes())
-        //     return noteService.getPinnedNotes();
-        // },
-        // unpinnedNotes() {
-        //     console.log(noteService.getUnpinnedNotes())
-        //    return noteService.getUnpinnedNotes();
-        // }
     },
     created() {
         eventBus.$on('unselect', (note) => {
            this.selectedNote = null;
         });
-        // console.log(this.$route.params)
-        // this.notes.concat(noteService.getPinnedNotes(),noteService.getUnpinnedNotes());
-        // console.log(this.notes)
     },
   
     methods: {

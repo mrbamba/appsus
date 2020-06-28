@@ -7,16 +7,16 @@ import colorPalette from '../cmps/color-palette.cmp.js';
 
 export default {
     name: 'note-text',
-    props: ['info', 'id', 'note'],
+    props: ['note'],
     template: `
         <div :class="{pinnedNote: note.isPinned}" class="note" :style="{backgroundColor: note.color}"> 
-        <p class="note-title">{{info.title}}</p>
-        <long-txt :txt='info.txt'/>
-        <color-palette v-if="isColorsOpen" :id="id"></color-palette>
+        <p class="note-title">{{note.info.title}}</p>
+        <long-txt :txt='note.info.txt'/>
+        <color-palette v-if="isColorsOpen" :id="note.id"></color-palette>
         <div class="icons">
         <i class="fas fa-palette icon-color" @click.stop="isColorsOpen = !isColorsOpen"></i>
-        <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
-        <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
+        <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(note.id)"></i>
+        <i class="fas fa-trash-alt" @click.stop="deleteNote(note.id)"></i>
         <i class="far fa-share-square" @click.stop="sendNoteAsEmail(note.info.txt, note.info.title)" title="Send Note as Email"></i>
         </div>
         <email-compose v-if="replyTo" :emailTo="replyTo" v-on:closeCompose="closeCompose"/>
@@ -33,10 +33,6 @@ export default {
         }
     },
     methods: {
-        // changeBgc(ev, id) {
-        //     const color = ev.target.value;
-        //     noteService.changeColor(color, id);
-        // },
         deleteNote(id) {
             noteService.deleteNote(id);
             eventBus.$emit('user-msg', 'Note deleted');
@@ -61,6 +57,3 @@ export default {
         longTxt
     }
 }
-
-{/* <p>{{info.txt}}</p> */}
-{/* <long-txt :txt='info.txt'/> */}

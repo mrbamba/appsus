@@ -24,7 +24,6 @@ export default {
     },
     computed: {
         notesToShow() {
-            // console.log(this.notes)
             const filterBy = this.filterBy;
             if (!filterBy) return this.notes;
             var filteredNotes = this.notes.filter(note => {
@@ -48,10 +47,10 @@ export default {
             this.filterBy.searchStr = searched
         });
         eventBus.$on('unselect', () => {
-            this.notes[0].isPinned = !this.notes[0].isPinned
+            this.notes.forEach(note => note.isPinned = !note.isPinned);
             setTimeout(() => {
-                this.notes[0].isPinned = !this.notes[0].isPinned
-            }, 1);
+                this.notes.forEach(note => note.isPinned = !note.isPinned);
+            },1)
         });
     },
     components: {

@@ -23,10 +23,7 @@ export default {
         }
     },
     created() {
-        const noteId = this.$route.params.noteId;
-        // console.log(this.$route.params)
         this.isEditing = true;
-
     },
     computed: {
         notes() {
@@ -38,7 +35,6 @@ export default {
             this.isEditing = false;
             eventBus.$emit('unselect', '')
             eventBus.$emit('user-msg', 'Note successfully edited');
-            eventBus.$emit('edit', this.notes);
         },
         convertTodo(id, txt, title, color) {
             noteService.addNote('noteTodos', txt, title, color);
@@ -46,7 +42,3 @@ export default {
         }
     },
 }
-{/* <div v-if="note.type === 'noteTodos'"><input /><span v-for="todo in note.info.todos" v-model="todo.txt">{{todo.txt}}</span></div> */}
-{/* <input v-if="note.type === 'noteTodos'" :todos="getTheTodos(note.id)" v-model="todos"/> */}
-
-// :todos="getTheTodos(note.id)" 
