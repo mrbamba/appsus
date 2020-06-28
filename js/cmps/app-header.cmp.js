@@ -10,11 +10,11 @@ export default {
     <input class="main-search" placeholder="Search" v-model="filterBy.searchStr" @input="filter"/>
         <button class="btn-menu" @click="onToggleMenu">☰</button>
         <nav class="main-nav">
-                <router-link to="/" exact title="Home"><i class="fas fa-igloo" @click="onToggleMenu"></i></router-link>
-                <router-link to="/email/inbox" title="Email inbox"><i class="far fa-envelope" @click="onToggleMenu"></i></router-link>
-                <router-link to="/notes" title="Notes"><i class="far fa-sticky-note" @click="onToggleMenu"></i></i></router-link>
-                <router-link to="/books" title="Books"><i class="fas fa-book" @click="onToggleMenu"></i></router-link>
-                <router-link to="/about/" title="About"><i class="far fa-address-card" @click="onToggleMenu"></i></router-link>
+                <router-link to="/" exact title="Home" class="main-nav-buttons"><i class="fas fa-igloo" @click="onToggleMenu"></i></router-link>
+                <router-link to="/email/inbox" title="Email inbox" class="main-nav-buttons"><i class="far fa-envelope" @click="onToggleMenu"></i></router-link>
+                <router-link to="/notes" title="Notes" class="main-nav-buttons"><i class="far fa-sticky-note" @click="onToggleMenu"></i></i></router-link>
+                <router-link to="/books" title="Books" class="main-nav-buttons"><i class="fas fa-book" @click="onToggleMenu"></i></router-link>
+                <router-link to="/about/" title="About" class="main-nav-buttons"><i class="far fa-address-card" @click="onToggleMenu"></i></router-link>
         </nav>
     </header>
     `,

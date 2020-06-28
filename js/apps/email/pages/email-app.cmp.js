@@ -96,7 +96,6 @@ export default {
   created() {
     
     emailService.syncEmailsWithStorage()
-    console.log("created", Date.now);
     this.selectedEmail = null;
 
     const emailId = this.$route.params.emailID;
@@ -128,7 +127,6 @@ export default {
         emailService.setAsRead(emailId)
       })
       .then(() => {
-            console.log(this.selectedEmail);
             this.countUnread()
             
             
@@ -156,7 +154,6 @@ export default {
     },
     setSort(sortBy) {
       this.sortBy = sortBy;
-      console.log("sortBy ", this.sortBy);
     },
 
   },
@@ -172,8 +169,6 @@ export default {
 
       const emailId = this.$route.params.emailId;
       const params = this.$route.params;
-      console.log("params", params);
-      console.log("id", emailId);
 
       if (emailId) {
         if (emailId === "inbox") {

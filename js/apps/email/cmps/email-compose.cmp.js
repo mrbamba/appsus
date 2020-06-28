@@ -34,7 +34,6 @@ export default {
         email.body = this.emailTo.body;
       }
       this.outboundEmail = email;
-      console.log(this.outboundEmail);
     });
     eventBus.$on("sendNoteAsEmail", (data) => {
       this.outboundEmail.body = data;
@@ -46,7 +45,6 @@ export default {
       this.$emit("closeCompose");
     },
     sendEmail() {
-      console.log(this.outboundEmail);
       emailService.sendEmail(this.outboundEmail);
       this.$emit("closeCompose");
       eventBus.$emit("user-msg", "Email Sent!");

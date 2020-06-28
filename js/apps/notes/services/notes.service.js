@@ -268,6 +268,5 @@ function getTodos(id) {
   const note = getNoteById(id);
   const todos = note.info.todos;
   const todoTxts = todos.map((todo) => todo.txt).join(", ");
-  console.log(todoTxts);
   return todoTxts;
 }

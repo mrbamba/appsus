@@ -23,9 +23,6 @@ export default{
         </div>
     </th></tr>
     `,
-    created(){
-        console.log('Email count on list menu',this.emailCount)
-    },
     methods:{
         filtered(filterBy){
             this.$emit('filtered',filterBy)

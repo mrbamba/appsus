@@ -78,7 +78,6 @@ export default {
             this.$router.go(-1)
         },
         markAsUnread(email){
-            console.log('marking as unread at details')
             emailService.markAsUnread(email.id);
             this.$router.go(-1)
         },
@@ -88,7 +87,6 @@ export default {
                 emailAddress=this.email.fromAddress
             }else emailAddress=this.email.toAddress;
             this.replyTo={address:emailAddress,subject:this.email.subject,body:''}
-            // console.log('replyto',replyTo)
 
         },
         closeCompose(){

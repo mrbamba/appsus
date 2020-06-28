@@ -35,7 +35,6 @@ export default {
     },
     methods: {
         saveReview(bookId) {
-            console.log('save')
             this.isAddingReview = false;
             bookService.saveBookReview(bookId, this.name, this.readAt, this.rate, this.review);
             eventBus.$emit('user-msg', 'review successfully added');

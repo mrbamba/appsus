@@ -511,9 +511,7 @@ getGoogleBooks()
   .then(res=> Promise.resolve(res.data.items))
   .then(res => {
     var book = res.find(book => book.id === id)
-    console.log(book)
     gBooks.push(createBook(book));
-    console.log(gBooks)
   })
 }
 

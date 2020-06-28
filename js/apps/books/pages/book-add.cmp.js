@@ -24,7 +24,6 @@ export default {
             var filteredBooks = this.books.filter(book => {
                 return book.volumeInfo.title.toLowerCase().includes(searchBy.toLowerCase());
             });
-            console.log(filteredBooks)
             return filteredBooks;
         }
     },
@@ -32,7 +31,6 @@ export default {
         bookService.getGoogleBooks()
             .then(res => {
                 this.books = res.data.items;
-                console.log(this.books)
             })
     },
     methods: {

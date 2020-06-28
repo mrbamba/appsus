@@ -30,8 +30,4 @@ export default {
         emailPreview,
         emailListMenu
     },
-    created() {
-        // console.log('email list created - count unread', this.emailCount);
-        
-    }
 }

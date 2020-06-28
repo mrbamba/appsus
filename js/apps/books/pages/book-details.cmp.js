@@ -88,7 +88,6 @@ export default {
                             this.prevBookId = bookId;
                         })
                 })
-                console.log(this.book)
         }
     },
     watch: {

@@ -1,31 +1,29 @@
 .app-header {
-    /* padding: 20px; */
-    /* background-color: rgba(255, 255, 255, 0.205); */
-    /* color: rgb(243, 218, 107); */
-    /* font-family: fantasy; */
-    /* margin-bottom: 20px; */
+
     min-height: 10vh;
-    /* border: 1px solid gray; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #eef0f2;
     width: 100vw;
-    /* margin: 20px; */
 
+}
+.main-nav-buttons:hover{
+    /* color: white; */
+    border-radius: 5px;
+    background-color: #eeeeee;
+    box-shadow: 5px 5px 5px -6px rgba(51, 83, 212, 1);
 }
 
 .app-header a {
     text-decoration: none;
     color: rgb(69, 68, 68);
     margin: 10px;
-    /* font-size: 1.5rem; */
 }
 
 .app-header input{
     padding: 10px 20px;
     font-size: 1.5rem;
-    /* color: white; */
     background-color: #f1f3f4;
     border: none;
     transition: ease-in-out .3s;
@@ -49,6 +47,7 @@
 .btn-menu {
     visibility: hidden;
 }
+
 
 
 @media (max-width: 780px) {
@@ -90,6 +89,8 @@
         color: rgb(24, 24, 24);
 
     }
+
+    
     .menu-open .main-nav {
         z-index: 2;
         transform: translateX(0);

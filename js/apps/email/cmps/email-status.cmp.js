@@ -21,7 +21,6 @@ export default {
             this.emails = emails;
             emailService.getUnreadCount(emails)
                 .then((count) => {
-                    console.log(count)
                     return count
         });
       });

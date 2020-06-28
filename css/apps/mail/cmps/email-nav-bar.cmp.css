@@ -5,36 +5,36 @@
     padding: 0px;
     color: black;
     width: 100%;
-
-
-
 }
 .email-nav-list .router-link{
     padding: 15px;
     width: 100%;
-
     color: black;
     transition: ease-in-out .3s;
-
-
+    border-radius: 0px 50px 50px 0px;
 
 }
 .email-nav-list li{
-    /* padding: 15px 35px 15px 15px; */
     transition: ease-in-out .3s;
     display: flex;
+    border-radius: 0px 50px 50px 0px;
+
 }
 .email-nav-list .router-link-active{
     background-color: #fce8e6;
     color: #d93025;
     font-weight: bold;
-    /* text-align: left; */
     padding:  15px;
     width: 100%;
-
     transition: ease-in-out .3s;
     border-radius: 0px 50px 50px 0px;
-
+}
+.email-nav-list li:hover{
+    border-radius: 0px 50px 50px 0px;
+    /* font-weight: bold; */
+    /* border: 1px solid gray;
+    padding:  -1px; */
+    background-color: #fecbc6
 
 }
 
@@ -45,18 +45,14 @@
     margin-bottom:20px ;
     min-width: 140px;
     transition: ease-in-out .3s;
-
-
 }
 .compose-button .fa{
     font-size: 1.5rem;
     text-align: center;
     vertical-align: middle;
-
 }
 .compose-button:hover{
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-
 }
 
 .mail-nav-bar{
@@ -74,24 +70,15 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        /* paddin; */
     }
     .email-nav-list li{
         padding: 8px;
-        /* transition: ease-in-out .3s; */
     }
     .email-nav-list .router-link-active{
-        /* background-color: #fce8e6;
-        color: #da332a; */
-        /* text-align: left; */
         padding: 8px;
-        /* transition: ease-in-out .3s; */
-    
-    
     }
     .email-nav-list .router-link{
         padding: 8px;
-        /* color: black; */
         transition: ease-in-out .3s;
     }
     .mail-nav-bar{
@@ -101,9 +88,7 @@
         border-bottom: 1px solid #eef0f2;
     }
     .email-nav-list .router-link-active{
-
         padding:  8px;
-    
         border-radius: 15px 15px 15px 15px;
     }
 }

@@ -514,7 +514,7 @@ function getEmptyEmail() {
     toName: "",
     subject: "",
     body: "",
-    timestamp: new Date(),
+    timestamp: Date.now(),
     isRead: true,
     isStarred: false,
     deleted: false,
