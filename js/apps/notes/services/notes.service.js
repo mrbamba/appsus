@@ -18,7 +18,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteText',
         isPinned: true,
-        color: 'rgb(248, 248, 157)',
+        color: 'rgb(250, 252, 167)',
         info: {
             txt: 'Call mom',
             title: 'Reminder'
@@ -28,7 +28,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteText',
         isPinned: false,
-        color: 'rgb(248, 160, 248)',
+        color: 'rgb(226, 183, 252)',
         info: {
             txt: 'As a child i never imagined that all of the real monsters in the world would be humans.',
             title: ''
@@ -38,7 +38,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
-        color: 'rgb(171, 210, 236)',
+        color: 'rgb(170, 209, 245)',
         info: {
             url: 'https://c.stocksy.com/a/f9S500/z9/1299871.jpg',
             title: "Winter Wonderland"
@@ -48,7 +48,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteTodos',
         isPinned: false,
-        color: 'rgb(81, 192, 186)',
+        color: 'rgb(97, 214, 208)',
         info: {
             label: 'To do:',
             todos: [
@@ -63,7 +63,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteTodos',
         isPinned: false,
-        color: 'rgb(171, 210, 236)',
+        color: 'rgb(248, 205, 124)',
         info: {
             label: 'Shopping List:',
             todos: [
@@ -80,7 +80,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteText',
         isPinned: false,
-        color: 'rgb(81, 192, 186)',
+        color: 'rgb(97, 214, 208)',
         info: {
             txt: 'Where wisdom reigns, there is no conflict between thinking and feeling. - Carl Jung',
             title: 'Quote'
@@ -90,7 +90,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
-        color: 'rgb(248, 248, 157)',
+        color: 'rgb(248, 205, 124)',
         info: {
             url: 'https://www.rspca-pix.com/pimage/114/640033/640033_450_450_81393_0_fill_0_03347f0da3079474cd9cea1d47498f6a.jpg',
             title: 'Shimi'
@@ -100,7 +100,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteVideo',
         isPinned: false,
-        color: 'rgb(241, 203, 98)',
+        color: 'white',
         info: {
             url: 'https://steamcdn-a.akamaihd.net/steam/apps/256781910/movie480_vp9.webm?t=1587056339',
             title: 'Play games...'
@@ -130,7 +130,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteText',
         isPinned: false,
-        color: 'rgb(248, 160, 248)',
+        color: 'rgb(226, 183, 252)',
         info: {
             txt: 'The true value of a human being is determined primarily by the measure and the sense in which he has attained to liberation from the self. - Albert Einstein',
             title: 'Quote'
@@ -140,7 +140,7 @@ var notes = [
         id: utilService.makeId(),
         type: 'noteImg',
         isPinned: false,
-        color: '',
+        color: 'rgb(250, 252, 167)',
         info: {
             url: 'https://cdn.shopify.com/s/files/1/0808/8861/products/Milk_76b3410f-ff3e-496a-a64e-2de581a8db32_grande.jpg?v=1586811080',
             title: 'Save the earth - it is the only planet with chocolate!'

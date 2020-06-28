@@ -1,6 +1,8 @@
 import { noteService } from '../services/notes.service.js';
 import { eventBus } from '../../../services/event-bus.service.js';
 import emailCompose from '../../email/cmps/email-compose.cmp.js';
+import longTxt from '../../../cmps/long-txt.cmp.js';
+import colorPalette from '../cmps/color-palette.cmp.js';
 
 
 export default {
@@ -11,10 +13,10 @@ export default {
         <video width="320" height="240" controls class="note-video">
         <source :src="info.url" type="video/mp4">
         </video>       
-        <p>{{info.title}}</p>
+        <long-txt :txt='info.title'/>
+        <color-palette v-if="isColorsOpen" :id="id"></color-palette>
         <div class="icons">
-        <i class="fas fa-palette icon-color"></i>
-        <input type="color" class="color" @blur.stop="changeBgc($event, id)">
+        <i class="fas fa-palette icon-color" @click.stop="isColorsOpen = !isColorsOpen"></i>
         <i :class="{pinned: note.isPinned}" class="fas fa-thumbtack" @click.stop="pinNote(id)"></i>
         <i class="fas fa-trash-alt" @click.stop="deleteNote(id)"></i>
         <i class="far fa-share-square" @click.stop="sendNoteAsEmail(note.info.url, note.info.title)" title="Send Note as Email"></i>
@@ -28,7 +30,8 @@ export default {
                 fromAddress: 'samakofler@gmail.ch',
             },
             replyTo: null,
-            isComposingEmail: false
+            isComposingEmail: false,
+            isColorsOpen: false
         }
     },
     methods: {
@@ -56,7 +59,9 @@ export default {
         }
     },
     components: {
-        emailCompose
+        emailCompose,
+        colorPalette,
+        longTxt
     }
 
 }

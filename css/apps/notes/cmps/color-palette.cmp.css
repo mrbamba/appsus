@@ -1,0 +1,17 @@
+.color-palette {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    max-width: 70%;
+}
+
+
+.color-palette span {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 50%;
+    border: 0.5px solid gray;
+}

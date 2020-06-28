@@ -6,6 +6,8 @@
 @import './cmps/notes-list.cmp.css';
 @import './cmps/note-edit.cmp.css';
 @import './cmps//note-audio.cmp.css';
+@import './cmps/color-palette.cmp.css';
+@import './cmps//note-long-txt.cmp.css';
 
 .main-notes-container {
     text-align: left;

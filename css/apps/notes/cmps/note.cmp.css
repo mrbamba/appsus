@@ -17,16 +17,6 @@
     cursor: pointer;
 }
 
-.note .color {
-    margin-left: -26px;
-    opacity: 0;
-    position: absolute;
-    width: 2%;
-}
-
-.note .color:hover {
-    cursor: pointer;
-}
 
 .note i:hover {
     cursor: pointer;
