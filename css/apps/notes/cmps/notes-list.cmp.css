@@ -7,7 +7,7 @@
     margin: 0px;
 }
 
-.notes-list .pinned-container p {
+.pinned-title {
     margin: 1em;
     font-style: italic;
 }
@@ -16,7 +16,7 @@
     background-color: #eef0f2;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 800px) {
     .notes-list {
         columns: 2;
     }

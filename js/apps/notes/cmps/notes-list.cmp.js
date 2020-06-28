@@ -17,7 +17,7 @@ export default {
         <note-edit v-if="selectedNote" :note="selectedNote"></note-edit>
         <div>
             <div>
-            <!-- <p class="pinned-container">Pinned</p> -->
+            <h5 class="pinned-title">Pinned</h5>
                 <ul class="notes-list">
                     <li v-for="note in pinnedNotes" :note="note" :key="note.id" @click.stop="selectNote(note)">
                     <component :is="note.type" :note="note" :info="note.info" :id="note.id"></component>
@@ -26,6 +26,7 @@ export default {
             </div>
             <!-- <hr class="notes-list-hr"/> -->
             <div>
+            <h5 class="pinned-title">Others</h5>
                 <ul class="notes-list">
                     <li v-for="note in unpinnedNotes" :note="note" :key="note.id" @click.stop="selectNote(note)">
                     <component :is="note.type" :note="note" :info="note.info" :id="note.id"></component>
