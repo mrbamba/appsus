@@ -9,7 +9,7 @@
 
 .home-page {
     height: 100vh;
-    background-image: url('./img/home-bg.jpg');
+    background-image: url('/img/home-bg.jpg');
 }
 
 .home-page h1{
