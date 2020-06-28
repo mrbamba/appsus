@@ -308,8 +308,8 @@ var gEmails=[
     },
     {
         id:utilService.getRandomId(),
-        fromAddress:'',
-        fromName:'',
+        fromAddress:'noreply@robinhood.com',
+        fromName:'Robinhood Snacks',
         toAddress:'dan@gmail.com',
         toName:'Dan',
         subject:'Amazon and Apple want live sports',
