@@ -444,7 +444,10 @@ function syncEmailsWithStorage() {
 }
 
 function _saveEmailsToStorage() {
-  utilService.saveToStorage(EMAILSKEY, gEmails);
+
+  setTimeout(()=>{ utilService.saveToStorage(EMAILSKEY, gEmails); }, 1);
+        
+  
 }
 
 function getById(emailId) {
@@ -568,7 +571,5 @@ let emailToMarkAsUnread=gEmails.find((email)=>{
 })
 emailToMarkAsUnread.isRead=true;
 
-  // let emailToMarkAsUnread = gEmails.findIndex((email) => email.id === emailId);
-  // gEmails[emailToMarkAsUnread].isRead = false;
   _saveEmailsToStorage();
 }
