@@ -429,9 +429,7 @@ var gEmails = [
   },
 ];
 
-// .then((email) => {
-//     this.selectedEmail = email;
-//   });
+
 
 function syncEmailsWithStorage() {
   let emailsFromStorage = utilService.loadFromStorage(EMAILSKEY);
@@ -439,13 +437,10 @@ function syncEmailsWithStorage() {
   if (emailsFromStorage) {
     gEmails = emailsFromStorage;
   }
-  console.log(emailsFromStorage);
-  //onsole.log(emailsFromStorage[0].timestamp)
 }
 
 function _saveEmailsToStorage() {
   utilService.saveToStorage(EMAILSKEY, gEmails);
-  console.log("after storage");
 }
 
 function getById(emailId) {
@@ -472,7 +467,6 @@ function getCleanEmails() {
   let emailsToReturn = gEmails.filter((email) => {
     return email.spam === false && email.deleted === false;
   });
-  console.log(gEmails);
   return Promise.resolve(emailsToReturn);
 }
 
@@ -568,10 +562,8 @@ function markAsUnread(emailId) {
   let emailToMarkAsUnread = gEmails.find((email) => {
     return email.id === emailId;
   });
-  console.log(emailToMarkAsUnread);
   
   emailToMarkAsUnread.isRead = true;
-  console.log("before storage");
 
   _saveEmailsToStorage();
 }

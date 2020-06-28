@@ -13,7 +13,7 @@ export default {
     <input class="input-txt" v-if="note.type === 'noteText'" v-model="note.info.txt"/>
     <input class="input-txt" v-if="note.type === 'noteTodos'" v-model="note.info.todosTxt" @change="convertTodo(note.id, note.info.todosTxt, note.info.label, note.color)"/>
     <input class="input-txt" v-if="note.type === 'noteImg' || note.type === 'noteVideo' || note.type === 'noteAudio'" v-model="note.info.url"/>
-    <button class="done-btn" @click="unselect"><i class="fas fa-check fa-2x"></i></button>
+    <button class="done-btn" @click="unselect" title="Save changes"><i class="fas fa-check fa-2x"></i></button>
     </div>
     `,
     data() {
