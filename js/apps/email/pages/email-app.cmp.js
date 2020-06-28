@@ -11,8 +11,8 @@ export default {
   //   prop: "selectedEmail",
   template: `
         <div class="mail-main ">
-        <email-nav-bar v-on:compose="compose" v-bind:emails="emails" v-bind:count=unreadInboxEmailCount></email-nav-bar>
-        <email-list v-on:emit-read="unreadInboxEmailCount" v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" 
+        <email-nav-bar v-on:compose="compose" v-bind:emails="emails" v-bind:count="counter"></email-nav-bar>
+        <email-list  v-if="!selectedEmail && emails" v-bind:emails="emailsToShow" 
           :emailCount="emailCount"  v-on:emailSelected="emailSelected($event)" 
           v-on:filtered="setFilter" v-on:sorted="setSort"></email-list>
         <email-detalis :email="selectedEmail" v-if="selectedEmail"/>
@@ -30,6 +30,7 @@ export default {
       selectedEmail: null,
       composing: false,
       emailTo: null,
+      counter: 0
     };
   },
   computed: {
@@ -90,11 +91,10 @@ export default {
       }, 0);
       return unreadCounter;
     },
-    unreadInboxEmailCount() {
-      return emailService.getInboxUnreadCount();
-    },
+
   },
   created() {
+    
     emailService.syncEmailsWithStorage()
     console.log("created", Date.now);
     this.selectedEmail = null;
@@ -107,6 +107,7 @@ export default {
     } else {
       emailService.getCleanEmails().then((emails) => {
         this.emails = emails;
+        this.countUnread()
       });
     }
 
@@ -124,10 +125,25 @@ export default {
     emailSelected(emailId) {
       emailService.getById(emailId).then((email) => {
         this.selectedEmail = email;
-        emailService.setAsRead(emailId);
-      });
-      console.log(this.selectedEmail);
-      this.$router.push(`/email/${emailId}`);
+        emailService.setAsRead(emailId)
+      })
+      .then(() => {
+            console.log(this.selectedEmail);
+            this.countUnread()
+            
+            
+          });
+          this.$router.push(`/email/${emailId}`);
+
+    },
+    countUnread() {
+      const inboxEmails = this.emails.filter(email => {
+        return !email.spam && !email.deleted
+      })
+      this.counter = inboxEmails.reduce((acc, email) => {
+        if (!email.isRead) acc++
+        return acc
+      }, 0)
     },
     compose() {
       this.composing = !this.composing;
@@ -142,6 +158,7 @@ export default {
       this.sortBy = sortBy;
       console.log("sortBy ", this.sortBy);
     },
+
   },
   components: {
     emailNavBar,

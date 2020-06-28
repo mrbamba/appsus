@@ -78,6 +78,7 @@ export default {
             this.$router.go(-1)
         },
         markAsUnread(email){
+            console.log('marking as unread at details')
             emailService.markAsUnread(email.id);
             this.$router.go(-1)
         },

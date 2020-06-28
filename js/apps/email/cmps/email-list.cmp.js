@@ -9,7 +9,7 @@ export default {
     <div class="email-list">
         <table style="height:100%; width:100%">
             <email-list-menu :emailCount='emailCount' v-on:filtered="emitFilter"  v-on:sorted="emitSort"></email-list-menu>
-            <email-preview v-for="email in emails" @click.native="selectEmail(email.id)" v-on:email-read="emitRead" :email="email" :key="email.id"/>
+            <email-preview v-for="email in emails" @click.native="selectEmail(email.id)"  :email="email" :key="email.id"/>
         </table>
     </div>
     `,
@@ -23,10 +23,7 @@ export default {
         emitSort(sortBy){
             this.$emit('sorted',sortBy);
         },
-        emitRead(){
-        this.$emit('emit-read');
-        console.log('email list read.........')
-        }
+
 
     },
     components:{
