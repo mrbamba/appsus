@@ -6,46 +6,44 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
+    z-index: 10;
+    position: fixed;
+    /* center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* dimensions */
+    min-height: 10em;
+    width: 70%;
+    border: 1px solid #014dcb;
 }
 
 .note-edit .done-btn {
+    height: 10%;
     background-color: #014dcb;
     color: white;
     border: none;
+    align-self: center;
 }
-
-
-
-/* .add-note > .fa-2x{
-    padding: 55px;
-} */
 
 .note-edit .input-title {
     width: 20%;
     margin: 10px;
+    height: 10%;
     padding: 6px 2px;
+    align-self: center;
 }
 
 .note-edit .input-txt {
     width: 80%;
     margin: 10px;
+    height: 10%;
     padding: 6px 2px;
-
+    align-self: center;
 }
 
-.note-edit > button{
+.note-edit>button {
     border: none;
     margin: 10px;
-}
-
-.note-edit button {
-    font-weight: bold;
-    background-color: #014dcb;
-    color: white;
-}
-.add-note i {
-    color: rgb(182, 182, 182);
-}
-.add-btn i{
-color: white;
 }
