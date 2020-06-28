@@ -9,5 +9,10 @@ body {
     padding: 3rem;
 }
 .home-icon i {
-    color: #014dcb;
+    color: goldenrod;
+}
+
+.home-page {
+    height: 100vh;
+    background-image: url('/img/home-bg.jpg');
 }
