@@ -1,6 +1,6 @@
 .email-list {
     margin: 0 auto;
-    width: calc(100vw - 250px);
+    width: calc(100vw - 248px);
 }
 
 .email-list table {
@@ -11,7 +11,7 @@
 
 @media (max-width: 950px) {
     .email-list {
-        width: calc(100vw - 170px);
+        width: calc(100vw - 168px);
     }
 }
 
