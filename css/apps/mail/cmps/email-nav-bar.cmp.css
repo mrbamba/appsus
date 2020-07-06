@@ -72,7 +72,10 @@
         justify-content: space-evenly;
     }
     .email-nav-list li{
-        padding: 8px;
+        /* padding: 8px; */
+        border-radius: 15px;
+        margin-bottom: 8px;
+
     }
     .email-nav-list .router-link-active{
         padding: 8px;
@@ -89,6 +92,10 @@
     }
     .email-nav-list .router-link-active{
         padding:  8px;
-        border-radius: 15px 15px 15px 15px;
+        border-radius: 15px;
+    }
+    .email-nav-list li:hover{
+        border-radius: 15px;
+    
     }
 }
