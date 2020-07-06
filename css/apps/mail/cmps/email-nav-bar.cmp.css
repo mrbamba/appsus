@@ -74,7 +74,7 @@
     .email-nav-list li{
         /* padding: 8px; */
         border-radius: 15px;
-        margin-bottom: 8px;
+        margin: 8px;
 
     }
     .email-nav-list .router-link-active{
