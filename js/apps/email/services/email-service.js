@@ -563,7 +563,7 @@ function markAsUnread(emailId) {
     return email.id === emailId;
   });
   
-  emailToMarkAsUnread.isRead = true;
+  emailToMarkAsUnread.isRead = false;
 
   _saveEmailsToStorage();
 }
